@@ -1,5 +1,9 @@
 @use "../../../scss/main.scss";
 
+:host {
+  display: block;
+}
+
 .ui-quick-action {
   display: grid;
   justify-items: center;
@@ -10,6 +14,7 @@
   cursor: pointer;
   text-decoration: none;
   color: inherit;
+  width: 100%;
 }
 
 .ui-quick-action__icon {
