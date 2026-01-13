@@ -21,7 +21,7 @@
     width: var(--cyb-sys-width-14);
     height: var(--cyb-sys-height-14);
     object-fit: cover;
-    object-position: left center;
+    object-position: calc(0px - var(--cyb-sys-margin-13) - var(--cyb-sys-margin-12) - var(--cyb-sys-margin-11) - var(--cyb-sys-margin-6)) calc(1 * var(--cyb-sys-margin-13));
   }
 }
 
@@ -29,8 +29,8 @@
   width: var(--cyb-sys-width-13);
   height: var(--cyb-sys-height-14);
   display: flex;
-  justify-content: center; /* Centering vertically */
-  align-items: center;     /* Centering horizontally */
+  justify-content: center;
+  align-items: center;
   padding: var(--cyb-sys-padding-1);
   margin-left: auto;
   align-self: center;
