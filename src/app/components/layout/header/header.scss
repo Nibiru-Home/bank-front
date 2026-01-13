@@ -1,0 +1,76 @@
+@use "../../../scss/main.scss";
+
+.app-header {
+  width: var(--cyb-sys-width-14);
+  min-height: var(--cyb-sys-height-2);
+  background-color: var(--cyb-sys-color-light-blue-4);
+  display: flex;
+  align-items: center;
+}
+
+.app-header__inner {
+  width: var(--cyb-sys-width-14);
+  padding: var(--cyb-sys-padding-8) var(--cyb-sys-padding-9);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--cyb-sys-padding-10);
+}
+
+.app-header__left {
+  display: flex;
+  align-items: center;
+  gap: var(--cyb-sys-padding-10);
+}
+
+.app-header__brand {
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-9);
+  font-weight: var(--cyb-sys-font-weight-9);
+  color: var(--cyb-sys-color-black-1);
+}
+
+.app-header__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--cyb-sys-padding-9);
+}
+
+.app-header__link {
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-5);
+  font-weight: var(--cyb-sys-font-weight-7);
+  color: var(--cyb-sys-color-white-9);
+  text-decoration: none;
+}
+
+.app-header__right {
+  display: flex;
+  align-items: center;
+  gap: var(--cyb-sys-padding-7);
+}
+
+.app-header__user {
+  display: flex;
+  align-items: center;
+  gap: var(--cyb-sys-padding-3);
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-4);
+  color: var(--cyb-sys-color-white-9);
+}
+
+.app-header__user-name {
+  font-weight: var(--cyb-sys-font-weight-8);
+}
+
+.app-header__logout {
+  border: 1px solid var(--cyb-sys-color-white-9);
+  border-radius: var(--cyb-sys-border-radius-6);
+  padding: var(--cyb-sys-padding-4) var(--cyb-sys-padding-7);
+  background-color: transparent;
+  color: var(--cyb-sys-color-white-9);
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-4);
+  font-weight: var(--cyb-sys-font-weight-7);
+  cursor: pointer;
+}
