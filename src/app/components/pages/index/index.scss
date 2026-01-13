@@ -2,5 +2,53 @@
 
 .index-page {
   width: var(--cyb-sys-width-14);
-  min-height: var(--cyb-sys-height-14);
+  min-height: var(--cyb-sys-height-16);
+  background-color: var(--cyb-sys-color-white-7);
+  background-image: linear-gradient(
+    180deg,
+    var(--cyb-sys-color-white-7) 0%,
+    var(--cyb-sys-color-white-7) 60%,
+    var(--cyb-sys-color-light-blue-9) 100%
+  );
+}
+
+.index-content {
+  width: var(--cyb-sys-width-14);
+  padding: var(--cyb-sys-padding-10) var(--cyb-sys-padding-9);
+}
+
+.index-grid {
+  width: var(--cyb-sys-width-14);
+  max-width: none;
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: var(--cyb-sys-padding-10);
+  align-items: start;
+}
+
+.index-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cyb-sys-padding-10);
+}
+
+
+.quick-actions {
+  width: 100%;
+  max-width: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--cyb-sys-padding-9);
+}
+
+
+@media (max-width: 900px) {
+  .index-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }

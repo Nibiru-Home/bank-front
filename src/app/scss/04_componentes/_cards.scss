@@ -1,0 +1,333 @@
+.balance-card {
+  width: 100%;
+  padding: var(--cyb-sys-padding-10);
+  border-radius: var(--cyb-sys-border-radius-9);
+  background-color: var(--cyb-sys-color-white-9);
+  background-image: none;
+  border: 1px solid var(--cyb-sys-color-light-blue-8);
+  box-shadow: var(--cyb-sys-shadow-3);
+  display: grid;
+  gap: var(--cyb-sys-padding-5);
+}
+
+.balance-card__label {
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-4);
+  font-weight: var(--cyb-sys-font-weight-7);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cyb-sys-color-blue-gray-4);
+}
+
+.balance-card__amount {
+  font-family: var(--cyb-sys-font-family-display);
+  font-size: var(--cyb-sys-font-size-10);
+  font-weight: var(--cyb-sys-font-weight-8);
+  color: var(--cyb-sys-color-black-1);
+  line-height: 1.1;
+}
+
+.insights-card {
+  width: 100%;
+  padding: var(--cyb-sys-padding-10);
+  border-radius: var(--cyb-sys-border-radius-9);
+  background-color: var(--cyb-sys-color-white-9);
+  border: 1px solid var(--cyb-sys-color-light-blue-8);
+  box-shadow: var(--cyb-sys-shadow-3);
+  display: grid;
+  gap: var(--cyb-sys-padding-8);
+}
+
+.insights-tabs {
+  display: flex;
+  align-items: center;
+  gap: var(--cyb-sys-padding-9);
+  border-bottom: 1px solid var(--cyb-sys-color-light-blue-8);
+  padding-bottom: var(--cyb-sys-padding-6);
+}
+
+.insights-tab {
+  background: none;
+  border: 0;
+  padding: 0 0 var(--cyb-sys-padding-4);
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-6);
+  font-weight: var(--cyb-sys-font-weight-7);
+  color: var(--cyb-sys-color-blue-gray-4);
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.insights-tab.is-active {
+  color: var(--cyb-sys-color-black-1);
+  border-bottom-color: var(--cyb-sys-color-light-blue-4);
+}
+
+.insights-date {
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-4);
+  font-weight: var(--cyb-sys-font-weight-6);
+  color: var(--cyb-sys-color-blue-gray-4);
+  text-align: center;
+}
+
+.insights-donut {
+  width: var(--cyb-sys-width-6);
+  height: var(--cyb-sys-width-6);
+  border-radius: 50%;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(
+    var(--cyb-sys-color-light-blue-4) 0% 62%,
+    var(--cyb-sys-color-light-blue-6) 62% 86%,
+    var(--cyb-sys-color-red-6) 86% 100%
+  );
+}
+
+.insights-donut__center {
+  width: 68%;
+  height: 68%;
+  border-radius: 50%;
+  background-color: var(--cyb-sys-color-white-9);
+  border: 1px solid var(--cyb-sys-color-light-blue-8);
+  display: grid;
+  place-items: center;
+  gap: var(--cyb-sys-padding-3);
+  text-align: center;
+}
+
+.insights-donut__month {
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-4);
+  font-weight: var(--cyb-sys-font-weight-6);
+  color: var(--cyb-sys-color-blue-gray-4);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.insights-donut__amount {
+  font-family: var(--cyb-sys-font-family-display);
+  font-size: var(--cyb-sys-font-size-7);
+  font-weight: var(--cyb-sys-font-weight-8);
+  color: var(--cyb-sys-color-black-1);
+}
+
+.insights-list {
+  display: grid;
+  gap: var(--cyb-sys-padding-7);
+}
+
+.insights-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--cyb-sys-padding-6);
+  padding-top: var(--cyb-sys-padding-6);
+  border-top: 1px dashed var(--cyb-sys-color-light-blue-8);
+}
+
+.insights-item:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.insights-item__icon {
+  width: var(--cyb-sys-width-2);
+  height: var(--cyb-sys-width-2);
+  border-radius: 50%;
+  background-color: var(--cyb-sys-color-light-blue-9);
+  display: grid;
+  place-items: center;
+}
+
+.insights-item__icon img {
+  width: var(--cyb-sys-padding-9);
+  height: var(--cyb-sys-padding-9);
+  object-fit: contain;
+}
+
+.insights-item__text {
+  display: grid;
+  gap: var(--cyb-sys-padding-2);
+}
+
+.insights-item__title {
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-4);
+  font-weight: var(--cyb-sys-font-weight-7);
+  color: var(--cyb-sys-color-black-2);
+}
+
+.insights-item__subtitle {
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-3);
+  font-weight: var(--cyb-sys-font-weight-6);
+  color: var(--cyb-sys-color-blue-gray-5);
+}
+
+.insights-item__amount {
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-4);
+  font-weight: var(--cyb-sys-font-weight-7);
+  color: var(--cyb-sys-color-black-2);
+}
+
+.accounts-section,
+.cards-section {
+  display: grid;
+  gap: var(--cyb-sys-padding-8);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--cyb-sys-padding-8);
+}
+
+.section-header__left {
+  display: flex;
+  align-items: center;
+  gap: var(--cyb-sys-padding-6);
+}
+
+.section-marker {
+  width: var(--cyb-sys-padding-2);
+  height: var(--cyb-sys-padding-10);
+  border-radius: var(--cyb-sys-border-radius-4);
+  background-color: var(--cyb-sys-color-red-5);
+}
+
+.section-title {
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-6);
+  font-weight: var(--cyb-sys-font-weight-8);
+  color: var(--cyb-sys-color-black-2);
+}
+
+.section-header__right {
+  display: flex;
+  align-items: center;
+  gap: var(--cyb-sys-padding-6);
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-4);
+  color: var(--cyb-sys-color-blue-gray-4);
+}
+
+.section-header__amount {
+  font-weight: var(--cyb-sys-font-weight-7);
+  color: var(--cyb-sys-color-black-2);
+}
+
+.section-header__chevron {
+  font-size: var(--cyb-sys-font-size-6);
+  color: var(--cyb-sys-color-black-2);
+}
+
+.account-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--cyb-sys-padding-7);
+  padding: var(--cyb-sys-padding-9);
+  border-radius: var(--cyb-sys-border-radius-9);
+  background-color: var(--cyb-sys-color-white-9);
+  border: 1px solid var(--cyb-sys-color-light-blue-8);
+  box-shadow: var(--cyb-sys-shadow-2);
+}
+
+.account-card__icon {
+  width: var(--cyb-sys-padding-12);
+  height: var(--cyb-sys-padding-12);
+  border-radius: 50%;
+  background-color: var(--cyb-sys-color-light-blue-9);
+  display: grid;
+  place-items: center;
+}
+
+.account-card__icon img {
+  width: var(--cyb-sys-padding-9);
+  height: var(--cyb-sys-padding-9);
+  object-fit: contain;
+}
+
+.account-card__info {
+  display: grid;
+  gap: var(--cyb-sys-padding-2);
+}
+
+.account-card__name {
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-5);
+  font-weight: var(--cyb-sys-font-weight-8);
+  color: var(--cyb-sys-color-black-2);
+}
+
+.account-card__iban {
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-4);
+  font-weight: var(--cyb-sys-font-weight-6);
+  color: var(--cyb-sys-color-blue-gray-4);
+}
+
+.account-card__label {
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-3);
+  font-weight: var(--cyb-sys-font-weight-6);
+  color: var(--cyb-sys-color-blue-gray-5);
+}
+
+.account-card__amount {
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-4);
+  font-weight: var(--cyb-sys-font-weight-7);
+  color: var(--cyb-sys-color-black-2);
+  white-space: nowrap;
+}
+
+.card-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--cyb-sys-padding-7);
+  padding: var(--cyb-sys-padding-9);
+  border-radius: var(--cyb-sys-border-radius-9);
+  background-color: var(--cyb-sys-color-white-9);
+  border: 1px solid var(--cyb-sys-color-light-blue-8);
+  box-shadow: var(--cyb-sys-shadow-2);
+}
+
+.card-item__icon {
+  width: var(--cyb-sys-padding-12);
+  height: var(--cyb-sys-padding-12);
+  border-radius: var(--cyb-sys-border-radius-6);
+  background-color: var(--cyb-sys-color-light-blue-9);
+  display: grid;
+  place-items: center;
+}
+
+.card-item__icon img {
+  width: var(--cyb-sys-padding-9);
+  height: var(--cyb-sys-padding-9);
+  object-fit: contain;
+}
+
+.card-item__info {
+  display: grid;
+  gap: var(--cyb-sys-padding-2);
+}
+
+.card-item__name {
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-5);
+  font-weight: var(--cyb-sys-font-weight-8);
+  color: var(--cyb-sys-color-black-2);
+}
+
+.card-item__meta {
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-4);
+  font-weight: var(--cyb-sys-font-weight-6);
+  color: var(--cyb-sys-color-blue-gray-4);
+}

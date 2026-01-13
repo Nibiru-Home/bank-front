@@ -1,3 +1,83 @@
 <div class="index-page">
   <app-header></app-header>
+  <main class="index-content">
+    <div class="index-grid">
+      <div class="index-left">
+        <app-balance-card></app-balance-card>
+        <section class="quick-actions" aria-label="Acciones rapidas">
+          <app-quick-action
+            label="Enviar dinero"
+            iconSrc="images/iconos/transferir-dinero.png">
+          </app-quick-action>
+          <app-quick-action
+            label="Contratar"
+            iconSrc="images/iconos/contratar.png">
+          </app-quick-action>
+          <app-quick-action
+            label="Recibos"
+            iconSrc="images/iconos/recibo.png">
+          </app-quick-action>
+          <app-quick-action
+            label="Cajeros"
+            iconSrc="images/iconos/cajero-automatico.png">
+          </app-quick-action>
+        </section>
+        <section class="accounts-section" aria-label="Cuentas">
+          <div class="section-header">
+            <div class="section-header__left">
+              <span class="section-marker"></span>
+              <span class="section-title">2 Cuentas</span>
+            </div>
+            <div class="section-header__right">
+              <span class="section-header__label">Saldo disponible</span>
+              <span class="section-header__amount">**** EUR</span>
+
+            </div>
+          </div>
+          <div class="account-card">
+            <span class="account-card__icon">
+              <img src="images/Logo.png" alt="" aria-hidden="true">
+            </span>
+            <div class="account-card__info">
+              <span class="account-card__name">Cuenta Nibiru</span>
+              <span class="account-card__iban">ES6000495525582911262426</span>
+              <span class="account-card__label">Saldo disponible</span>
+            </div>
+            <span class="account-card__amount">**** EUR</span>
+          </div>
+          <div class="account-card">
+            <span class="account-card__icon">
+              <img src="images/Logo.png" alt="" aria-hidden="true">
+            </span>
+            <div class="account-card__info">
+              <span class="account-card__name">Cuenta Digital</span>
+              <span class="account-card__iban">ES4300492995582914207259</span>
+              <span class="account-card__label">Saldo disponible</span>
+            </div>
+            <span class="account-card__amount">**** EUR</span>
+          </div>
+        </section>
+        <section class="cards-section" aria-label="Tarjetas">
+          <div class="section-header">
+            <div class="section-header__left">
+              <span class="section-marker"></span>
+              <span class="section-title">1 Tarjeta</span>
+            </div>
+     
+          </div>
+          <div class="card-item">
+            <span class="card-item__icon">
+              <img src="images/iconos/contratar.png" alt="" aria-hidden="true">
+            </span>
+            <div class="card-item__info">
+              <span class="card-item__name">Debito Nibiru</span>
+              <span class="card-item__meta">Debito • 1674</span>
+            </div>
+          </div>
+        </section>
+      </div>
+      <app-insights-card></app-insights-card>
+    </div>
+  </main>
+  <app-footer></app-footer>
 </div>
