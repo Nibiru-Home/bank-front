@@ -1,4 +1,4 @@
-@use "../../../scss/01_utilies/variables" as utilities;
+@use "../../../scss/main.scss";
 
 .login-container {
   margin: var(--cyb-sys-margin-1);
@@ -6,9 +6,8 @@
   width: var(--cyb-sys-width-15);
   height: var(--cyb-sys-height-16);
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  overflow: hidden;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .login-image {
@@ -16,12 +15,66 @@
   padding: var(--cyb-sys-padding-1);
   width: var(--cyb-sys-width-13);
   height: var(--cyb-sys-height-14);
+
+  img {
+    display: block;
+    width: var(--cyb-sys-width-14);
+    height: var(--cyb-sys-height-14);
+    object-fit: cover;
+    object-position: left center;
+  }
 }
 
-.login-image img {
-  display: block;
-  width: var(--cyb-sys-width-14);
+.login-content {
+  width: var(--cyb-sys-width-13);
   height: var(--cyb-sys-height-14);
-  object-fit: cover;
-  object-position: left center;
+  display: flex;
+  justify-content: center; /* Centering vertically */
+  align-items: center;     /* Centering horizontally */
+  padding: var(--cyb-sys-padding-1);
+  margin-left: auto;
+  align-self: center;
+}
+
+.login-form-wrapper {
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: var(--cyb-sys-padding-10);
+  margin-top: calc(-1 * var(--cyb-sys-margin-5));
+}
+
+.login-logo-container {
+  margin-bottom: var(--cyb-sys-margin-9);
+  align-self: center;
+  .login-logo {
+    display: block;
+    width: var(--cyb-sys-width-7);
+    height: auto;
+  }
+}
+
+.login-title {
+  font-family: var(--cyb-sys-font-family-display);
+  font-size: var(--cyb-sys-font-size-8);
+  font-weight: var(--cyb-sys-font-weight-8);
+  color: var(--cyb-sys-color-black-1);
+  margin-bottom: var(--cyb-sys-margin-11);
+  text-align: center;
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--cyb-sys-padding-10);
+}
+
+.login-button-container {
+  margin-top: var(--cyb-sys-margin-4);
+  width: 100%;
+  max-width: none;
+  align-self: stretch;
 }

@@ -1,0 +1,34 @@
+@use "../../../scss/main.scss";
+
+.ui-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cyb-sys-padding-4);
+  width: 100%;
+}
+
+.ui-input-label {
+  font-family: var(--cyb-sys-font-family-body);
+  font-size: var(--cyb-sys-font-size-4);
+  font-weight: var(--cyb-sys-font-weight-7);
+  color: var(--cyb-sys-color-black-4);
+}
+
+.ui-input-field {
+  padding: var(--cyb-sys-padding-7);
+  border: 1px solid var(--cyb-sys-color-blue-gray-3);
+  border-radius: var(--cyb-sys-border-radius-4);
+  font-family: var(--cyb-sys-font-family-body);
+  font-size: var(--cyb-sys-font-size-5);
+  color: var(--cyb-sys-color-black-2);
+  outline: none;
+  transition: border-color 0.2s;
+
+  &:focus {
+    border-color: var(--cyb-sys-color-red-5);
+  }
+
+  &::placeholder {
+    color: var(--cyb-sys-color-blue-gray-5);
+  }
+}

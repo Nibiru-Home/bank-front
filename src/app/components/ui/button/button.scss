@@ -1,0 +1,24 @@
+@use "../../../scss/main.scss";
+
+.ui-button {
+  background-color: var(--cyb-sys-color-red-5);
+  color: var(--cyb-sys-color-white-9);
+  border: none;
+  border-radius: var(--cyb-sys-border-radius-10);
+  padding: var(--cyb-sys-padding-7) var(--cyb-sys-padding-10);
+  width: 100%;
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-5);
+  font-weight: var(--cyb-sys-font-weight-7);
+  cursor: pointer;
+  transition: opacity 0.2s;
+  box-shadow: var(--cyb-sys-shadow-3);
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}

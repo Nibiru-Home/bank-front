@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { InputComponent } from '../../ui/input/input';
+import { ButtonComponent } from '../../ui/button/button';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [InputComponent, ButtonComponent],
   templateUrl: './login.html',
   styleUrl: './login.scss'
 })
