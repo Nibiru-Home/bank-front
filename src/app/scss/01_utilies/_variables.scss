@@ -156,7 +156,11 @@ $width-sizes: (
     500px,
     600px,
     800px,
-    1000px
+    1000px,
+    50%,
+    100%,
+    100vw,
+    100vh
 );
 
 $height-sizes: (
@@ -171,7 +175,11 @@ $height-sizes: (
     500px,
     600px,
     800px,
-    1000px
+    1000px,
+    50%,
+    100%,
+    100vw,
+    100vh
 );
 
 $border-radius-sizes: (

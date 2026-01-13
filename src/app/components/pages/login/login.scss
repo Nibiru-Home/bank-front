@@ -1,0 +1,27 @@
+@use "../../../scss/01_utilies/variables" as utilities;
+
+.login-container {
+  margin: var(--cyb-sys-margin-1);
+  padding: var(--cyb-sys-padding-1);
+  width: var(--cyb-sys-width-15);
+  height: var(--cyb-sys-height-16);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.login-image {
+  margin: var(--cyb-sys-margin-1);
+  padding: var(--cyb-sys-padding-1);
+  width: var(--cyb-sys-width-13);
+  height: var(--cyb-sys-height-14);
+}
+
+.login-image img {
+  display: block;
+  width: var(--cyb-sys-width-14);
+  height: var(--cyb-sys-height-14);
+  object-fit: cover;
+  object-position: left center;
+}

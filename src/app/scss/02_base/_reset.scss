@@ -10,10 +10,13 @@
 }
 
 html,
-:host {
+:host,
+app-root,
+app-login {
   line-height: 1.5;
-  -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: var(--cyb-sys-width-14);
   tab-size: 4;
+  height: var(--cyb-sys-height-14);
   font-family: --theme(--default-font-family,
       ui-sans-serif,
       system-ui,
@@ -26,6 +29,12 @@ html,
   font-feature-settings: --theme(--default-font-feature-settings, normal);
   font-variation-settings: --theme(--default-font-variation-settings, normal);
   -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: var(--cyb-sys-margin-1);
+  padding: var(--cyb-sys-padding-1);
+  height: var(--cyb-sys-height-14);
 }
 
 hr {
