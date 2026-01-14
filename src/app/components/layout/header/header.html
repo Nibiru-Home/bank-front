@@ -4,9 +4,10 @@
       <span class="app-header__brand">Nibiru Pay</span>
     </div>
     <nav class="app-header__nav" aria-label="Principal">
-      <a class="app-header__link app-header__link--active" href="#">Inicio</a>
-      <a class="app-header__link" href="#">Cuentas</a>
-      <a class="app-header__link" href="#">Tarjetas</a>
+      <a class="app-header__link" routerLink="/" routerLinkActive="app-header__link--active"
+        [routerLinkActiveOptions]="{exact: true}">Inicio</a>
+      <a class="app-header__link" routerLink="/accounts" routerLinkActive="app-header__link--active">Cuentas</a>
+      <a class="app-header__link" routerLink="/cards" routerLinkActive="app-header__link--active">Tarjetas</a>
     </nav>
     <div class="app-header__right">
       <details class="app-header__menu">
