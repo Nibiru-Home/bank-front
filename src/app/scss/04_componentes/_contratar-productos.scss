@@ -53,41 +53,32 @@
 .product-card {
   position: relative;
   width: 100%;
-  min-height: 320px;
+  min-height: 360px;
   border-radius: var(--cyb-sys-border-radius-9);
   overflow: hidden;
   display: flex;
-  align-items: flex-end;
-  padding: var(--cyb-sys-padding-9);
-  background-image: url("images/imagenLogin.jpg");
-  background-size: cover;
-  background-position: center;
+  flex-direction: column;
+  background-color: var(--cyb-sys-color-white-9);
   box-shadow: var(--cyb-sys-shadow-4);
-  isolation: isolate;
 }
 
-.product-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    140deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(47, 63, 69, 0.35) 55%,
-    rgba(15, 15, 15, 0.6) 100%
-  );
-  z-index: 0;
+.product-card__image {
+  width: 100%;
+  height: 210px;
+  overflow: hidden;
+}
+
+.product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .product-card__body {
-  position: relative;
-  z-index: 1;
-  width: 85%;
-  max-width: 320px;
-  background-color: var(--cyb-sys-color-white-9);
-  border-radius: var(--cyb-sys-border-radius-7);
+  width: 100%;
   padding: var(--cyb-sys-padding-8);
-  box-shadow: var(--cyb-sys-shadow-3);
   display: grid;
   gap: var(--cyb-sys-padding-5);
 }
@@ -122,16 +113,16 @@
   text-align: left;
 }
 
-.product-card--tarjetas {
-  background-position: 40% 30%;
+.product-card--tarjetas .product-card__image img {
+  object-position: 35% 30%;
 }
 
-.product-card--cuenta {
-  background-position: 50% 55%;
+.product-card--cuenta .product-card__image img {
+  object-position: 50% 50%;
 }
 
-.product-card--seguro {
-  background-position: 65% 70%;
+.product-card--seguro .product-card__image img {
+  object-position: 70% 60%;
 }
 
 @media (max-width: 1100px) {
@@ -150,7 +141,7 @@
   }
 
   .product-card {
-    min-height: 300px;
+    min-height: 320px;
   }
 
   .product-card__body {
