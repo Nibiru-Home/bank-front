@@ -2,62 +2,221 @@
 
 .app-header {
   width: var(--cyb-sys-width-14);
-  min-height: var(--cyb-sys-height-2);
-  background-color: var(--cyb-sys-color-light-blue-4);
   display: flex;
-  align-items: center;
+  justify-content: center;
+  padding: var(--cyb-sys-padding-9) var(--cyb-sys-padding-10);
+  background-color: transparent;
 }
 
 .app-header__inner {
   width: var(--cyb-sys-width-14);
-  padding: var(--cyb-sys-padding-8) var(--cyb-sys-padding-9);
-  display: flex;
+  padding: var(--cyb-sys-padding-7) var(--cyb-sys-padding-10);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   justify-content: space-between;
   gap: var(--cyb-sys-padding-10);
+  background-color: var(--cyb-sys-color-light-blue-8);
+  border-radius: var(--cyb-sys-border-radius-10);
+  box-shadow: var(--cyb-sys-shadow-4);
 }
 
 .app-header__left {
   display: flex;
   align-items: center;
-  gap: var(--cyb-sys-padding-10);
+  gap: var(--cyb-sys-padding-8);
 }
 
 .app-header__brand {
-  font-family: var(--cyb-sys-font-family-ui);
-  font-size: var(--cyb-sys-font-size-9);
-  font-weight: var(--cyb-sys-font-weight-9);
-  color: var(--cyb-sys-color-black-1);
+  font-family: var(--cyb-sys-font-family-display);
+  font-size: var(--cyb-sys-font-size-8);
+  font-weight: var(--cyb-sys-font-weight-8);
+  color: var(--cyb-sys-color-blue-gray-1);
+  white-space: nowrap;
 }
 
 .app-header__nav {
   display: flex;
   align-items: center;
-  gap: var(--cyb-sys-padding-9);
+  gap: var(--cyb-sys-padding-4);
+  background-color: var(--cyb-sys-color-white-8);
+  border-radius: var(--cyb-sys-border-radius-10);
+  padding: var(--cyb-sys-padding-3);
+  box-shadow: inset 0 0 0 1px var(--cyb-sys-color-light-blue-8);
+  justify-self: center;
 }
 
 .app-header__link {
   font-family: var(--cyb-sys-font-family-ui);
-  font-size: var(--cyb-sys-font-size-5);
+  font-size: var(--cyb-sys-font-size-4);
   font-weight: var(--cyb-sys-font-weight-7);
-  color: var(--cyb-sys-color-white-9);
+  color: var(--cyb-sys-color-blue-gray-2);
   text-decoration: none;
+  padding: var(--cyb-sys-padding-4) var(--cyb-sys-padding-6);
+  border-radius: var(--cyb-sys-border-radius-8);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.app-header__link:hover,
+.app-header__link:focus-visible {
+  background-color: var(--cyb-sys-color-white-9);
+  color: var(--cyb-sys-color-blue-gray-1);
+}
+
+.app-header__link--active {
+  background-color: var(--cyb-sys-color-white-9);
+  color: var(--cyb-sys-color-blue-gray-1);
+  box-shadow: var(--cyb-sys-shadow-1);
 }
 
 .app-header__right {
   display: flex;
   align-items: center;
-  gap: var(--cyb-sys-padding-7);
+  gap: var(--cyb-sys-padding-6);
+  justify-content: flex-end;
 }
 
-.app-header__logout {
-  border: 1px solid var(--cyb-sys-color-white-9);
-  border-radius: var(--cyb-sys-border-radius-6);
-  padding: var(--cyb-sys-padding-4) var(--cyb-sys-padding-7);
+.app-header__menu {
+  position: relative;
+}
+
+.app-header__menu-trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--cyb-sys-padding-5);
+  padding: var(--cyb-sys-padding-4) var(--cyb-sys-padding-6);
+  border-radius: var(--cyb-sys-border-radius-10);
+  cursor: pointer;
+  list-style: none;
   background-color: transparent;
-  color: var(--cyb-sys-color-white-9);
+}
+
+.app-header__menu-trigger:hover,
+.app-header__menu[open] .app-header__menu-trigger {
+  background-color: var(--cyb-sys-color-white-8);
+}
+
+.app-header__menu-trigger:focus-visible {
+  outline: 2px solid var(--cyb-sys-color-light-blue-5);
+  outline-offset: 2px;
+}
+
+.app-header__menu-trigger::marker {
+  content: "";
+}
+
+.app-header__menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.app-header__avatar {
+  width: var(--cyb-sys-padding-11);
+  height: var(--cyb-sys-padding-11);
+  border-radius: 999px;
+  background-color: var(--cyb-sys-color-light-blue-7);
+  color: var(--cyb-sys-color-blue-gray-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--cyb-sys-font-family-ui);
   font-size: var(--cyb-sys-font-size-4);
   font-weight: var(--cyb-sys-font-weight-7);
+}
+
+.app-header__user {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cyb-sys-padding-2);
+}
+
+.app-header__name {
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-4);
+  font-weight: var(--cyb-sys-font-weight-7);
+  color: var(--cyb-sys-color-black-2);
+}
+
+.app-header__account {
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-2);
+  font-weight: var(--cyb-sys-font-weight-6);
+  color: var(--cyb-sys-color-blue-gray-3);
+}
+
+.app-header__chevron {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--cyb-sys-color-blue-gray-3);
+  border-bottom: 2px solid var(--cyb-sys-color-blue-gray-3);
+  transform: rotate(45deg);
+  transition: transform 0.2s;
+  margin-left: var(--cyb-sys-padding-3);
+}
+
+.app-header__menu[open] .app-header__chevron {
+  transform: rotate(-135deg);
+}
+
+.app-header__dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + var(--cyb-sys-padding-4));
+  min-width: 180px;
+  background-color: var(--cyb-sys-color-white-9);
+  border-radius: var(--cyb-sys-border-radius-8);
+  padding: var(--cyb-sys-padding-5);
+  box-shadow: var(--cyb-sys-shadow-4);
+  display: none;
+  z-index: 10;
+}
+
+.app-header__menu[open] .app-header__dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header__dropdown-action {
+  border: none;
+  background: transparent;
+  text-align: left;
+  width: 100%;
+  color: var(--cyb-sys-color-red-6);
+  font-family: var(--cyb-sys-font-family-ui);
+  font-size: var(--cyb-sys-font-size-4);
+  font-weight: var(--cyb-sys-font-weight-7);
+  padding: var(--cyb-sys-padding-4) var(--cyb-sys-padding-5);
+  border-radius: var(--cyb-sys-border-radius-6);
   cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.app-header__dropdown-action:hover,
+.app-header__dropdown-action:focus-visible {
+  background-color: var(--cyb-sys-color-red-9);
+  color: var(--cyb-sys-color-red-3);
+}
+
+@media (max-width: 900px) {
+  .app-header {
+    padding: var(--cyb-sys-padding-6);
+  }
+
+  .app-header__inner {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+    gap: var(--cyb-sys-padding-6);
+  }
+
+  .app-header__left {
+    justify-content: center;
+  }
+
+  .app-header__nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .app-header__right {
+    justify-content: flex-end;
+  }
 }
