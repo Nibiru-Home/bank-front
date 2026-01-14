@@ -30,6 +30,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid var(--cyb-sys-color-light-blue-8);
+    padding-bottom: var(--cyb-sys-padding-8);
     margin-bottom: var(--cyb-sys-padding-8);
 }
 
