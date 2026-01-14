@@ -50,19 +50,6 @@
   gap: var(--cyb-sys-padding-7);
 }
 
-.app-header__user {
-  display: flex;
-  align-items: center;
-  gap: var(--cyb-sys-padding-3);
-  font-family: var(--cyb-sys-font-family-ui);
-  font-size: var(--cyb-sys-font-size-4);
-  color: var(--cyb-sys-color-white-9);
-}
-
-.app-header__user-name {
-  font-weight: var(--cyb-sys-font-weight-8);
-}
-
 .app-header__logout {
   border: 1px solid var(--cyb-sys-color-white-9);
   border-radius: var(--cyb-sys-border-radius-6);

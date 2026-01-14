@@ -1,10 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-quick-action',
   standalone: true,
-  imports: [NgIf],
+  imports: [],
   templateUrl: './quick-action.html',
   styleUrl: './quick-action.scss'
 })

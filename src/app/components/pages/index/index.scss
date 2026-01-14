@@ -14,7 +14,7 @@
 
 .index-content {
   width: var(--cyb-sys-width-14);
-  padding: var(--cyb-sys-padding-10) var(--cyb-sys-padding-9);
+  padding: var(--cyb-sys-padding-9) var(--cyb-sys-padding-10);
 }
 
 .index-grid {
@@ -22,15 +22,35 @@
   max-width: none;
   margin: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-  gap: var(--cyb-sys-padding-10);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
+  gap: var(--cyb-sys-padding-8);
   align-items: start;
 }
 
-.index-left {
+.index-right {
   display: flex;
   flex-direction: column;
-  gap: var(--cyb-sys-padding-10);
+  gap: var(--cyb-sys-padding-6);
+  width: 100%;
+  max-width: none;
+  justify-self: start;
+}
+
+.index-welcome {
+  display: flex;
+  align-items: center;
+  padding-left: var(--cyb-sys-padding-9);
+}
+
+.index-welcome__text {
+  font-family: var(--cyb-sys-font-family-display);
+  font-size: var(--cyb-sys-font-size-7);
+  font-weight: var(--cyb-sys-font-weight-8);
+  color: var(--cyb-sys-color-black-1);
+}
+
+.insights-card {
+  justify-self: end;
 }
 
 
@@ -39,7 +59,7 @@
   max-width: none;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--cyb-sys-padding-9);
+  gap: var(--cyb-sys-padding-8);
 }
 
 
