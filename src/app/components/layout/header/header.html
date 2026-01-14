@@ -2,18 +2,28 @@
   <div class="app-header__inner">
     <div class="app-header__left">
       <span class="app-header__brand">Nibiru Pay</span>
-      <nav class="app-header__nav" aria-label="Principal">
-        <a class="app-header__link" href="#">Inicio</a>
-        <a class="app-header__link" href="#">Cuentas</a>
-        <a class="app-header__link" href="#">Tarjetas</a>
-      </nav>
     </div>
+    <nav class="app-header__nav" aria-label="Principal">
+      <a class="app-header__link app-header__link--active" href="#">Inicio</a>
+      <a class="app-header__link" href="#">Cuentas</a>
+      <a class="app-header__link" href="#">Tarjetas</a>
+    </nav>
     <div class="app-header__right">
-      <div class="app-header__user">
-        <span class="app-header__welcome">Bienvenido,</span>
-        <span class="app-header__user-name">Usuario</span>
-      </div>
-      <button class="app-header__logout" type="button" routerLink="/login">Cerrar sesion</button>
+      <details class="app-header__menu">
+        <summary class="app-header__menu-trigger">
+          <span class="app-header__avatar" aria-hidden="true">{{ userInitials }}</span>
+          <span class="app-header__user">
+            <span class="app-header__name">{{ userFullName }}</span>
+            <span class="app-header__account">{{ userAccountType }}</span>
+          </span>
+          <span class="app-header__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="app-header__dropdown">
+          <button class="app-header__dropdown-action" type="button" routerLink="/login">
+            Cerrar sesion
+          </button>
+        </div>
+      </details>
     </div>
   </div>
 </header>
