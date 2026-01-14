@@ -1,0 +1,36 @@
+<div class="create-page">
+    <app-header></app-header>
+    <main class="create-content">
+        <section class="form-container">
+            <h2 class="form-title">Solicitar Tarjeta</h2>
+            <form (submit)="createCard($event)" class="create-form">
+                <div class="form-group">
+                    <label for="holder">Nombre del titular</label>
+                    <input type="text" id="holder" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="network">Red</label>
+                    <select id="network">
+                        <option value="visa">VISA</option>
+                        <option value="mastercard">Mastercard</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="account">Cuenta vinculada</label>
+                    <select id="account">
+                        <option value="1">Cuenta *3270 - 211,47 €</option>
+                        <option value="2">Cuenta *4491 - 5.000,00 €</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Solicitar</button>
+                    <a routerLink="/cards" class="btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </section>
+    </main>
+    <app-footer></app-footer>
+</div>

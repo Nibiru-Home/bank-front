@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../layout/header/header';
 import { FooterComponent } from '../../layout/footer/footer';
 import { AccountRowComponent } from '../../ui/account-row/account-row';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-accounts',
     standalone: true,
-    imports: [CommonModule, HeaderComponent, FooterComponent, AccountRowComponent],
+    imports: [CommonModule, HeaderComponent, FooterComponent, AccountRowComponent, RouterModule],
     templateUrl: './accounts.html',
     styleUrl: './accounts.scss'
 })

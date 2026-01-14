@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../layout/header/header';
 import { FooterComponent } from '../../layout/footer/footer';
 import { CardRowComponent } from '../../ui/card-row/card-row';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-cards',
     standalone: true,
-    imports: [CommonModule, HeaderComponent, FooterComponent, CardRowComponent],
+    imports: [CommonModule, HeaderComponent, FooterComponent, CardRowComponent, RouterModule],
     templateUrl: './cards.html',
     styleUrl: './cards.scss'
 })

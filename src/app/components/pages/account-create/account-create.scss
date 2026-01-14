@@ -1,0 +1,125 @@
+@use "../../../scss/main.scss";
+
+.create-page {
+    width: var(--cyb-sys-width-14);
+    min-height: var(--cyb-sys-height-16);
+    background-color: var(--cyb-sys-color-white-7);
+    background-image: linear-gradient(180deg,
+            var(--cyb-sys-color-white-7) 0%,
+            var(--cyb-sys-color-white-7) 60%,
+            var(--cyb-sys-color-light-blue-9) 100%);
+    display: flex;
+    flex-direction: column;
+}
+
+.create-content {
+    width: var(--cyb-sys-width-14);
+    padding: var(--cyb-sys-padding-10) var(--cyb-sys-padding-9);
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center; // Vertically center the form
+}
+
+.form-container {
+    background-color: var(--cyb-sys-color-white-9);
+    border-radius: var(--cyb-sys-border-radius-9);
+    padding: var(--cyb-sys-padding-10);
+    box-shadow: var(--cyb-sys-shadow-3);
+    width: 700px;
+    min-height: 500px; // Make form taller
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // Center content vertically within the form box
+    gap: var(--cyb-sys-padding-8);
+}
+
+.form-title {
+    font-family: var(--cyb-sys-font-family-ui);
+    font-size: var(--cyb-sys-font-size-6);
+    font-weight: var(--cyb-sys-font-weight-8);
+    color: var(--cyb-sys-color-black-2);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--cyb-sys-padding-8); // Increased from 6
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--cyb-sys-padding-4); // Increased from 2
+
+    label {
+        font-family: var(--cyb-sys-font-family-ui);
+        font-size: var(--cyb-sys-font-size-2);
+        color: var(--cyb-sys-color-blue-gray-4);
+        font-weight: var(--cyb-sys-font-weight-6);
+    }
+
+    input,
+    select {
+        height: 50px; // Fixed height for consistency
+        padding: 0 var(--cyb-sys-padding-4); // Adjust padding for centered text vertically
+        border: 1px solid var(--cyb-sys-color-light-blue-8);
+        border-radius: var(--cyb-sys-border-radius-3);
+        font-family: var(--cyb-sys-font-family-ui);
+        font-size: var(--cyb-sys-font-size-3);
+        color: var(--cyb-sys-color-black-1);
+        width: 100%; // Ensure full width
+        box-sizing: border-box;
+
+        &:focus {
+            outline: none;
+            border-color: var(--cyb-sys-color-black-1);
+        }
+    }
+}
+
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--cyb-sys-padding-3);
+    margin-top: var(--cyb-sys-padding-4);
+}
+
+.btn-primary {
+    background-color: var(--cyb-sys-color-black-1);
+    color: var(--cyb-sys-color-white-9);
+    border: none;
+    padding: var(--cyb-sys-padding-4);
+    border-radius: 999px;
+    font-family: var(--cyb-sys-font-family-ui);
+    font-weight: var(--cyb-sys-font-weight-7);
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--cyb-sys-color-red-5); // Red color for Cancel
+    border: 1px solid var(--cyb-sys-color-red-5);
+    padding: var(--cyb-sys-padding-4);
+    border-radius: 999px;
+    font-family: var(--cyb-sys-font-family-ui);
+    font-weight: var(--cyb-sys-font-weight-6);
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+        opacity: 0.8;
+        border-color: var(--cyb-sys-color-red-5);
+    }
+}
