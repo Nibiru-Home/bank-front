@@ -1,4 +1,11 @@
-@if (href) {
+@if (routerLink) {
+  <a class="ui-quick-action" [routerLink]="routerLink">
+    <span class="ui-quick-action__icon">
+      <img [src]="iconSrc" alt="" aria-hidden="true">
+    </span>
+    <span class="ui-quick-action__label">{{ label }}</span>
+  </a>
+} @else if (href) {
   <a
     class="ui-quick-action"
     [href]="href"
