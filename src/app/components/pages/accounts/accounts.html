@@ -10,8 +10,9 @@
                 </div>
 
                 <div class="accounts-list">
-                    <app-account-row *ngFor="let account of accounts" [name]="account.name" [iban]="account.iban"
-                        [holder]="account.holder" [amount]="account.amount" [isTitular]="account.isTitular">
+                    <app-account-row *ngFor="let account of accounts" [id]="account.id" [name]="account.name"
+                        [iban]="account.iban" [holder]="account.holder" [amount]="account.amount"
+                        [isTitular]="account.isTitular">
                     </app-account-row>
                 </div>
             </div>

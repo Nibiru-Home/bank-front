@@ -14,6 +14,7 @@ import { AccountRowComponent } from '../../ui/account-row/account-row';
 export class AccountsComponent {
     accounts = [
         {
+            id: '1',
             name: 'CUENTA *3270',
             holder: 'ALBERTO SANCHEZ RUIZ',
             iban: 'ES4801825319700205983270',
@@ -21,6 +22,7 @@ export class AccountsComponent {
             isTitular: true
         },
         {
+            id: '2',
             name: 'CUENTA *1234',
             holder: 'ALBERTO SANCHEZ RUIZ',
             iban: 'ES9900491827462910384756',
@@ -28,6 +30,7 @@ export class AccountsComponent {
             isTitular: true
         },
         {
+            id: '3',
             name: 'CUENTA *5678',
             holder: 'ALBERTO SANCHEZ RUIZ',
             iban: 'ES1200491827462910384756',
@@ -35,6 +38,7 @@ export class AccountsComponent {
             isTitular: true
         },
         {
+            id: '4',
             name: 'CUENTA *9012',
             holder: 'ALBERTO SANCHEZ RUIZ',
             iban: 'ES3400491827462910384756',
@@ -42,6 +46,7 @@ export class AccountsComponent {
             isTitular: true
         },
         {
+            id: '5',
             name: 'CUENTA *3456',
             holder: 'ALBERTO SANCHEZ RUIZ',
             iban: 'ES5600491827462910384756',

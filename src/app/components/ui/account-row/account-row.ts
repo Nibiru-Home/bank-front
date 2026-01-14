@@ -1,15 +1,17 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-account-row',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, RouterModule],
     templateUrl: './account-row.html',
     styleUrl: './account-row.scss'
 })
 export class AccountRowComponent {
     @Input() name: string = '';
+    @Input() id: string = '';
     @Input() iban: string = '';
     @Input() holder: string = '';
     @Input() type: string = '';
