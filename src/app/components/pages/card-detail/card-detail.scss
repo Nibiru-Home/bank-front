@@ -14,13 +14,12 @@
 
 .card-detail-content {
     width: var(--cyb-sys-width-14);
-    padding: var(--cyb-sys-padding-10) var(--cyb-sys-padding-9);
+    padding: var(--cyb-sys-padding-10) var(--cyb-sys-padding-10);
     flex: 1;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: var(--cyb-sys-width-3);
-    align-items: center;
+    align-items: flex-start;
 }
 
 .detail-container {
@@ -41,69 +40,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--cyb-sys-padding-10);
-    flex: 0 0 var(--cyb-sys-width-8);
+    padding: var(--cyb-sys-padding-10);
+    flex: 0 0 var(--cyb-sys-width-10);
     position: sticky;
-    top: var(--cyb-sys-padding-10);
 }
 
-.card-visual {
-    width: var(--cyb-sys-width-8);
-    height: var(--cyb-sys-height-5);
-    background: linear-gradient(135deg, var(--cyb-sys-color-black-1) 0%, var(--cyb-sys-color-black-7) 100%);
-    border-radius: var(--cyb-sys-border-radius-5);
-    padding: var(--cyb-sys-padding-7);
-    color: var(--cyb-sys-color-white-9);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    box-shadow: var(--cyb-sys-shadow-4);
 
-    &__chip {
-        width: var(--cyb-sys-padding-12);
-        height: var(--cyb-sys-padding-11);
-        background: linear-gradient(135deg, #FFD700 0%, #DAA520 100%);
-        border-radius: var(--cyb-sys-border-radius-3);
-    }
+.card-visual-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--cyb-sys-border-radius-1);
+    margin-top: var(--cyb-sys-padding-13);
 
-    &__number {
-        font-family: monospace;
-        font-size: var(--cyb-sys-font-size-5);
-        letter-spacing: var(--cyb-sys-padding-1);
-        margin-top: var(--cyb-sys-padding-4);
-    }
-
-    &__bottom {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-    }
-
-    &__holder {
-        font-family: var(--cyb-sys-font-family-ui);
-        font-size: var(--cyb-sys-font-size-2);
-        text-transform: uppercase;
-    }
-
-    &__expiry {
-        font-family: monospace;
-        font-size: var(--cyb-sys-font-size-3);
-    }
-
-    &__logo {
-        position: absolute;
-        top: var(--cyb-sys-padding-7);
-        right: var(--cyb-sys-padding-7);
-        font-weight: bold;
-        font-style: italic;
-        font-size: var(--cyb-sys-font-size-5);
-    }
 }
 
 .card-info {
     text-align: center;
     width: 100%;
+    margin-top: var(--cyb-sys-padding-10);
 }
 
 .card-title {
