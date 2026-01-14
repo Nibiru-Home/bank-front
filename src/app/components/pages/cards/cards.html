@@ -1,0 +1,21 @@
+<div class="cards-page">
+    <app-header></app-header>
+    <main class="cards-content">
+        <section class="cards-section" aria-label="Tarjetas">
+            <div class="cards-container">
+                <div class="cards-header">
+                    <div class="cards-header__title">
+                        <h2>Tarjetas</h2>
+                    </div>
+                </div>
+
+                <div class="cards-list">
+                    <app-card-row *ngFor="let card of cards" [name]="card.name" [pan]="card.pan" [holder]="card.holder"
+                        [amount]="card.amount">
+                    </app-card-row>
+                </div>
+            </div>
+        </section>
+    </main>
+    <app-footer></app-footer>
+</div>
