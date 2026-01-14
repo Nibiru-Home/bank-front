@@ -1,0 +1,21 @@
+<div class="accounts-page">
+    <app-header></app-header>
+    <main class="accounts-content">
+        <section class="accounts-section" aria-label="Cuentas">
+            <div class="accounts-container">
+                <div class="accounts-header">
+                    <div class="accounts-header__title">
+                        <h2>Cuentas</h2>
+                    </div>
+                </div>
+
+                <div class="accounts-list">
+                    <app-account-row *ngFor="let account of accounts" [name]="account.name" [iban]="account.iban"
+                        [holder]="account.holder" [amount]="account.amount" [isTitular]="account.isTitular">
+                    </app-account-row>
+                </div>
+            </div>
+        </section>
+    </main>
+    <app-footer></app-footer>
+</div>
