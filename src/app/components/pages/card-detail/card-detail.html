@@ -15,8 +15,17 @@
             </div>
 
             <div class="card-info">
-                <h2 class="card-title">{{ card.name }} {{ card.number }}</h2>
+                <h2 class="card-title">{{ card.name }} {{ card.number.split(' ')[1] }}</h2>
                 <div class="card-balance">{{ card.amount }}</div>
+
+                <div class="quick-actions">
+                    <div class="action-item" *ngFor="let action of actions">
+                        <div class="action-btn">
+                            <img [src]="action.icon" [alt]="action.label">
+                        </div>
+                        <span class="action-label">{{ action.label }}</span>
+                    </div>
+                </div>
             </div>
         </section>
 
