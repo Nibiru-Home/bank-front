@@ -23,7 +23,17 @@ export class AccountDetailComponent {
         { concept: 'Nomina Enero', date: '01/01/2026', amount: '+2.450,00 €' },
         { concept: 'Netflix', date: '28/12/2025', amount: '-12,99 €' },
         { concept: 'Supermercado', date: '24/12/2025', amount: '-145,20 €' },
-        { concept: 'Bizum Alberto', date: '20/12/2025', amount: '+15,00 €' }
+        { concept: 'Bizum Alberto', date: '20/12/2025', amount: '+15,00 €' },
+        { concept: 'Spotify Premium', date: '18/12/2025', amount: '-9,99 €' },
+        { concept: 'Gasolinera Repsol', date: '15/12/2025', amount: '-45,00 €' },
+        { concept: 'Gym McFit', date: '10/12/2025', amount: '-29,90 €' },
+        { concept: 'Cena Empresa', date: '05/12/2025', amount: '-35,00 €' },
+        { concept: 'Transferencia Ahorro', date: '01/12/2025', amount: '-500,00 €' }
+    ];
+
+    actions = [
+        { label: 'Enviar dinero', icon: '/images/iconos/transferir-dinero.png' },
+        { label: 'Datos', icon: '/images/iconos/contratar.png' }
     ];
 
     constructor(private route: ActivatedRoute) {
