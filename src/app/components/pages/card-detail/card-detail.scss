@@ -1,6 +1,6 @@
 @use "../../../scss/main.scss";
 
-.account-detail-page {
+.card-detail-page {
     width: var(--cyb-sys-width-14);
     min-height: var(--cyb-sys-height-16);
     background-color: var(--cyb-sys-color-white-7);
@@ -12,7 +12,7 @@
     flex-direction: column;
 }
 
-.account-detail-content {
+.card-detail-content {
     width: var(--cyb-sys-width-14);
     padding: var(--cyb-sys-padding-10) var(--cyb-sys-padding-9);
     flex: 1;
@@ -21,11 +21,80 @@
     gap: var(--cyb-sys-padding-8);
 }
 
-.detail-card {
+.detail-container {
     background-color: var(--cyb-sys-color-white-9);
     border-radius: var(--cyb-sys-border-radius-9);
     padding: var(--cyb-sys-padding-9);
     box-shadow: var(--cyb-sys-shadow-3);
+    display: flex;
+    flex-direction: column;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--cyb-sys-padding-10);
+    // No background or shadow as per user request
+}
+
+// Visual Card Styling
+.card-visual {
+    width: var(--cyb-sys-width-8);
+    height: var(--cyb-sys-height-5);
+    background: linear-gradient(135deg, var(--cyb-sys-color-black-1) 0%, var(--cyb-sys-color-black-7) 100%);
+    border-radius: var(--cyb-sys-border-radius-5);
+    padding: var(--cyb-sys-padding-7);
+    color: var(--cyb-sys-color-white-9);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    box-shadow: var(--cyb-sys-shadow-4);
+
+    &__chip {
+        width: var(--cyb-sys-padding-12);
+        height: var(--cyb-sys-padding-11);
+        background: linear-gradient(135deg, #FFD700 0%, #DAA520 100%);
+        border-radius: var(--cyb-sys-border-radius-3);
+    }
+
+    &__number {
+        font-family: monospace;
+        font-size: var(--cyb-sys-font-size-5);
+        letter-spacing: var(--cyb-sys-padding-1);
+        margin-top: var(--cyb-sys-padding-4);
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    &__holder {
+        font-family: var(--cyb-sys-font-family-ui);
+        font-size: var(--cyb-sys-font-size-2);
+        text-transform: uppercase;
+    }
+
+    &__expiry {
+        font-family: monospace;
+        font-size: var(--cyb-sys-font-size-3);
+    }
+
+    &__logo {
+        position: absolute;
+        top: var(--cyb-sys-padding-7);
+        right: var(--cyb-sys-padding-7);
+        font-weight: bold;
+        font-style: italic;
+        font-size: var(--cyb-sys-font-size-5);
+    }
+}
+
+.card-info {
+    text-align: center;
 }
 
 .card-title {
@@ -33,18 +102,18 @@
     font-size: var(--cyb-sys-font-size-6);
     font-weight: var(--cyb-sys-font-weight-8);
     color: var(--cyb-sys-color-black-2);
-    margin: 0 0 var(--cyb-sys-padding-4) 0;
+    margin: 0 0 var(--cyb-sys-padding-2) 0;
     text-transform: uppercase;
 }
 
-.account-balance {
+.card-balance {
     font-family: var(--cyb-sys-font-family-display);
     font-size: var(--cyb-sys-font-size-8);
     font-weight: var(--cyb-sys-font-weight-7);
     color: var(--cyb-sys-color-black-1);
 }
 
-.card-subtitle {
+.container-subtitle {
     font-family: var(--cyb-sys-font-family-ui);
     font-size: var(--cyb-sys-font-size-5);
     font-weight: var(--cyb-sys-font-weight-7);

@@ -1,0 +1,40 @@
+<div class="card-detail-page">
+    <app-header></app-header>
+    <main class="card-detail-content">
+        <!-- Card Info Section -->
+        <section class="info-container">
+            <div class="card-visual">
+                <!-- Visual representation of a credit card -->
+                <div class="card-visual__chip"></div>
+                <div class="card-visual__number">{{ card.pan }}</div>
+                <div class="card-visual__bottom">
+                    <span class="card-visual__holder">{{ card.holder }}</span>
+                    <span class="card-visual__expiry">{{ card.expiry }}</span>
+                </div>
+                <div class="card-visual__logo">VISA</div>
+            </div>
+
+            <div class="card-info">
+                <h2 class="card-title">{{ card.name }} {{ card.number }}</h2>
+                <div class="card-balance">{{ card.amount }}</div>
+            </div>
+        </section>
+
+        <!-- Movements Section -->
+        <section class="detail-container movements-container">
+            <h3 class="container-subtitle">Ultimos movimientos</h3>
+            <div class="movements-list">
+                <div class="movement-row" *ngFor="let movement of movements">
+                    <div class="movement-left">
+                        <span class="movement-concept">{{ movement.concept }}</span>
+                        <span class="movement-date">{{ movement.date }}</span>
+                    </div>
+                    <div class="movement-amount" [class.negative]="movement.amount.startsWith('-')">
+                        {{ movement.amount }}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <app-footer></app-footer>
+</div>
