@@ -31,7 +31,7 @@ export class CardsComponent implements OnInit {
                     const cardView = {
                         id: card.id,
                         name: card.name,
-                        pan: card.number, // Using number as PAN
+                        pan: `**** **** **** ${card.number.slice(-4)}`, // Masked PAN
                         holder: card.name,
                         amount: 'Cargando...' // Placeholder
                     };

@@ -18,10 +18,7 @@
           <app-quick-action label="Cajeros" iconSrc="images/iconos/cajero-automatico.png"
             href="https://www.bancosantander.es/buscador-oficinas-cajeros">
           </app-quick-action>
-          <app-quick-action
-            label="Incidencias"
-            iconSrc="images/iconos/peligro.png"
-            routerLink="/incidencias">
+          <app-quick-action label="Incidencias" iconSrc="images/iconos/peligro.png" routerLink="/incidencias">
           </app-quick-action>
         </section>
         <section class="accounts-section" aria-label="Cuentas">
@@ -30,50 +27,35 @@
               <span class="section-marker"></span>
               <span class="section-title">2 Cuentas</span>
             </div>
-            <div class="section-header__right">
-              <span class="section-header__label">Saldo disponible</span>
-              <span class="section-header__amount">**** EUR</span>
+          </div>
 
-            </div>
-          </div>
-          <div class="account-card">
+          <div class="account-card" *ngFor="let account of accounts">
             <span class="account-card__icon">
               <img src="images/iconos/cuentas-bancarias.png" alt="" aria-hidden="true">
             </span>
             <div class="account-card__info">
-              <span class="account-card__name">Cuenta Nibiru</span>
-              <span class="account-card__iban">ES6000495525582911262426</span>
-              <span class="account-card__label">Saldo disponible</span>
+              <span class="account-card__name">{{ account.name }}</span>
+              <span class="account-card__iban">{{ account.iban }}</span>
             </div>
-            <span class="account-card__amount">**** EUR</span>
-          </div>
-          <div class="account-card">
-            <span class="account-card__icon">
-              <img src="images/iconos/cuentas-bancarias.png" alt="" aria-hidden="true">
-            </span>
-            <div class="account-card__info">
-              <span class="account-card__name">Cuenta Ahorros</span>
-              <span class="account-card__iban">ES4300492995582914207259</span>
-              <span class="account-card__label">Saldo disponible</span>
-            </div>
-            <span class="account-card__amount">**** EUR</span>
+            <span class="account-card__amount">{{ account.balance }}</span>
           </div>
         </section>
+
         <section class="cards-section" aria-label="Tarjetas">
           <div class="section-header">
             <div class="section-header__left">
               <span class="section-marker"></span>
               <span class="section-title">1 Tarjeta</span>
             </div>
-
           </div>
-          <div class="card-item">
+
+          <div class="card-item" *ngFor="let card of cards">
             <span class="card-item__icon">
               <img src="images/iconos/tarjeta-bancaria.png" alt="" aria-hidden="true">
             </span>
             <div class="card-item__info">
-              <span class="card-item__name">Debito Nibiru</span>
-              <span class="card-item__meta">Debito • 1674</span>
+              <span class="card-item__name">{{ card.name }}</span>
+              <span class="card-item__meta">{{ card.type }} • {{ card.pan.slice(-4) }}</span>
             </div>
           </div>
         </section>

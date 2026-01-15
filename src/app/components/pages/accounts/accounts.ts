@@ -30,7 +30,7 @@ export class AccountsComponent implements OnInit {
                     id: account.id,
                     name: `CUENTA *${account.iban.slice(-4)}`, // Generating a name
                     holder: account.client ? `${account.client.firstName} ${account.client.lastName}` : 'Desconocido',
-                    iban: account.iban,
+                    iban: `**** **** **** ${account.iban.slice(-4)}`,
                     amount: account.balance.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' }),
                     isTitular: true // Defaulted
                 }));
