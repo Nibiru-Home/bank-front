@@ -27,7 +27,18 @@ export class CardDetailComponent {
         { concept: 'Uber Ride', date: '13/01/2026', amount: '-12,30 €' },
         { concept: 'ZARA', date: '10/01/2026', amount: '-89,95 €' },
         { concept: 'Gasolinera Repsol', date: '08/01/2026', amount: '-45,00 €' },
-        { concept: 'Cine Yelmo', date: '05/01/2026', amount: '-18,00 €' }
+        { concept: 'Cine Yelmo', date: '05/01/2026', amount: '-18,00 €' },
+        { concept: 'Mercadona', date: '04/01/2026', amount: '-76,20 €' },
+        { concept: 'Netflix', date: '02/01/2026', amount: '-12,99 €' },
+        { concept: 'Spotify', date: '01/01/2026', amount: '-9,99 €' },
+        { concept: 'Amazon', date: '30/12/2025', amount: '-34,50 €' },
+        { concept: 'Restaurante El Pato', date: '28/12/2025', amount: '-55,00 €' }
+    ];
+
+    actions = [
+        { label: 'Enviar dinero', icon: '/images/iconos/transferir-dinero.png' },
+        { label: 'PIN', icon: '/images/iconos/cajero-automatico.png' },
+        { label: 'Datos', icon: '/images/iconos/contratar.png' }
     ];
 
     constructor(private route: ActivatedRoute) {

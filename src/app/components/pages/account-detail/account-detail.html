@@ -2,9 +2,21 @@
     <app-header></app-header>
     <main class="account-detail-content">
         <!-- Account Info Card -->
+        <!-- Account Info Card -->
         <section class="detail-card info-card">
-            <h2 class="card-title">{{ account.name }}</h2>
-            <div class="account-balance">{{ account.amount }}</div>
+            <div class="info-left">
+                <h2 class="card-title">{{ account.name }}</h2>
+                <div class="account-balance">{{ account.amount }}</div>
+            </div>
+
+            <div class="quick-actions">
+                <div class="action-item" *ngFor="let action of actions">
+                    <div class="action-btn">
+                        <img [src]="action.icon" [alt]="action.label">
+                    </div>
+                    <span class="action-label">{{ action.label }}</span>
+                </div>
+            </div>
         </section>
 
         <!-- Movements Card -->

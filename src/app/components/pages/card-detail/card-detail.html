@@ -4,19 +4,21 @@
         <!-- Card Info Section -->
         <section class="info-container">
             <div class="card-visual">
-                <!-- Visual representation of a credit card -->
-                <div class="card-visual__chip"></div>
-                <div class="card-visual__number">{{ card.pan }}</div>
-                <div class="card-visual__bottom">
-                    <span class="card-visual__holder">{{ card.holder }}</span>
-                    <span class="card-visual__expiry">{{ card.expiry }}</span>
-                </div>
-                <div class="card-visual__logo">VISA</div>
+                <img src="/images/tarjeta-credito-sin-fondo.jpeg" alt="Card Design" class="card-visual-img">
             </div>
 
             <div class="card-info">
-                <h2 class="card-title">{{ card.name }} {{ card.number }}</h2>
+                <h2 class="card-title">{{ card.name }} {{ card.number.split(' ')[1] }}</h2>
                 <div class="card-balance">{{ card.amount }}</div>
+
+                <div class="quick-actions">
+                    <div class="action-item" *ngFor="let action of actions">
+                        <div class="action-btn">
+                            <img [src]="action.icon" [alt]="action.label">
+                        </div>
+                        <span class="action-label">{{ action.label }}</span>
+                    </div>
+                </div>
             </div>
         </section>
 
