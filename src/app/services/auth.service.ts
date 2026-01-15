@@ -12,8 +12,10 @@ export class AuthService {
 
     constructor(private clientService: ClientService) {
         const savedUser = localStorage.getItem(this.USER_KEY);
+        console.log('AuthService: Checking localStorage', savedUser);
         if (savedUser) {
             this.currentUser = JSON.parse(savedUser);
+            console.log('AuthService: Restored user', this.currentUser);
         }
     }
 

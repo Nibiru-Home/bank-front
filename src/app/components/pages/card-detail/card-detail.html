@@ -33,8 +33,9 @@
                         <span class="movement-concept">{{ movement.concept }}</span>
                         <span class="movement-date">{{ movement.timestamp | date:'dd/MM/yyyy' }}</span>
                     </div>
-                    <div class="movement-amount" [class.negative]="movement.amount < 0">
-                        {{ movement.amount | currency:'EUR':'symbol':'1.2-2' }}
+                    <div class="movement-amount" [class.negative]="movement.movementType === 'Remove'">
+                        {{ movement.movementType === 'Remove' ? '-' : '+' }} {{ movement.amount |
+                        currency:'EUR':'symbol':'1.2-2' }}
                     </div>
                 </div>
                 <div *ngIf="movements.length === 0" class="no-movements">

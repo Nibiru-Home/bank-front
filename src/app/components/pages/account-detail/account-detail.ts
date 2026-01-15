@@ -44,11 +44,15 @@ export class AccountDetailComponent {
                     name: `CUENTA *${data.iban.slice(-4)}`,
                     amount: data.balance.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })
                 };
-                this.movements = data.movements.map(m => ({
-                    concept: m.concept || 'Movimiento',
-                    date: new Date(m.timestamp).toLocaleDateString(),
-                    amount: m.amount.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })
-                }));
+                this.movements = data.movements.map(m => {
+                    const isExpense = m.movementType === 'Remove';
+                    const sign = isExpense ? '-' : '+';
+                    return {
+                        concept: m.concept || 'Movimiento',
+                        date: new Date(m.timestamp).toLocaleDateString(),
+                        amount: `${sign} ${m.amount.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}`
+                    };
+                });
             },
             error: (err) => console.error('Error loading account', err)
         });
