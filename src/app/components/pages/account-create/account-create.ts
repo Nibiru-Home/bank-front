@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../layout/header/header';
 import { FooterComponent } from '../../layout/footer/footer';
 import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
     selector: 'app-account-create',
@@ -12,7 +13,17 @@ import { Router, RouterLink } from '@angular/router';
     styleUrl: './account-create.scss'
 })
 export class AccountCreateComponent {
-    constructor(private router: Router) { }
+    holderName = '';
+
+    constructor(
+        private router: Router,
+        private authService: AuthService
+    ) {
+        const user = this.authService.getCurrentUser();
+        this.holderName = [user?.firstName, user?.lastName, user?.secondLastName]
+            .filter(Boolean)
+            .join(' ');
+    }
 
     createAccount(event: Event) {
         event.preventDefault();
