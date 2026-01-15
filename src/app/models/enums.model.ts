@@ -1,2 +1,2 @@
-export type MovementType = 'INCOME' | 'EXPENSE'; // Assumed values, adjustable
+export type MovementType = 'Add' | 'Remove';
 export type MovementOrigin = 'CARD' | 'ACCOUNT' | 'TRANSFER'; // Assumed values, adjustable

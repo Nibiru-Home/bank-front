@@ -28,7 +28,7 @@
                         <span class="movement-concept">{{ movement.concept }}</span>
                         <span class="movement-date">{{ movement.date }}</span>
                     </div>
-                    <div class="movement-amount" [class.negative]="movement.amount.startsWith('-')">
+                    <div class="movement-amount" [class.negative]="movement.amount.includes('-')">
                         {{ movement.amount }}
                     </div>
                 </div>

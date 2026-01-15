@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterLink, RouterLinkActive, Router } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,11 +10,25 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header.scss'
 })
 export class HeaderComponent {
-  readonly userFullName = 'Usuario Apellido';
   readonly userAccountType = 'Cuenta personal';
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
+
+  get userFullName(): string {
+    const user = this.authService.getCurrentUser();
+    return user ? `${user.firstName} ${user.lastName}` : 'Usuario Invitado';
+  }
 
   get userInitials(): string {
     return this.buildInitials(this.userFullName);
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
   private buildInitials(name: string): string {

@@ -9,16 +9,17 @@ import { AccountDetailComponent } from './components/pages/account-detail/accoun
 import { CardDetailComponent } from './components/pages/card-detail/card-detail';
 import { ContratarProductosComponent } from './components/pages/contratar-productos/contratar-productos';
 import { IncidenciasComponent } from './components/pages/incidencias/incidencias';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  { path: '', component: IndexComponent },
+  { path: '', component: IndexComponent, canActivate: [authGuard], pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'accounts', component: AccountsComponent },
-  { path: 'accounts/new', component: AccountCreateComponent },
-  { path: 'accounts/:id', component: AccountDetailComponent },
-  { path: 'cards', component: CardsComponent },
-  { path: 'cards/new', component: CardCreateComponent },
-  { path: 'cards/:id', component: CardDetailComponent },
-  { path: 'contratar-productos', component: ContratarProductosComponent },
-  { path: 'incidencias', component: IncidenciasComponent }
+  { path: 'accounts', component: AccountsComponent, canActivate: [authGuard] },
+  { path: 'accounts/new', component: AccountCreateComponent, canActivate: [authGuard] },
+  { path: 'accounts/:id', component: AccountDetailComponent, canActivate: [authGuard] },
+  { path: 'cards', component: CardsComponent, canActivate: [authGuard] },
+  { path: 'cards/new', component: CardCreateComponent, canActivate: [authGuard] },
+  { path: 'cards/:id', component: CardDetailComponent, canActivate: [authGuard] },
+  { path: 'contratar-productos', component: ContratarProductosComponent, canActivate: [authGuard] },
+  { path: 'incidencias', component: IncidenciasComponent, canActivate: [authGuard] }
 ];

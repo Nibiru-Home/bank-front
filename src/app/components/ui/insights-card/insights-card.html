@@ -2,11 +2,11 @@
   <div class="insights-tabs" role="tablist">
     <button class="insights-tab is-active" type="button" role="tab">Gastos</button>
   </div>
-  <span class="insights-date">Actualizado el 13 ene, 2026</span>
+  <span class="insights-date">Actualizado el {{ currentDate | date:'d MMM, y' }}</span>
   <div class="insights-donut" aria-hidden="true">
     <div class="insights-donut__center">
-      <span class="insights-donut__month">enero</span>
-      <span class="insights-donut__amount">**** EUR</span>
+      <span class="insights-donut__month">{{ currentDate | date:'MMMM' }}</span>
+      <span class="insights-donut__amount">{{ totalExpenses | currency:'EUR':'symbol':'1.2-2' }}</span>
     </div>
   </div>
   <div class="insights-list">
@@ -18,7 +18,7 @@
         <span class="insights-item__title">Cajeros y transferencias</span>
         <span class="insights-item__subtitle">57% de tus gastos</span>
       </div>
-      <span class="insights-item__amount">**** EUR</span>
+      <span class="insights-item__amount">{{ atmExpenses | currency:'EUR':'symbol':'1.2-2' }}</span>
     </div>
     <div class="insights-item">
       <span class="insights-item__icon">
@@ -28,7 +28,7 @@
         <span class="insights-item__title">Ocio</span>
         <span class="insights-item__subtitle">25% de tus gastos</span>
       </div>
-      <span class="insights-item__amount">**** EUR</span>
+      <span class="insights-item__amount">{{ leisureExpenses | currency:'EUR':'symbol':'1.2-2' }}</span>
     </div>
   </div>
 </aside>

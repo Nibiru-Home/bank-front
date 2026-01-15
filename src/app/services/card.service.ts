@@ -36,4 +36,8 @@ export class CardService {
     getMovements(cardId: number): Observable<BankMovement[]> {
         return this.http.get<BankMovement[]>(`${this.movementsUrl}/card/${cardId}`);
     }
+
+    findByClientId(id: string): Observable<CreditCard[]> {
+        return this.http.get<CreditCard[]>(`${this.apiUrl}/client/${id}`);
+    }
 }
