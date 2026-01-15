@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../layout/header/header';
 import { FooterComponent } from '../../layout/footer/footer';
 import { ActivatedRoute } from '@angular/router';
+import { CardService, CreditCard, BankMovement } from '../../../services/card.service';
 
 @Component({
     selector: 'app-card-detail',
@@ -11,29 +12,9 @@ import { ActivatedRoute } from '@angular/router';
     templateUrl: './card-detail.html',
     styleUrl: './card-detail.scss'
 })
-export class CardDetailComponent {
-    // Mock data
-    card = {
-        name: 'TARJETA VISA',
-        number: '**** 1234',
-        pan: '4548 **** **** 1234',
-        amount: '1.250,50 €',
-        holder: 'ALBERTO SANCHEZ RUIZ',
-        expiry: '12/28'
-    };
-
-    movements = [
-        { concept: 'Starbucks', date: '14/01/2026', amount: '-5,50 €' },
-        { concept: 'Uber Ride', date: '13/01/2026', amount: '-12,30 €' },
-        { concept: 'ZARA', date: '10/01/2026', amount: '-89,95 €' },
-        { concept: 'Gasolinera Repsol', date: '08/01/2026', amount: '-45,00 €' },
-        { concept: 'Cine Yelmo', date: '05/01/2026', amount: '-18,00 €' },
-        { concept: 'Mercadona', date: '04/01/2026', amount: '-76,20 €' },
-        { concept: 'Netflix', date: '02/01/2026', amount: '-12,99 €' },
-        { concept: 'Spotify', date: '01/01/2026', amount: '-9,99 €' },
-        { concept: 'Amazon', date: '30/12/2025', amount: '-34,50 €' },
-        { concept: 'Restaurante El Pato', date: '28/12/2025', amount: '-55,00 €' }
-    ];
+export class CardDetailComponent implements OnInit {
+    card: CreditCard | null = null;
+    movements: BankMovement[] = [];
 
     actions = [
         { label: 'Enviar dinero', icon: '/images/iconos/transferir-dinero.png' },
@@ -41,7 +22,29 @@ export class CardDetailComponent {
         { label: 'Datos', icon: '/images/iconos/contratar.png' }
     ];
 
-    constructor(private route: ActivatedRoute) {
-        // Here we would fetch data based on ID
+    constructor(
+        private route: ActivatedRoute,
+        private cardService: CardService
+    ) { }
+
+    ngOnInit() {
+        this.route.params.subscribe(params => {
+            const id = params['id'];
+            if (id) {
+                this.loadData(id);
+            }
+        });
+    }
+
+    loadData(id: number) {
+        this.cardService.getCard(id).subscribe({
+            next: (data) => this.card = data,
+            error: (err) => console.error('Error fetching card', err)
+        });
+
+        this.cardService.getMovements(id).subscribe({
+            next: (data) => this.movements = data,
+            error: (err) => console.error('Error fetching movements', err)
+        });
     }
 }

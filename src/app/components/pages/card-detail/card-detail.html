@@ -1,6 +1,6 @@
 <div class="card-detail-page">
     <app-header></app-header>
-    <main class="card-detail-content">
+    <main class="card-detail-content" *ngIf="card">
         <!-- Card Info Section -->
         <section class="info-container">
             <div class="card-visual">
@@ -8,8 +8,9 @@
             </div>
 
             <div class="card-info">
-                <h2 class="card-title">{{ card.name }} {{ card.number.split(' ')[1] }}</h2>
-                <div class="card-balance">{{ card.amount }}</div>
+                <h2 class="card-title">{{ card.name }} {{ card.number.split(' ')[1] || '****' }}</h2>
+                <div class="card-balance">{{ card.balance | currency:'EUR':'symbol':'1.2-2' }}</div>
+                <div class="card-holder" style="color: #666; margin-bottom: 1rem;">{{ card.holder }}</div>
 
                 <div class="quick-actions">
                     <div class="action-item" *ngFor="let action of actions">
@@ -29,11 +30,14 @@
                 <div class="movement-row" *ngFor="let movement of movements">
                     <div class="movement-left">
                         <span class="movement-concept">{{ movement.concept }}</span>
-                        <span class="movement-date">{{ movement.date }}</span>
+                        <span class="movement-date">{{ movement.timestamp | date:'dd/MM/yyyy' }}</span>
                     </div>
-                    <div class="movement-amount" [class.negative]="movement.amount.startsWith('-')">
-                        {{ movement.amount }}
+                    <div class="movement-amount" [class.negative]="movement.amount < 0">
+                        {{ movement.amount | currency:'EUR':'symbol':'1.2-2' }}
                     </div>
+                </div>
+                <div *ngIf="movements.length === 0" class="no-movements">
+                    No hay movimientos recientes
                 </div>
             </div>
         </section>
