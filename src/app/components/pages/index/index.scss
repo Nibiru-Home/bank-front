@@ -58,7 +58,7 @@
   width: 100%;
   max-width: none;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: var(--cyb-sys-padding-8);
 }
 
