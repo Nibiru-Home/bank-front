@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../layout/header/header';
 import { FooterComponent } from '../../layout/footer/footer';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-card-create',
     standalone: true,
-    imports: [CommonModule, HeaderComponent, FooterComponent],
+    imports: [CommonModule, RouterLink, HeaderComponent, FooterComponent],
     templateUrl: './card-create.html',
     styleUrl: './card-create.scss'
 })

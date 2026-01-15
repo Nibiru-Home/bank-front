@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { HeaderComponent } from '../../layout/header/header';
 import { FooterComponent } from '../../layout/footer/footer';
 import { CardRowComponent } from '../../ui/card-row/card-row';
@@ -10,7 +11,7 @@ import { AuthService } from '../../../services/auth.service';
 @Component({
     selector: 'app-cards',
     standalone: true,
-    imports: [CommonModule, HeaderComponent, FooterComponent, CardRowComponent],
+    imports: [CommonModule, RouterLink, HeaderComponent, FooterComponent, CardRowComponent],
     templateUrl: './cards.html',
     styleUrl: './cards.scss'
 })
