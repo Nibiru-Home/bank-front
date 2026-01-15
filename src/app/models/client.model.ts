@@ -1,7 +1,7 @@
 import { BankAccount } from './bank-account.model';
 
 export interface Client {
-    id: string; // UUID -> string
+    id: string; 
     login: string;
     firstName: string;
     lastName: string | null;

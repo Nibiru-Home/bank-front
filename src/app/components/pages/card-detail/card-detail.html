@@ -1,7 +1,7 @@
 <div class="card-detail-page">
     <app-header></app-header>
     <main class="card-detail-content" *ngIf="card">
-        <!-- Card Info Section -->
+         
         <section class="info-container">
             <div class="card-visual">
                 <img src="/images/tarjeta-credito-sin-fondo.jpeg" alt="Card Design" class="card-visual-img">
@@ -9,8 +9,8 @@
 
             <div class="card-info">
                 <h2 class="card-title">{{ card.name }} {{ card.number.split(' ')[1] || '****' }}</h2>
-                <!-- Balance removed as it's not in the new interface -->
-                <!-- <div class="card-balance">{{ card.balance | currency:'EUR':'symbol':'1.2-2' }}</div> -->
+                 
+                 
                 <div class="card-holder" style="color: #666; margin-bottom: 1rem;">{{ card.name }}</div>
 
                 <div class="quick-actions">
@@ -24,7 +24,7 @@
             </div>
         </section>
 
-        <!-- Movements Section -->
+         
         <section class="detail-container movements-container">
             <h3 class="container-subtitle">Ultimos movimientos</h3>
             <div class="movements-list">

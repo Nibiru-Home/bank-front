@@ -17,8 +17,8 @@ export class LoginComponent {
   private readonly authService = inject(AuthService);
 
   dni: string = '';
-  // password field is present in HTML but logic might be purely simulation based on DNI for now as per plan
-  // If we want to capture password we need a property
+  
+  
   password: string = '';
 
   onSubmit(event: Event): void {

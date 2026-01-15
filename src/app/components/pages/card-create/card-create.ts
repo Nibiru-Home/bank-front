@@ -16,7 +16,7 @@ export class CardCreateComponent {
 
     createCard(event: Event) {
         event.preventDefault();
-        // Here we would call the service to create the card
+        
         alert('Solicitud de tarjeta enviada con éxito');
         this.router.navigate(['/cards']);
     }

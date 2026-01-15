@@ -18,6 +18,6 @@ export class AccountRowComponent {
     @Input() amount: string = '';
     @Input() isTitular: boolean = false;
 
-    // Helper to format currency if not using a pipe
-    // Using Angular's currency pipe in template is better.
+    
+    
 }

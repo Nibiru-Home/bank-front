@@ -18,7 +18,7 @@
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center; // Vertically center the form
+    align-items: center; 
 }
 
 .form-container {
@@ -27,10 +27,10 @@
     padding: var(--cyb-sys-padding-10);
     box-shadow: var(--cyb-sys-shadow-3);
     width: 700px;
-    min-height: 500px; // Make form taller
+    min-height: 500px; 
     display: flex;
     flex-direction: column;
-    justify-content: center; // Center content vertically within the form box
+    justify-content: center; 
     gap: var(--cyb-sys-padding-8);
 }
 
@@ -46,13 +46,13 @@
 .create-form {
     display: flex;
     flex-direction: column;
-    gap: var(--cyb-sys-padding-8); // Increased from 6
+    gap: var(--cyb-sys-padding-8); 
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: var(--cyb-sys-padding-4); // Increased from 2
+    gap: var(--cyb-sys-padding-4); 
 
     label {
         font-family: var(--cyb-sys-font-family-ui);
@@ -63,14 +63,14 @@
 
     input,
     select {
-        height: 50px; // Fixed height for consistency
-        padding: 0 var(--cyb-sys-padding-4); // Adjust padding for centered text vertically
+        height: 50px; 
+        padding: 0 var(--cyb-sys-padding-4); 
         border: 1px solid var(--cyb-sys-color-light-blue-8);
         border-radius: var(--cyb-sys-border-radius-3);
         font-family: var(--cyb-sys-font-family-ui);
         font-size: var(--cyb-sys-font-size-3);
         color: var(--cyb-sys-color-black-1);
-        width: 100%; // Ensure full width
+        width: 100%; 
         box-sizing: border-box;
 
         &:focus {
@@ -107,7 +107,7 @@
 
 .btn-secondary {
     background-color: transparent;
-    color: var(--cyb-sys-color-red-5); // Red color for Cancel
+    color: var(--cyb-sys-color-red-5); 
     border: 1px solid var(--cyb-sys-color-red-5);
     padding: var(--cyb-sys-padding-4);
     border-radius: 999px;

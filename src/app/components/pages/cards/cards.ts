@@ -14,7 +14,7 @@ import { BankAccountService } from '../../../services/bank-account.service';
     styleUrl: './cards.scss'
 })
 export class CardsComponent implements OnInit {
-    cards: any[] = []; // Using any[] to map to view expectation for now
+    cards: any[] = []; 
 
     constructor(
         private cardService: CardService,
@@ -27,12 +27,12 @@ export class CardsComponent implements OnInit {
                 const cardView = {
                     id: card.id,
                     name: card.name,
-                    pan: card.number, // Using number as PAN
+                    pan: card.number, 
                     holder: card.name,
-                    amount: 'Cargando...' // Placeholder
+                    amount: 'Cargando...' 
                 };
 
-                // Fetch balance for this card
+                
                 if (card.id) {
                     this.bankAccountService.findByCreditCardId(Number(card.id)).subscribe({
                         next: (account) => {

@@ -14,7 +14,7 @@ import { BankAccount } from '../../../models/bank-account.model';
     styleUrl: './accounts.scss'
 })
 export class AccountsComponent implements OnInit {
-    accounts: any[] = []; // Using any[] to map to view expectation for now
+    accounts: any[] = []; 
 
     constructor(private bankAccountService: BankAccountService) { }
 
@@ -22,11 +22,11 @@ export class AccountsComponent implements OnInit {
         this.bankAccountService.findAll().subscribe(data => {
             this.accounts = data.map(account => ({
                 id: account.id,
-                name: `CUENTA *${account.iban.slice(-4)}`, // Generating a name
+                name: `CUENTA *${account.iban.slice(-4)}`, 
                 holder: account.client ? `${account.client.firstName} ${account.client.lastName}` : 'Desconocido',
                 iban: account.iban,
                 amount: account.balance.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' }),
-                isTitular: true // Defaulted
+                isTitular: true 
             }));
         });
     }

@@ -16,7 +16,7 @@ export class AccountCreateComponent {
 
     createAccount(event: Event) {
         event.preventDefault();
-        // Here we would call the service to create the account
+        
         alert('Cuenta creada con éxito');
         this.router.navigate(['/accounts']);
     }

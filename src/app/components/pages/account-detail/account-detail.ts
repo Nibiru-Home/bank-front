@@ -14,7 +14,7 @@ import { BankAccount } from '../../../models/bank-account.model';
     styleUrl: './account-detail.scss'
 })
 export class AccountDetailComponent {
-    // Mock data for the view
+    
     account: any = null;
     movements: any[] = [];
 

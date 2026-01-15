@@ -36,7 +36,7 @@
 
 .card-row__right {
     display: flex;
-    flex-direction: row; // Change to row to put button next to balance
+    flex-direction: row; 
     align-items: center;
     gap: var(--cyb-sys-padding-6);
 }
