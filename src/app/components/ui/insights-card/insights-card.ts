@@ -41,7 +41,7 @@ export class InsightsCardComponent implements OnInit {
       const date = new Date(m.timestamp);
       return date.getMonth() === currentMonth &&
         date.getFullYear() === currentYear &&
-        m.amount < 0; // Assuming expenses are negative
+        m.movementType === 'Remove';
     });
 
     // Sum absolute values
