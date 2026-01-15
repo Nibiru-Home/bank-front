@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { HeaderComponent } from '../../layout/header/header';
 import { FooterComponent } from '../../layout/footer/footer';
 import { AccountRowComponent } from '../../ui/account-row/account-row';
@@ -9,7 +10,7 @@ import { BankAccount } from '../../../models/bank-account.model';
 @Component({
     selector: 'app-accounts',
     standalone: true,
-    imports: [CommonModule, HeaderComponent, FooterComponent, AccountRowComponent],
+    imports: [CommonModule, RouterLink, HeaderComponent, FooterComponent, AccountRowComponent],
     templateUrl: './accounts.html',
     styleUrl: './accounts.scss'
 })
