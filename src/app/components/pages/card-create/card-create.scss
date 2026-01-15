@@ -1,6 +1,5 @@
 @use "../../../scss/main.scss";
 
-// Reusing same styles as account-create for consistency
 .create-page {
     width: var(--cyb-sys-width-14);
     min-height: var(--cyb-sys-height-16);
@@ -19,41 +18,49 @@
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center; // Vertically center the form
+    align-items: center;
 }
 
-.form-container {
+.create-panel {
     background-color: var(--cyb-sys-color-white-9);
     border-radius: var(--cyb-sys-border-radius-9);
     padding: var(--cyb-sys-padding-10);
     box-shadow: var(--cyb-sys-shadow-3);
-    width: 700px;
-    min-height: 500px; // Make form taller
+    width: min(100%, 980px);
     display: flex;
     flex-direction: column;
-    justify-content: center; // Center content vertically within the form box
-    gap: var(--cyb-sys-padding-8);
+    gap: var(--cyb-sys-padding-6);
 }
 
-.form-title {
+.create-fields {
+    display: flex;
+    flex-direction: column;
+    gap: var(--cyb-sys-padding-6);
+}
+
+.create-title {
     font-family: var(--cyb-sys-font-family-ui);
     font-size: var(--cyb-sys-font-size-6);
     font-weight: var(--cyb-sys-font-weight-8);
     color: var(--cyb-sys-color-black-2);
-    text-align: center;
+    text-align: left;
     text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0;
 }
 
 .create-form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--cyb-sys-padding-8); // Increased from 6
+    display: grid;
+    grid-template-columns: minmax(320px, 1fr) minmax(240px, 320px);
+    gap: var(--cyb-sys-padding-8);
+    align-items: start;
+    width: 100%;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: var(--cyb-sys-padding-4); // Increased from 2
+    gap: var(--cyb-sys-padding-3);
 
     label {
         font-family: var(--cyb-sys-font-family-ui);
@@ -64,35 +71,109 @@
 
     input,
     select {
-        height: 50px; // Fixed height for consistency
-        padding: 0 var(--cyb-sys-padding-4); // Adjust padding for centered text vertically
+        height: 52px;
+        padding: 0 var(--cyb-sys-padding-4);
         border: 1px solid var(--cyb-sys-color-light-blue-8);
-        border-radius: var(--cyb-sys-border-radius-3);
+        border-radius: var(--cyb-sys-border-radius-4);
+        background-color: var(--cyb-sys-color-white-7);
         font-family: var(--cyb-sys-font-family-ui);
         font-size: var(--cyb-sys-font-size-3);
         color: var(--cyb-sys-color-black-1);
-        width: 100%; // Ensure full width
+        width: 100%;
         box-sizing: border-box;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
         &:focus {
             outline: none;
             border-color: var(--cyb-sys-color-black-1);
+            box-shadow: var(--cyb-sys-shadow-1);
         }
     }
 }
 
-.form-actions {
+.card-type-group {
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    legend {
+        font-family: var(--cyb-sys-font-family-ui);
+        font-size: var(--cyb-sys-font-size-2);
+        color: var(--cyb-sys-color-blue-gray-4);
+        font-weight: var(--cyb-sys-font-weight-6);
+        margin-bottom: var(--cyb-sys-padding-3);
+    }
+}
+
+.card-type-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--cyb-sys-padding-4);
+}
+
+.card-type-option {
+    position: relative;
+    border: 1px solid var(--cyb-sys-color-light-blue-8);
+    border-radius: var(--cyb-sys-border-radius-6);
+    padding: var(--cyb-sys-padding-4);
+    background-color: var(--cyb-sys-color-white-8);
     display: flex;
     flex-direction: column;
-    gap: var(--cyb-sys-padding-3);
+    gap: var(--cyb-sys-padding-2);
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &:hover {
+        transform: translateY(-1px);
+    }
+
+    &:focus-within {
+        border-color: var(--cyb-sys-color-black-1);
+        box-shadow: var(--cyb-sys-shadow-1);
+    }
+
+    &.is-selected {
+        border-color: var(--cyb-sys-color-black-1);
+        box-shadow: var(--cyb-sys-shadow-2);
+        background-color: var(--cyb-sys-color-white-9);
+    }
+}
+
+.card-type-title {
+    font-family: var(--cyb-sys-font-family-ui);
+    font-size: var(--cyb-sys-font-size-3);
+    font-weight: var(--cyb-sys-font-weight-7);
+    color: var(--cyb-sys-color-black-1);
+}
+
+.card-type-text {
+    font-family: var(--cyb-sys-font-family-ui);
+    font-size: var(--cyb-sys-font-size-2);
+    color: var(--cyb-sys-color-blue-gray-4);
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--cyb-sys-padding-4);
     margin-top: var(--cyb-sys-padding-4);
+    justify-content: flex-end;
+    width: 100%;
+    align-self: stretch;
+    grid-column: 1 / -1;
 }
 
 .btn-primary {
     background-color: var(--cyb-sys-color-black-1);
     color: var(--cyb-sys-color-white-9);
     border: none;
-    padding: var(--cyb-sys-padding-4);
+    padding: var(--cyb-sys-padding-4) var(--cyb-sys-padding-7);
     border-radius: 999px;
     font-family: var(--cyb-sys-font-family-ui);
     font-weight: var(--cyb-sys-font-weight-7);
@@ -100,6 +181,7 @@
     cursor: pointer;
     text-align: center;
     text-decoration: none;
+    transition: opacity 0.2s ease;
 
     &:hover {
         opacity: 0.9;
@@ -108,9 +190,9 @@
 
 .btn-secondary {
     background-color: transparent;
-    color: var(--cyb-sys-color-red-5); // Red color for Cancel
+    color: var(--cyb-sys-color-red-5);
     border: 1px solid var(--cyb-sys-color-red-5);
-    padding: var(--cyb-sys-padding-4);
+    padding: var(--cyb-sys-padding-4) var(--cyb-sys-padding-7);
     border-radius: 999px;
     font-family: var(--cyb-sys-font-family-ui);
     font-weight: var(--cyb-sys-font-weight-6);
@@ -118,9 +200,72 @@
     cursor: pointer;
     text-align: center;
     text-decoration: none;
+    transition: opacity 0.2s ease, border-color 0.2s ease;
 
     &:hover {
         opacity: 0.8;
         border-color: var(--cyb-sys-color-red-5);
+    }
+}
+
+.create-right {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.card-preview {
+    width: 100%;
+    max-width: 320px;
+    padding: var(--cyb-sys-padding-6);
+    border-radius: var(--cyb-sys-border-radius-7);
+    background: linear-gradient(160deg,
+            var(--cyb-sys-color-white-9) 0%,
+            var(--cyb-sys-color-white-7) 100%);
+    box-shadow: var(--cyb-sys-shadow-2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--cyb-sys-padding-4);
+}
+
+.card-preview__image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-preview__caption {
+    font-family: var(--cyb-sys-font-family-ui);
+    font-size: var(--cyb-sys-font-size-2);
+    color: var(--cyb-sys-color-blue-gray-4);
+    font-weight: var(--cyb-sys-font-weight-6);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+@media (max-width: 900px) {
+    .create-content {
+        padding: var(--cyb-sys-padding-9) var(--cyb-sys-padding-7);
+    }
+
+    .create-panel {
+        width: min(100%, 720px);
+    }
+
+    .card-type-options {
+        grid-template-columns: 1fr;
+    }
+
+    .create-form {
+        grid-template-columns: 1fr;
+    }
+
+    .create-right {
+        justify-content: flex-start;
+    }
+
+    .form-actions {
+        justify-content: center;
     }
 }

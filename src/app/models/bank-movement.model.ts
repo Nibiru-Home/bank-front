@@ -4,11 +4,11 @@ import { BankAccount } from './bank-account.model';
 
 export interface BankMovement {
     id: number;
-    amount: number; // BigDecimal in Java -> number in TS
+    amount: number; 
     movementType: MovementType;
     movementOrigin: MovementOrigin;
     concept: string | null;
-    timestamp: string; // LocalDateTime -> string
+    timestamp: string; 
     originCreditCard: CreditCard | null;
     destinationBankAccount: BankAccount | null;
 }

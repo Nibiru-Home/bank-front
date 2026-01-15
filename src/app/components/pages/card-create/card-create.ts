@@ -12,11 +12,13 @@ import { Router, RouterLink } from '@angular/router';
     styleUrl: './card-create.scss'
 })
 export class CardCreateComponent {
+    cardType: 'debit' | 'credit' = 'debit';
+
     constructor(private router: Router) { }
 
     createCard(event: Event) {
         event.preventDefault();
-        // Here we would call the service to create the card
+
         alert('Solicitud de tarjeta enviada con éxito');
         this.router.navigate(['/cards']);
     }

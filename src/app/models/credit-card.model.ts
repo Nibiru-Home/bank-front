@@ -1,7 +1,7 @@
 export interface CreditCard {
     id: number;
     number: string;
-    expirationDate: string; // LocalDate is usually string in JSON
+    expirationDate: string; 
     cvv: number;
     name: string;
 }

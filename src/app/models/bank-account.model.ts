@@ -6,7 +6,7 @@ export interface BankAccount {
     id: number;
     balance: number;
     iban: string;
-    client: Client | null; // Nullable to avoid infinite recursion in JSON if not handled, though typically reference
+    client: Client | null; 
     movements: BankMovement[];
     creditCards: CreditCard[];
 }

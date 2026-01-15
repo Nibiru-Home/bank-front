@@ -1,29 +1,61 @@
 <div class="create-page">
     <app-header></app-header>
     <main class="create-content">
-        <section class="form-container">
-            <h2 class="form-title">Solicitar Tarjeta</h2>
+        <section class="create-panel">
+            <h2 class="create-title">Solicitar Tarjeta</h2>
             <form (submit)="createCard($event)" class="create-form">
-                <div class="form-group">
-                    <label for="holder">Nombre del titular</label>
-                    <input type="text" id="holder" required>
+                <div class="create-fields">
+                    <div class="form-group">
+                        <label for="holder">Nombre del titular</label>
+                        <input type="text" id="holder" placeholder="Nombre y apellidos" required>
+                    </div>
+
+                    <fieldset class="form-group card-type-group">
+                        <legend>Tipo de tarjeta</legend>
+                        <div class="card-type-options">
+                            <label class="card-type-option" [class.is-selected]="cardType === 'debit'">
+                                <input
+                                    type="radio"
+                                    name="cardType"
+                                    value="debit"
+                                    [checked]="cardType === 'debit'"
+                                    (change)="cardType = 'debit'">
+                                <span class="card-type-title">Debito</span>
+                                <span class="card-type-text">Pago al instante</span>
+                            </label>
+                            <label class="card-type-option" [class.is-selected]="cardType === 'credit'">
+                                <input
+                                    type="radio"
+                                    name="cardType"
+                                    value="credit"
+                                    [checked]="cardType === 'credit'"
+                                    (change)="cardType = 'credit'">
+                                <span class="card-type-title">Credito</span>
+                                <span class="card-type-text">Pago a fin de mes</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-group">
+                        <label for="account">Cuenta vinculada</label>
+                        <select id="account" required>
+                            <option value="1">Cuenta *3270 - 211,47 €</option>
+                            <option value="2">Cuenta *4491 - 5.000,00 €</option>
+                        </select>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="network">Red</label>
-                    <select id="network">
-                        <option value="visa">VISA</option>
-                        <option value="mastercard">Mastercard</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="account">Cuenta vinculada</label>
-                    <select id="account">
-                        <option value="1">Cuenta *3270 - 211,47 €</option>
-                        <option value="2">Cuenta *4491 - 5.000,00 €</option>
-                    </select>
-                </div>
+                <aside class="create-right">
+                    <div class="card-preview">
+                        <img
+                            class="card-preview__image"
+                            [src]="cardType === 'debit' ? '/images/tarjeta-debito.png' : '/images/tarjeta-credito.png'"
+                            [alt]="cardType === 'debit' ? 'Tarjeta debito' : 'Tarjeta credito'">
+                        <div class="card-preview__caption">
+                            {{ cardType === 'debit' ? 'Tarjeta debito' : 'Tarjeta credito' }}
+                        </div>
+                    </div>
+                </aside>
 
                 <div class="form-actions">
                     <button type="submit" class="btn-primary">Solicitar</button>
