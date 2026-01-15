@@ -1,0 +1,29 @@
+<div class="create-page">
+    <app-header></app-header>
+    <main class="create-content">
+        <section class="form-container">
+            <h2 class="form-title">Nueva Cuenta</h2>
+            <form (submit)="createAccount($event)" class="create-form">
+                <div class="form-group">
+                    <label for="holder">Nombre del titular</label>
+                    <input type="text" id="holder" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="type">Tipo de cuenta</label>
+                    <select id="type">
+                        <option value="standard">Cuenta Corriente</option>
+                        <option value="savings">Cuenta Ahorro</option>
+                        <option value="business">Cuenta Negocios</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Crear Cuenta</button>
+                    <a routerLink="/accounts" class="btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </section>
+    </main>
+    <app-footer></app-footer>
+</div>

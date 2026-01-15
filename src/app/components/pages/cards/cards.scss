@@ -49,6 +49,22 @@
     }
 }
 
+.btn-create {
+    background-color: var(--cyb-sys-color-black-1);
+    color: var(--cyb-sys-color-white-9);
+    padding: var(--cyb-sys-padding-3) var(--cyb-sys-padding-5);
+    border-radius: 999px;
+    font-family: var(--cyb-sys-font-family-ui);
+    font-size: var(--cyb-sys-font-size-2);
+    font-weight: var(--cyb-sys-font-weight-6);
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
 .cards-list {
     display: flex;
     flex-direction: column;
