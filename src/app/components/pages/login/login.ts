@@ -23,12 +23,12 @@ export class LoginComponent {
 
   onSubmit(event: Event): void {
     event.preventDefault();
-    if (this.dni) {
-      this.authService.login(this.dni).subscribe(success => {
+    if (this.dni && this.password) {
+      this.authService.login(this.dni, this.password).subscribe(success => {
         if (success) {
           this.router.navigateByUrl('/');
         } else {
-          alert('Login failed: User not found');
+          alert('Login failed: Verifica tu numero de documento o contraseña');
         }
       });
     }

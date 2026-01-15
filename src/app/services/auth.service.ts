@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ClientService } from './client.service';
 import { Client } from '../models/client.model';
-import { Observable, map, of, tap } from 'rxjs';
+import { Observable, map, of, catchError } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -12,23 +12,24 @@ export class AuthService {
 
     constructor(private clientService: ClientService) {
         const savedUser = localStorage.getItem(this.USER_KEY);
-        console.log('AuthService: Checking localStorage', savedUser);
         if (savedUser) {
             this.currentUser = JSON.parse(savedUser);
-            console.log('AuthService: Restored user', this.currentUser);
         }
     }
 
-    login(dni: string): Observable<boolean> {
-        return this.clientService.findAll().pipe(
-            map(clients => {
-                const user = clients.find(c => c.DNI === dni);
+    login(dni: string, password: string): Observable<boolean> {
+        return this.clientService.login(dni, password).pipe(
+            map(user => {
                 if (user) {
                     this.currentUser = user;
                     localStorage.setItem(this.USER_KEY, JSON.stringify(user));
                     return true;
                 }
                 return false;
+            }),
+            catchError((error: any) => {
+                console.error('Login failed', error);
+                return of(false);
             })
         );
     }
