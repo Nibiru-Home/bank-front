@@ -6,24 +6,16 @@
         <div class="index-welcome">
           <span class="index-welcome__text">Bienvenido Usuario</span>
         </div>
-        <app-balance-card></app-balance-card>
+        <app-balance-card
+          [amount]="totalBalance.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })"></app-balance-card>
         <section class="quick-actions" aria-label="Acciones rapidas">
-          <app-quick-action
-            label="Enviar dinero"
-            iconSrc="images/iconos/transferir-dinero.png">
+          <app-quick-action label="Enviar dinero" iconSrc="images/iconos/transferir-dinero.png">
           </app-quick-action>
-          <app-quick-action
-            label="Contratar"
-            iconSrc="images/iconos/contratar.png"
-            routerLink="/contratar-productos">
+          <app-quick-action label="Contratar" iconSrc="images/iconos/contratar.png" routerLink="/contratar-productos">
           </app-quick-action>
-          <app-quick-action
-            label="Recibos"
-            iconSrc="images/iconos/recibo.png">
+          <app-quick-action label="Recibos" iconSrc="images/iconos/recibo.png">
           </app-quick-action>
-          <app-quick-action
-            label="Cajeros"
-            iconSrc="images/iconos/cajero-automatico.png"
+          <app-quick-action label="Cajeros" iconSrc="images/iconos/cajero-automatico.png"
             href="https://www.bancosantander.es/buscador-oficinas-cajeros">
           </app-quick-action>
         </section>
@@ -68,7 +60,7 @@
               <span class="section-marker"></span>
               <span class="section-title">1 Tarjeta</span>
             </div>
-     
+
           </div>
           <div class="card-item">
             <span class="card-item__icon">

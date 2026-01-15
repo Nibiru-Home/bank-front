@@ -1,25 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-export interface CreditCard {
-    id: number;
-    number: string;
-    expirationDate: string;
-    cvv: number;
-    name: string;
-    pan: string;
-    balance: number;
-    holder: string;
-}
-
-export interface BankMovement {
-    id: number;
-    amount: number;
-    concept: string;
-    timestamp: string;
-    // Add other fields as necessary from backend response
-}
+import { CreditCard } from '../models/credit-card.model';
+import { BankMovement } from '../models/bank-movement.model';
 
 @Injectable({
     providedIn: 'root'
@@ -28,10 +11,26 @@ export class CardService {
     private apiUrl = '/api/credit-cards';
     private movementsUrl = '/api/bank-movements';
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) { }
 
     getCard(id: number): Observable<CreditCard> {
         return this.http.get<CreditCard>(`${this.apiUrl}/${id}`);
+    }
+
+    findAll(): Observable<CreditCard[]> {
+        return this.http.get<CreditCard[]>(this.apiUrl);
+    }
+
+    create(card: CreditCard): Observable<CreditCard> {
+        return this.http.post<CreditCard>(this.apiUrl, card);
+    }
+
+    update(id: number, card: CreditCard): Observable<CreditCard> {
+        return this.http.put<CreditCard>(`${this.apiUrl}/${id}`, card);
+    }
+
+    delete(id: number): Observable<void> {
+        return this.http.delete<void>(`${this.apiUrl}/${id}`);
     }
 
     getMovements(cardId: number): Observable<BankMovement[]> {

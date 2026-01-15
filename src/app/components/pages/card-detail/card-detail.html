@@ -9,8 +9,9 @@
 
             <div class="card-info">
                 <h2 class="card-title">{{ card.name }} {{ card.number.split(' ')[1] || '****' }}</h2>
-                <div class="card-balance">{{ card.balance | currency:'EUR':'symbol':'1.2-2' }}</div>
-                <div class="card-holder" style="color: #666; margin-bottom: 1rem;">{{ card.holder }}</div>
+                <!-- Balance removed as it's not in the new interface -->
+                <!-- <div class="card-balance">{{ card.balance | currency:'EUR':'symbol':'1.2-2' }}</div> -->
+                <div class="card-holder" style="color: #666; margin-bottom: 1rem;">{{ card.name }}</div>
 
                 <div class="quick-actions">
                     <div class="action-item" *ngFor="let action of actions">

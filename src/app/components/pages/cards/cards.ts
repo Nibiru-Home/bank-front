@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../layout/header/header';
 import { FooterComponent } from '../../layout/footer/footer';
 import { CardRowComponent } from '../../ui/card-row/card-row';
+import { CardService } from '../../../services/card.service';
+import { BankAccountService } from '../../../services/bank-account.service';
 
 @Component({
     selector: 'app-cards',
@@ -11,42 +13,39 @@ import { CardRowComponent } from '../../ui/card-row/card-row';
     templateUrl: './cards.html',
     styleUrl: './cards.scss'
 })
-export class CardsComponent {
-    cards = [
-        {
-            id: '1',
-            name: 'VISA *1234',
-            pan: '4548 **** **** 1234',
-            holder: 'ALBERTO SANCHEZ RUIZ',
-            amount: '1.250,50 €'
-        },
-        {
-            id: '2',
-            name: 'MASTERCARD *5678',
-            pan: '5412 **** **** 5678',
-            holder: 'ALBERTO SANCHEZ RUIZ',
-            amount: '430,20 €'
-        },
-        {
-            id: '3',
-            name: 'VISA *9012',
-            pan: '4916 **** **** 9012',
-            holder: 'ALBERTO SANCHEZ RUIZ',
-            amount: '5.000,00 €'
-        },
-        {
-            id: '4',
-            name: 'AMEX *3456',
-            pan: '3782 ****** 34565',
-            holder: 'ALBERTO SANCHEZ RUIZ',
-            amount: '2.345,75 €'
-        },
-        {
-            id: '5',
-            name: 'VISA *7890',
-            pan: '4000 **** **** 7890',
-            holder: 'ALBERTO SANCHEZ RUIZ',
-            amount: '89,99 €'
-        }
-    ];
+export class CardsComponent implements OnInit {
+    cards: any[] = []; // Using any[] to map to view expectation for now
+
+    constructor(
+        private cardService: CardService,
+        private bankAccountService: BankAccountService
+    ) { }
+
+    ngOnInit() {
+        this.cardService.findAll().subscribe(data => {
+            this.cards = data.map(card => {
+                const cardView = {
+                    id: card.id,
+                    name: card.name,
+                    pan: card.number, // Using number as PAN
+                    holder: card.name,
+                    amount: 'Cargando...' // Placeholder
+                };
+
+                // Fetch balance for this card
+                if (card.id) {
+                    this.bankAccountService.findByCreditCardId(Number(card.id)).subscribe({
+                        next: (account) => {
+                            cardView.amount = account.balance.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' });
+                        },
+                        error: () => {
+                            cardView.amount = 'No disponible';
+                        }
+                    });
+                }
+
+                return cardView;
+            });
+        });
+    }
 }

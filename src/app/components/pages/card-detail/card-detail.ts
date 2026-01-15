@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../layout/header/header';
 import { FooterComponent } from '../../layout/footer/footer';
 import { ActivatedRoute } from '@angular/router';
-import { CardService, CreditCard, BankMovement } from '../../../services/card.service';
+import { CardService } from '../../../services/card.service';
+import { CreditCard } from '../../../models/credit-card.model';
+import { BankMovement } from '../../../models/bank-movement.model';
 
 @Component({
     selector: 'app-card-detail',
