@@ -6,6 +6,7 @@ import { CardsComponent } from './components/pages/cards/cards';
 import { AccountDetailComponent } from './components/pages/account-detail/account-detail';
 import { CardDetailComponent } from './components/pages/card-detail/card-detail';
 import { ContratarProductosComponent } from './components/pages/contratar-productos/contratar-productos';
+import { IncidenciasComponent } from './components/pages/incidencias/incidencias';
 
 export const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -14,5 +15,6 @@ export const routes: Routes = [
   { path: 'accounts/:id', component: AccountDetailComponent },
   { path: 'cards', component: CardsComponent },
   { path: 'cards/:id', component: CardDetailComponent },
-  { path: 'contratar-productos', component: ContratarProductosComponent }
+  { path: 'contratar-productos', component: ContratarProductosComponent },
+  { path: 'incidencias', component: IncidenciasComponent }
 ];
