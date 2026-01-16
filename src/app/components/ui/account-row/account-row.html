@@ -1,4 +1,4 @@
-<div class="account-row">
+<a class="account-row account-row--link" [routerLink]="['/accounts', id]">
     <div class="account-row__left">
         <div class="account-name">{{ name }}</div>
         <div class="account-iban">{{ iban }}</div>
@@ -7,6 +7,5 @@
     </div>
     <div class="account-row__right">
         <div class="account-amount">{{ amount }}</div>
-        <button class="account-action-btn" [routerLink]="['/accounts', id]">Ver</button>
     </div>
-</div>
+</a>

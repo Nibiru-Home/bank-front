@@ -17,6 +17,7 @@ import { BankMovement } from '../../../models/bank-movement.model';
 export class CardDetailComponent implements OnInit {
     card: CreditCard | null = null;
     movements: BankMovement[] = [];
+    showCardData = false;
 
     actions = [
         { label: 'Enviar dinero', icon: '/images/iconos/transferir-dinero.png' },
@@ -48,5 +49,15 @@ export class CardDetailComponent implements OnInit {
             next: (data) => this.movements = data,
             error: (err) => console.error('Error fetching movements', err)
         });
+    }
+
+    onActionClick(actionLabel: string) {
+        if (actionLabel === 'Datos') {
+            this.showCardData = true;
+        }
+    }
+
+    closeCardData() {
+        this.showCardData = false;
     }
 }

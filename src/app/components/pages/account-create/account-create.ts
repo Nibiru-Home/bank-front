@@ -35,7 +35,7 @@ export class AccountCreateComponent {
 
         const currentUser = this.authService.getCurrentUser();
         if (!currentUser?.id) {
-            alert('No se pudo identificar al usuario');
+            console.error('No se pudo identificar al usuario');
             return;
         }
 
@@ -52,11 +52,10 @@ export class AccountCreateComponent {
                     || 'Titular';
                 const accountView = this.toLocalAccountView(created, holderName);
                 this.localDataService.upsertAccount(currentUser.id, accountView);
-                alert('Cuenta creada con éxito');
                 this.router.navigate(['/accounts']);
             },
-            error: () => {
-                alert('No se pudo crear la cuenta');
+            error: (err) => {
+                console.error('No se pudo crear la cuenta', err);
             }
         });
     }

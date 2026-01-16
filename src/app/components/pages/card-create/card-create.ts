@@ -71,7 +71,7 @@ export class CardCreateComponent implements OnInit {
 
         const currentUser = this.authService.getCurrentUser();
         if (!currentUser?.id) {
-            alert('No se pudo identificar al usuario');
+            console.error('No se pudo identificar al usuario');
             return;
         }
 
@@ -91,11 +91,10 @@ export class CardCreateComponent implements OnInit {
                 const amount = this.getSelectedAccountAmount() ?? 'No disponible';
                 const cardView = this.toLocalCardView(created, amount);
                 this.localDataService.upsertCard(currentUser.id, cardView);
-                alert('Solicitud de tarjeta enviada con éxito');
                 this.router.navigate(['/cards']);
             },
-            error: () => {
-                alert('No se pudo solicitar la tarjeta');
+            error: (err) => {
+                console.error('No se pudo solicitar la tarjeta', err);
             }
         });
     }
@@ -139,7 +138,8 @@ export class CardCreateComponent implements OnInit {
             name: card.name,
             pan: `**** **** **** ${card.number.slice(-4)}`,
             holder: card.name,
-            amount
+            amount,
+            type: this.cardType
         };
     }
 

@@ -1,12 +1,17 @@
-<div class="card-row">
+<a class="card-row card-row--link" [routerLink]="['/cards', id]">
     <div class="card-row__left">
-        <div class="card-name">{{ name }}</div>
-        <div class="card-pan">{{ pan }}</div>
-        <div class="card-holder">{{ holder }}</div>
-
+        <span class="card-row__media">
+            <img
+                [src]="cardType === 'credit' ? '/images/tarjeta-credito.png' : '/images/tarjeta-debito.png'"
+                [alt]="cardType === 'credit' ? 'Tarjeta credito' : 'Tarjeta debito'">
+        </span>
+        <div class="card-row__info">
+            <div class="card-name">{{ name }}</div>
+            <div class="card-pan">{{ pan }}</div>
+            <div class="card-holder">{{ holder }}</div>
+        </div>
     </div>
     <div class="card-row__right">
         <div class="card-amount">{{ amount }}</div>
-        <button class="card-action-btn" [routerLink]="['/cards', id]">Ver</button>
     </div>
-</div>
+</a>

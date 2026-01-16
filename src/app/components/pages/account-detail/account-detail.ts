@@ -15,8 +15,10 @@ import { BankAccount } from '../../../models/bank-account.model';
 })
 export class AccountDetailComponent {
     
-    account: any = null;
+    account: { name: string; amount: string } | null = null;
+    accountDetails: BankAccount | null = null;
     movements: any[] = [];
+    showAccountData = false;
 
     actions = [
         { label: 'Enviar dinero', icon: '/images/iconos/transferir-dinero.png' },
@@ -40,6 +42,7 @@ export class AccountDetailComponent {
     loadData(id: number) {
         this.bankAccountService.findById(id).subscribe({
             next: (data) => {
+                this.accountDetails = data;
                 this.account = {
                     name: `CUENTA *${data.iban.slice(-4)}`,
                     amount: data.balance.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })
@@ -56,5 +59,15 @@ export class AccountDetailComponent {
             },
             error: (err) => console.error('Error loading account', err)
         });
+    }
+
+    onActionClick(actionLabel: string) {
+        if (actionLabel === 'Datos') {
+            this.showAccountData = true;
+        }
+    }
+
+    closeAccountData() {
+        this.showAccountData = false;
     }
 }

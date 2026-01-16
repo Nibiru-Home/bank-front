@@ -1,6 +1,6 @@
 <div class="account-detail-page">
     <app-header></app-header>
-    <main class="account-detail-content">
+    <main class="account-detail-content" *ngIf="account">
          
          
         <section class="detail-card info-card">
@@ -10,7 +10,15 @@
             </div>
 
             <div class="quick-actions">
-                <div class="action-item" *ngFor="let action of actions">
+                <div
+                    class="action-item"
+                    *ngFor="let action of actions"
+                    (click)="onActionClick(action.label)"
+                    (keydown.enter)="onActionClick(action.label)"
+                    (keydown.space)="onActionClick(action.label); $event.preventDefault()"
+                    role="button"
+                    tabindex="0"
+                >
                     <div class="action-btn">
                         <img [src]="action.icon" [alt]="action.label">
                     </div>
@@ -35,5 +43,27 @@
             </div>
         </section>
     </main>
+    <div class="data-overlay" *ngIf="showAccountData" (click)="closeAccountData()">
+        <div class="data-modal" (click)="$event.stopPropagation()">
+            <div class="data-modal__header">
+                <h3 class="data-modal__title">Datos de la cuenta</h3>
+                <button class="data-modal__close" type="button" (click)="closeAccountData()">&times;</button>
+            </div>
+            <div class="data-modal__body">
+                <div class="data-row">
+                    <span class="data-label">Cuenta</span>
+                    <span class="data-value">{{ account?.name }}</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">IBAN</span>
+                    <span class="data-value">{{ accountDetails?.iban }}</span>
+                </div>
+                <div class="data-row">
+                    <span class="data-label">Saldo</span>
+                    <span class="data-value">{{ account?.amount }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <app-footer></app-footer>
 </div>

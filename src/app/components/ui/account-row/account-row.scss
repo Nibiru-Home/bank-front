@@ -3,8 +3,33 @@
 .account-row {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    width: var(--cyb-sys-width-14);
+    align-items: center;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: var(--cyb-sys-padding-7) var(--cyb-sys-padding-8);
+    background-color: var(--cyb-sys-color-white-9);
+    border: 1px solid var(--cyb-sys-color-light-blue-8);
+    border-radius: var(--cyb-sys-border-radius-8);
+    box-shadow: var(--cyb-sys-shadow-2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.account-row--link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.account-row--link:hover {
+    border-color: var(--cyb-sys-color-light-blue-6);
+    box-shadow: var(--cyb-sys-shadow-3);
+    transform: translateY(-1px);
+}
+
+.account-row--link:focus-visible {
+    outline: 2px solid var(--cyb-sys-color-light-blue-6);
+    outline-offset: 4px;
 }
 
 .account-row__left {
@@ -17,20 +42,20 @@
     color: var(--cyb-sys-color-black-1);
     font-family: var(--cyb-sys-font-family-ui);
     font-weight: var(--cyb-sys-font-weight-8);
-    font-size: var(--cyb-sys-font-size-4);
+    font-size: var(--cyb-sys-font-size-3);
     text-transform: uppercase;
 }
 
 .account-iban {
     color: var(--cyb-sys-color-blue-gray-4);
     font-family: var(--cyb-sys-font-family-ui);
-    font-size: var(--cyb-sys-font-size-4);
+    font-size: var(--cyb-sys-font-size-3);
 }
 
 .account-holder {
     color: var(--cyb-sys-color-blue-gray-4);
     font-family: var(--cyb-sys-font-family-ui);
-    font-size: var(--cyb-sys-font-size-4);
+    font-size: var(--cyb-sys-font-size-3);
     text-transform: uppercase;
 }
 
@@ -67,7 +92,7 @@
 
 .account-amount {
     font-family: var(--cyb-sys-font-family-display);
-    font-size: var(--cyb-sys-font-size-6);
+    font-size: var(--cyb-sys-font-size-5);
     font-weight: var(--cyb-sys-font-weight-7);
     color: var(--cyb-sys-color-black-1);
 }

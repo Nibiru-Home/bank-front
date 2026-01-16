@@ -15,4 +15,5 @@ export class CardRowComponent {
     @Input() pan: string = '';
     @Input() holder: string = '';
     @Input() amount: string = '';
+    @Input() cardType: 'debit' | 'credit' = 'debit';
 }

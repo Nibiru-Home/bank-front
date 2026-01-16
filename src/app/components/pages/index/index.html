@@ -4,16 +4,16 @@
     <div class="index-grid">
       <div class="index-right">
         <div class="index-welcome">
-          <span class="index-welcome__text">Bienvenido Usuario</span>
+          <span class="index-welcome__text">Bienvenid@ {{ currentUserName }}</span>
         </div>
         <app-balance-card
           [amount]="totalBalance.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })"></app-balance-card>
         <section class="quick-actions" aria-label="Acciones rapidas">
-          <app-quick-action label="Enviar dinero" iconSrc="images/iconos/transferir-dinero.png">
+          <app-quick-action label="Enviar dinero" iconSrc="images/iconos/transferir-dinero.png" routerLink="/incidencias">
           </app-quick-action>
           <app-quick-action label="Contratar" iconSrc="images/iconos/contratar.png" routerLink="/contratar-productos">
           </app-quick-action>
-          <app-quick-action label="Recibos" iconSrc="images/iconos/recibo.png">
+          <app-quick-action label="Recibos" iconSrc="images/iconos/recibo.png" routerLink="/incidencias">
           </app-quick-action>
           <app-quick-action label="Cajeros" iconSrc="images/iconos/cajero-automatico.png"
             href="https://www.bancosantander.es/buscador-oficinas-cajeros">
@@ -25,11 +25,14 @@
           <div class="section-header">
             <div class="section-header__left">
               <span class="section-marker"></span>
-              <span class="section-title">2 Cuentas</span>
+              <span class="section-title">
+                {{ accounts.length }} {{ accounts.length === 1 ? 'Cuenta' : 'Cuentas' }}
+              </span>
             </div>
           </div>
 
-          <div class="account-card" *ngFor="let account of accounts">
+          <a class="account-card account-card--link" *ngFor="let account of accounts"
+            [routerLink]="['/accounts', account.id]">
             <span class="account-card__icon">
               <img src="images/iconos/cuentas-bancarias.png" alt="" aria-hidden="true">
             </span>
@@ -38,18 +41,20 @@
               <span class="account-card__iban">{{ account.iban }}</span>
             </div>
             <span class="account-card__amount">{{ account.balance }}</span>
-          </div>
+          </a>
         </section>
 
         <section class="cards-section" aria-label="Tarjetas">
           <div class="section-header">
             <div class="section-header__left">
               <span class="section-marker"></span>
-              <span class="section-title">1 Tarjeta</span>
+              <span class="section-title">
+                {{ cards.length }} {{ cards.length === 1 ? 'Tarjeta' : 'Tarjetas' }}
+              </span>
             </div>
           </div>
 
-          <div class="card-item" *ngFor="let card of cards">
+          <a class="card-item card-item--link" *ngFor="let card of cards" [routerLink]="['/cards', card.id]">
             <span class="card-item__icon">
               <img src="images/iconos/tarjeta-bancaria.png" alt="" aria-hidden="true">
             </span>
@@ -57,7 +62,7 @@
               <span class="card-item__name">{{ card.name }}</span>
               <span class="card-item__meta">{{ card.type }} • {{ card.pan.slice(-4) }}</span>
             </div>
-          </div>
+          </a>
         </section>
       </div>
       <app-insights-card></app-insights-card>

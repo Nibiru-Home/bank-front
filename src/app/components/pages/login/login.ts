@@ -17,20 +17,36 @@ export class LoginComponent {
   private readonly authService = inject(AuthService);
 
   dni: string = '';
-  
-  
   password: string = '';
+  loginError = '';
 
   onSubmit(event: Event): void {
     event.preventDefault();
-    if (this.dni && this.password) {
-      this.authService.login(this.dni, this.password).subscribe(success => {
+    const dni = this.dni.trim();
+    const password = this.password.trim();
+    if (!dni || !password) {
+      this.loginError = 'Numero de documento o contrasena incorrecto.';
+      return;
+    }
+
+    this.authService.login(dni).subscribe({
+      next: (success) => {
         if (success) {
+          this.loginError = '';
           this.router.navigateByUrl('/');
         } else {
-          alert('Login failed: Verifica tu numero de documento o contraseña');
+          this.loginError = 'Numero de documento o contrasena incorrecto.';
         }
-      });
+      },
+      error: () => {
+        this.loginError = 'Numero de documento o contrasena incorrecto.';
+      }
+    });
+  }
+
+  clearError(): void {
+    if (this.loginError) {
+      this.loginError = '';
     }
   }
 }

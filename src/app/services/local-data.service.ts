@@ -15,6 +15,7 @@ export interface LocalCardView {
     pan: string;
     holder: string;
     amount: string;
+    type?: 'debit' | 'credit';
 }
 
 @Injectable({

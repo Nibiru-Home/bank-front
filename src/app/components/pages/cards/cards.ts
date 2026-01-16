@@ -50,7 +50,8 @@ export class CardsComponent implements OnInit {
             name: card.name,
             pan: `**** **** **** ${card.number.slice(-4)}`,
             holder: card.name,
-            amount: 'Cargando...'
+            amount: 'Cargando...',
+            type: 'debit'
         };
     }
 
@@ -60,11 +61,16 @@ export class CardsComponent implements OnInit {
             return remoteCards;
         }
         const remoteIds = new Set(remoteCards.map(card => card.id));
+        const localById = new Map(localCards.map(card => [card.id, card]));
         const pendingLocal = localCards.filter(card => !remoteIds.has(card.id));
-        if (pendingLocal.length !== localCards.length) {
-            this.localDataService.setCards(userId, pendingLocal);
-        }
-        return [...pendingLocal, ...remoteCards];
+        const mergedRemote = remoteCards.map(card => {
+            const local = localById.get(card.id);
+            if (local?.type) {
+                return { ...card, type: local.type };
+            }
+            return card;
+        });
+        return [...pendingLocal, ...mergedRemote];
     }
 
     private populateCardBalances(cards: LocalCardView[]): void {

@@ -12,7 +12,7 @@
 
                 <div class="cards-list">
                     <app-card-row *ngFor="let card of cards" [id]="card.id" [name]="card.name" [pan]="card.pan"
-                        [holder]="card.holder" [amount]="card.amount">
+                        [holder]="card.holder" [amount]="card.amount" [cardType]="card.type || 'debit'">
                     </app-card-row>
                 </div>
             </div>
