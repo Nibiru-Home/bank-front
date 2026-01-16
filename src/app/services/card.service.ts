@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CreditCard } from '../models/credit-card.model';
+import { CreditCard, CreditCardCreateRequest } from '../models/credit-card.model';
 import { BankMovement } from '../models/bank-movement.model';
 
 @Injectable({
@@ -21,7 +21,7 @@ export class CardService {
         return this.http.get<CreditCard[]>(this.apiUrl);
     }
 
-    create(card: CreditCard): Observable<CreditCard> {
+    create(card: CreditCardCreateRequest): Observable<CreditCard> {
         return this.http.post<CreditCard>(this.apiUrl, card);
     }
 

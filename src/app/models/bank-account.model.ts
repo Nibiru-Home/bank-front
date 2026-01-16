@@ -10,3 +10,10 @@ export interface BankAccount {
     movements: BankMovement[];
     creditCards: CreditCard[];
 }
+
+export interface BankAccountCreateRequest {
+    id: number | null;
+    balance: number;
+    iban: string;
+    clientId?: number | null;
+}
