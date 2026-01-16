@@ -29,7 +29,7 @@ export class LoginComponent {
       return;
     }
 
-    this.authService.login(dni).subscribe({
+    this.authService.login(dni, password).subscribe({
       next: (success) => {
         if (success) {
           this.loginError = '';

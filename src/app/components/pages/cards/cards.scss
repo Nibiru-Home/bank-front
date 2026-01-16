@@ -20,10 +20,13 @@
 
 .cards-container {
     background-color: var(--cyb-sys-color-white-9);
-    border-radius: var(--cyb-sys-border-radius-9);
-    padding: var(--cyb-sys-padding-9);
-    box-shadow: var(--cyb-sys-shadow-3);
-    margin-top: var(--cyb-sys-padding-3);
+    border-radius: var(--cyb-sys-border-radius-8);
+    padding: var(--cyb-sys-padding-8);
+    box-shadow: var(--cyb-sys-shadow-2);
+    border: 1px solid var(--cyb-sys-color-light-blue-8);
+    margin: var(--cyb-sys-padding-3) auto 0;
+    width: 100%;
+    max-width: 640px;
 }
 
 .cards-header {
