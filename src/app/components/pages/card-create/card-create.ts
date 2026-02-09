@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpErrorResponse } from '@angular/common/http';
 import { HeaderComponent } from '../../layout/header/header';
 import { FooterComponent } from '../../layout/footer/footer';
 import { Router, RouterLink } from '@angular/router';
@@ -14,6 +15,7 @@ interface AccountOption {
     id: string;
     label: string;
     amount: string;
+    balance: number | null;
 }
 
 @Component({
@@ -28,6 +30,7 @@ export class CardCreateComponent implements OnInit {
     holderName = '';
     accountOptions: AccountOption[] = [];
     selectedAccountId = '';
+    cardError = '';
 
     constructor(
         private router: Router,
@@ -68,10 +71,22 @@ export class CardCreateComponent implements OnInit {
 
     createCard(event: Event) {
         event.preventDefault();
+        this.cardError = '';
 
         const currentUser = this.authService.getCurrentUser();
         if (!currentUser?.id) {
-            console.error('No se pudo identificar al usuario');
+            this.cardError = 'Error de tarjeta. No se pudo identificar al usuario.';
+            return;
+        }
+
+        const selectedAccount = this.getSelectedAccountOption();
+        if (!selectedAccount) {
+            this.cardError = 'Selecciona una cuenta vinculada.';
+            return;
+        }
+
+        if (selectedAccount.balance !== null && selectedAccount.balance <= 0) {
+            this.cardError = 'Error de tarjeta: saldo insuficiente en la cuenta vinculada.';
             return;
         }
 
@@ -88,12 +103,13 @@ export class CardCreateComponent implements OnInit {
 
         this.cardService.create(payload).subscribe({
             next: (created) => {
-                const amount = this.getSelectedAccountAmount() ?? 'No disponible';
+                const amount = selectedAccount.amount;
                 const cardView = this.toLocalCardView(created, amount);
                 this.localDataService.upsertCard(currentUser.id, cardView);
                 this.router.navigate(['/cards']);
             },
-            error: (err) => {
+            error: (err: unknown) => {
+                this.cardError = this.resolveCardError(err);
                 console.error('No se pudo solicitar la tarjeta', err);
             }
         });
@@ -103,7 +119,8 @@ export class CardCreateComponent implements OnInit {
         return {
             id: String(account.id),
             label: `Cuenta *${account.iban.slice(-4)} - ${this.formatCurrency(account.balance)}`,
-            amount: this.formatCurrency(account.balance)
+            amount: this.formatCurrency(account.balance),
+            balance: account.balance
         };
     }
 
@@ -111,7 +128,8 @@ export class CardCreateComponent implements OnInit {
         return {
             id: String(account.id),
             label: `${account.name} - ${account.amount}`,
-            amount: account.amount
+            amount: account.amount,
+            balance: this.parseCurrency(account.amount)
         };
     }
 
@@ -124,12 +142,10 @@ export class CardCreateComponent implements OnInit {
         return [...pendingLocal, ...remoteOptions];
     }
 
-    private getSelectedAccountAmount(): string | null {
-        if (!this.selectedAccountId) {
-            return null;
+    clearCardError(): void {
+        if (this.cardError) {
+            this.cardError = '';
         }
-        const selected = this.accountOptions.find(option => option.id === this.selectedAccountId);
-        return selected ? selected.amount : null;
     }
 
     private toLocalCardView(card: CreditCard, amount: string): LocalCardView {
@@ -165,5 +181,55 @@ export class CardCreateComponent implements OnInit {
 
     private buildHolderName(firstName?: string | null, lastName?: string | null, secondLastName?: string | null): string {
         return [firstName, lastName, secondLastName].filter(Boolean).join(' ');
+    }
+
+    private getSelectedAccountOption(): AccountOption | null {
+        if (!this.selectedAccountId) {
+            return null;
+        }
+        return this.accountOptions.find(option => option.id === this.selectedAccountId) ?? null;
+    }
+
+    private resolveCardError(error: unknown): string {
+        if (error instanceof HttpErrorResponse) {
+            const backendMessage = this.extractBackendMessage(error.error);
+            const isInsufficientFunds = backendMessage.includes('insufficient funds')
+                || backendMessage.includes('saldo insuficiente');
+
+            if (isInsufficientFunds) {
+                return 'Error de tarjeta: saldo insuficiente en la cuenta vinculada.';
+            }
+        }
+
+        return 'Error de tarjeta al solicitarla. Intentalo de nuevo.';
+    }
+
+    private extractBackendMessage(payload: unknown): string {
+        if (typeof payload === 'string') {
+            return payload.toLowerCase();
+        }
+
+        if (payload && typeof payload === 'object') {
+            const errorObj = payload as { message?: unknown; error?: unknown };
+
+            if (typeof errorObj.message === 'string') {
+                return errorObj.message.toLowerCase();
+            }
+
+            if (typeof errorObj.error === 'string') {
+                return errorObj.error.toLowerCase();
+            }
+        }
+
+        return '';
+    }
+
+    private parseCurrency(value: string): number | null {
+        const cleaned = value
+            .replace(/[^\d,.-]/g, '')
+            .replace(/\./g, '')
+            .replace(',', '.');
+        const parsed = Number(cleaned);
+        return Number.isFinite(parsed) ? parsed : null;
     }
 }

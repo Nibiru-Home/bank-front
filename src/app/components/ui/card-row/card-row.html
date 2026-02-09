@@ -11,7 +11,8 @@
             <div class="card-holder">{{ holder }}</div>
         </div>
     </div>
-    <div class="card-row__right">
-        <div class="card-amount">{{ amount }}</div>
+    <div class="card-row__right" [class.card-row__right--error]="hasInsufficientFunds()">
+        <div class="card-amount" [class.card-amount--error]="hasInsufficientFunds()">{{ amount }}</div>
+        <div class="card-error" *ngIf="hasInsufficientFunds()">Error de tarjeta: saldo insuficiente</div>
     </div>
 </a>

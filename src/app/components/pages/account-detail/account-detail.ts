@@ -5,6 +5,13 @@ import { FooterComponent } from '../../layout/footer/footer';
 import { ActivatedRoute } from '@angular/router';
 import { BankAccountService } from '../../../services/bank-account.service';
 import { BankAccount } from '../../../models/bank-account.model';
+import { BankMovement } from '../../../models/bank-movement.model';
+
+interface MovementView {
+    concept: string;
+    date: string;
+    amount: string;
+}
 
 @Component({
     selector: 'app-account-detail',
@@ -14,10 +21,10 @@ import { BankAccount } from '../../../models/bank-account.model';
     styleUrl: './account-detail.scss'
 })
 export class AccountDetailComponent {
-    
+
     account: { name: string; amount: string } | null = null;
     accountDetails: BankAccount | null = null;
-    movements: any[] = [];
+    movements: MovementView[] = [];
     showAccountData = false;
 
     actions = [
@@ -39,22 +46,29 @@ export class AccountDetailComponent {
         });
     }
 
-    loadData(id: number) {
-        this.bankAccountService.findById(id).subscribe({
+    loadData(id: number | string): void {
+        const accountId = Number(id);
+        if (!Number.isFinite(accountId)) {
+            console.error('Invalid account ID', id);
+            return;
+        }
+
+        this.bankAccountService.findById(accountId).subscribe({
             next: (data) => {
                 this.accountDetails = data;
                 this.account = {
                     name: `CUENTA *${data.iban.slice(-4)}`,
                     amount: data.balance.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })
                 };
-                this.movements = data.movements.map(m => {
-                    const isExpense = m.movementType === 'Remove';
-                    const sign = isExpense ? '-' : '+';
-                    return {
-                        concept: m.concept || 'Movimiento',
-                        date: new Date(m.timestamp).toLocaleDateString(),
-                        amount: `${sign} ${m.amount.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}`
-                    };
+
+                this.bankAccountService.getMovementsByAccountId(accountId).subscribe({
+                    next: (movements) => {
+                        const source = movements.length > 0 ? movements : (data.movements ?? []);
+                        this.movements = this.mapMovements(source);
+                    },
+                    error: () => {
+                        this.movements = this.mapMovements(data.movements ?? []);
+                    }
                 });
             },
             error: (err) => console.error('Error loading account', err)
@@ -69,5 +83,27 @@ export class AccountDetailComponent {
 
     closeAccountData() {
         this.showAccountData = false;
+    }
+
+    private mapMovements(movements: BankMovement[]): MovementView[] {
+        return movements.map((movement) => {
+            const isExpense = movement.movementType === 'Remove';
+            const sign = isExpense ? '-' : '+';
+            const amount = Math.abs(movement.amount);
+
+            return {
+                concept: movement.concept?.trim() || 'Movimiento',
+                date: this.formatMovementDate(movement.timestamp),
+                amount: `${sign} ${amount.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}`
+            };
+        });
+    }
+
+    private formatMovementDate(timestamp: string): string {
+        const parsed = new Date(timestamp);
+        if (Number.isNaN(parsed.getTime())) {
+            return '';
+        }
+        return parsed.toLocaleDateString('es-ES');
     }
 }

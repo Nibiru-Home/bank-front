@@ -16,4 +16,18 @@ export class CardRowComponent {
     @Input() holder: string = '';
     @Input() amount: string = '';
     @Input() cardType: 'debit' | 'credit' = 'debit';
+
+    hasInsufficientFunds(): boolean {
+        const parsedAmount = this.parseAmount(this.amount);
+        return parsedAmount !== null && parsedAmount < 0;
+    }
+
+    private parseAmount(value: string): number | null {
+        const cleaned = value
+            .replace(/[^\d,.-]/g, '')
+            .replace(/\./g, '')
+            .replace(',', '.');
+        const parsed = Number(cleaned);
+        return Number.isFinite(parsed) ? parsed : null;
+    }
 }

@@ -1,14 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { InputComponent } from '../../ui/input/input';
-import { ButtonComponent } from '../../ui/button/button';
-import { AuthService } from '../../../services/auth.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
+import { ButtonComponent } from '../../ui/button/button';
+import { InputComponent } from '../../ui/input/input';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [InputComponent, ButtonComponent, FormsModule],
+  imports: [CommonModule, FormsModule, InputComponent, ButtonComponent],
   templateUrl: './login.html',
   styleUrl: './login.scss'
 })
@@ -20,10 +21,10 @@ export class LoginComponent {
   password: string = '';
   loginError = '';
 
-  onSubmit(event: Event): void {
-    event.preventDefault();
+  onSubmit(): void {
     const dni = this.dni.trim();
     const password = this.password.trim();
+
     if (!dni || !password) {
       this.loginError = 'Numero de documento o contrasena incorrecto.';
       return;
@@ -34,9 +35,10 @@ export class LoginComponent {
         if (success) {
           this.loginError = '';
           this.router.navigateByUrl('/');
-        } else {
-          this.loginError = 'Numero de documento o contrasena incorrecto.';
+          return;
         }
+
+        this.loginError = 'Numero de documento o contrasena incorrecto.';
       },
       error: () => {
         this.loginError = 'Numero de documento o contrasena incorrecto.';

@@ -91,6 +91,14 @@
     }
 }
 
+.form-error {
+    margin: 0;
+    color: var(--cyb-sys-color-red-5);
+    font-family: var(--cyb-sys-font-family-ui);
+    font-size: var(--cyb-sys-font-size-2);
+    font-weight: var(--cyb-sys-font-weight-6);
+}
+
 .card-type-group {
     border: none;
     padding: 0;

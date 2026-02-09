@@ -25,7 +25,7 @@
                                     name="cardType"
                                     value="debit"
                                     [checked]="cardType === 'debit'"
-                                    (change)="cardType = 'debit'">
+                                    (change)="cardType = 'debit'; clearCardError()">
                                 <span class="card-type-title">Debito</span>
                                 <span class="card-type-text">Pago al instante</span>
                             </label>
@@ -35,7 +35,7 @@
                                     name="cardType"
                                     value="credit"
                                     [checked]="cardType === 'credit'"
-                                    (change)="cardType = 'credit'">
+                                    (change)="cardType = 'credit'; clearCardError()">
                                 <span class="card-type-title">Credito</span>
                                 <span class="card-type-text">Pago a fin de mes</span>
                             </label>
@@ -44,13 +44,15 @@
 
                     <div class="form-group">
                         <label for="account">Cuenta vinculada</label>
-                        <select id="account" required [(ngModel)]="selectedAccountId" name="account">
+                        <select id="account" required [(ngModel)]="selectedAccountId" name="account" (ngModelChange)="clearCardError()">
                             <option value="" disabled>Selecciona una cuenta</option>
                             <option *ngFor="let account of accountOptions" [value]="account.id">
                                 {{ account.label }}
                             </option>
                         </select>
                     </div>
+
+                    <p class="form-error" *ngIf="cardError">{{ cardError }}</p>
                 </div>
 
                 <aside class="create-right">

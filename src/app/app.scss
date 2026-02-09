@@ -1,0 +1,36 @@
+.error-banner {
+    position: fixed;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3000;
+    width: min(92vw, 760px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    border: 1px solid #d04a52;
+    border-radius: 12px;
+    background-color: #ffecee;
+    box-shadow: 0 8px 22px rgba(29, 33, 44, 0.14);
+}
+
+.error-banner__text {
+    margin: 0;
+    color: #7d1d24;
+    font-family: var(--cyb-sys-font-family-ui);
+    font-size: var(--cyb-sys-font-size-3);
+    font-weight: var(--cyb-sys-font-weight-7);
+}
+
+.error-banner__close {
+    border: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background-color: #d04a52;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+}
