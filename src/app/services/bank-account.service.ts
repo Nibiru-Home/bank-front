@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BankAccount, BankAccountCreateRequest } from '../models/bank-account.model';
 import { BankMovement } from '../models/bank-movement.model';
+import { API_BASE_URL } from '../api-base-url';
 
 @Injectable({
     providedIn: 'root'
 })
 export class BankAccountService {
-    private readonly apiUrl = '/api/bank-accounts';
-    private readonly movementsUrl = '/api/bank-movements';
+    private readonly apiUrl = `${API_BASE_URL}/api/bank-accounts`;
+    private readonly movementsUrl = `${API_BASE_URL}/api/bank-movements`;
 
     constructor(private http: HttpClient) { }
 

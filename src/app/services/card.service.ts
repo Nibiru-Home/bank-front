@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BankMovement } from '../models/bank-movement.model';
 import { CreditCard, CreditCardCreateRequest } from '../models/credit-card.model';
+import { API_BASE_URL } from '../api-base-url';
 
 @Injectable({
     providedIn: 'root'
 })
 export class CardService {
-    private readonly apiUrl = '/api/credit-cards';
-    private readonly movementsUrl = '/api/bank-movements';
+    private readonly apiUrl = `${API_BASE_URL}/api/credit-cards`;
+    private readonly movementsUrl = `${API_BASE_URL}/api/bank-movements`;
 
     constructor(private readonly http: HttpClient) { }
 
