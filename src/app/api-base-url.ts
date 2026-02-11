@@ -1,5 +1,5 @@
-const LOCAL_HOSTNAMES = new Set(['localhost', '127.0.0.1', '::1']);
+// Local (comentado para entorno servidor):
+// export const API_BASE_URL = '';
 
-export const API_BASE_URL = LOCAL_HOSTNAMES.has(window.location.hostname)
-    ? 'http://localhost:8081'
-    : 'http://api.bank.nibiruhome.store';
+// Servidor (activo):
+export const API_BASE_URL = 'https://api.bank.nibiruhome.store';
