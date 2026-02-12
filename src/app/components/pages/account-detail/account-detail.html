@@ -27,6 +27,29 @@
             </div>
         </section>
 
+        <section class="detail-card cards-card">
+            <h3 class="card-subtitle">Tarjetas asociadas</h3>
+
+            <div class="associated-cards-list" *ngIf="associatedCards.length > 0; else noAssociatedCards">
+                <div class="associated-card-row" *ngFor="let card of associatedCards">
+                    <div class="associated-card-left">
+                        <span class="associated-card-icon">
+                            <img src="/images/iconos/tarjeta-bancaria.png" alt="" aria-hidden="true">
+                        </span>
+                        <div class="associated-card-info">
+                            <span class="associated-card-name">{{ card.label }}</span>
+                            <span class="associated-card-pan">{{ card.pan }}</span>
+                        </div>
+                    </div>
+                    <span class="associated-card-expiration">Cad. {{ card.expirationDate }}</span>
+                </div>
+            </div>
+
+            <ng-template #noAssociatedCards>
+                <p class="associated-card-empty">Esta cuenta no tiene tarjetas asociadas.</p>
+            </ng-template>
+        </section>
+
          
         <section class="detail-card movements-card">
             <h3 class="card-subtitle">Ultimos movimientos</h3>
