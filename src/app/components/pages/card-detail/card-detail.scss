@@ -70,6 +70,11 @@
     text-transform: uppercase;
 }
 
+.card-holder {
+    color: var(--cyb-sys-color-blue-gray-3);
+    margin-bottom: var(--cyb-sys-padding-4);
+}
+
 .card-balance {
     font-family: var(--cyb-sys-font-family-display);
     font-size: var(--cyb-sys-font-size-8);
@@ -272,6 +277,7 @@
         opacity: 0;
         transform: translateY(8px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
