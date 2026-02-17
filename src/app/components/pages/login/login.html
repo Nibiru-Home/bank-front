@@ -19,7 +19,9 @@
         <div class="login-button-container">
           <app-button text="Acceso" type="submit"></app-button>
         </div>
-        <p class="login-error" *ngIf="loginError">{{ loginError }}</p>
+        @if (loginError) {
+          <p class="login-error">{{ loginError }}</p>
+        }
       </form>
     </div>
   </div>

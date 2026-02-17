@@ -1,92 +1,98 @@
 <div class="account-detail-page">
     <app-header></app-header>
-    <main class="account-detail-content" *ngIf="account">
-         
-         
-        <section class="detail-card info-card">
-            <div class="info-left">
-                <h2 class="card-title">{{ account.name }}</h2>
-                <div class="account-balance">{{ account.amount }}</div>
-            </div>
-
-            <div class="quick-actions">
-                <div
-                    class="action-item"
-                    *ngFor="let action of actions"
-                    (click)="onActionClick(action.label)"
-                    (keydown.enter)="onActionClick(action.label)"
-                    (keydown.space)="onActionClick(action.label); $event.preventDefault()"
-                    role="button"
-                    tabindex="0"
-                >
-                    <div class="action-btn">
-                        <img [src]="action.icon" [alt]="action.label">
-                    </div>
-                    <span class="action-label">{{ action.label }}</span>
+    @if (account) {
+        <main class="account-detail-content">
+            <section class="detail-card info-card">
+                <div class="info-left">
+                    <h2 class="card-title">{{ account.name }}</h2>
+                    <div class="account-balance">{{ account.amount }}</div>
                 </div>
-            </div>
-        </section>
 
-        <section class="detail-card cards-card">
-            <h3 class="card-subtitle">Tarjetas asociadas</h3>
-
-            <div class="associated-cards-list" *ngIf="associatedCards.length > 0; else noAssociatedCards">
-                <div class="associated-card-row" *ngFor="let card of associatedCards">
-                    <div class="associated-card-left">
-                        <span class="associated-card-icon">
-                            <img src="/images/iconos/tarjeta-bancaria.png" alt="" aria-hidden="true">
-                        </span>
-                        <div class="associated-card-info">
-                            <span class="associated-card-name">{{ card.label }}</span>
-                            <span class="associated-card-pan">{{ card.pan }}</span>
+                <div class="quick-actions">
+                    @for (action of actions; track action.label) {
+                        <div
+                            class="action-item"
+                            (click)="onActionClick(action.label)"
+                            (keydown.enter)="onActionClick(action.label)"
+                            (keydown.space)="onActionClick(action.label); $event.preventDefault()"
+                            role="button"
+                            tabindex="0"
+                        >
+                            <div class="action-btn">
+                                <img [src]="action.icon" [alt]="action.label">
+                            </div>
+                            <span class="action-label">{{ action.label }}</span>
                         </div>
-                    </div>
-                    <span class="associated-card-expiration">Cad. {{ card.expirationDate }}</span>
+                    }
                 </div>
-            </div>
+            </section>
 
-            <ng-template #noAssociatedCards>
-                <p class="associated-card-empty">Esta cuenta no tiene tarjetas asociadas.</p>
-            </ng-template>
-        </section>
+            <section class="detail-card cards-card">
+                <h3 class="card-subtitle">Tarjetas asociadas</h3>
 
-         
-        <section class="detail-card movements-card">
-            <h3 class="card-subtitle">Ultimos movimientos</h3>
-            <div class="movements-list">
-                <div class="movement-row" *ngFor="let movement of movements">
-                    <div class="movement-left">
-                        <span class="movement-concept">{{ movement.concept }}</span>
-                        <span class="movement-date">{{ movement.date }}</span>
+                @if (associatedCards.length > 0) {
+                    <div class="associated-cards-list">
+                        @for (card of associatedCards; track card.pan) {
+                            <div class="associated-card-row">
+                                <div class="associated-card-left">
+                                    <span class="associated-card-icon">
+                                        <img src="/images/iconos/tarjeta-bancaria.png" alt="" aria-hidden="true">
+                                    </span>
+                                    <div class="associated-card-info">
+                                        <span class="associated-card-name">{{ card.label }}</span>
+                                        <span class="associated-card-pan">{{ card.pan }}</span>
+                                    </div>
+                                </div>
+                                <span class="associated-card-expiration">Cad. {{ card.expirationDate }}</span>
+                            </div>
+                        }
                     </div>
-                    <div class="movement-amount" [class.negative]="movement.amount.includes('-')">
-                        {{ movement.amount }}
+                } @else {
+                    <p class="associated-card-empty">Esta cuenta no tiene tarjetas asociadas.</p>
+                }
+            </section>
+
+            <section class="detail-card movements-card">
+                <h3 class="card-subtitle">Ultimos movimientos</h3>
+                <div class="movements-list">
+                    @for (movement of movements; track $index) {
+                        <div class="movement-row">
+                            <div class="movement-left">
+                                <span class="movement-concept">{{ movement.concept }}</span>
+                                <span class="movement-date">{{ movement.date }}</span>
+                            </div>
+                            <div class="movement-amount" [class.negative]="movement.amount.includes('-')">
+                                {{ movement.amount }}
+                            </div>
+                        </div>
+                    }
+                </div>
+            </section>
+        </main>
+    }
+    @if (showAccountData) {
+        <div class="data-overlay" (click)="closeAccountData()">
+            <div class="data-modal" (click)="$event.stopPropagation()">
+                <div class="data-modal__header">
+                    <h3 class="data-modal__title">Datos de la cuenta</h3>
+                    <button class="data-modal__close" type="button" (click)="closeAccountData()">&times;</button>
+                </div>
+                <div class="data-modal__body">
+                    <div class="data-row">
+                        <span class="data-label">Cuenta</span>
+                        <span class="data-value">{{ account?.name }}</span>
                     </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    <div class="data-overlay" *ngIf="showAccountData" (click)="closeAccountData()">
-        <div class="data-modal" (click)="$event.stopPropagation()">
-            <div class="data-modal__header">
-                <h3 class="data-modal__title">Datos de la cuenta</h3>
-                <button class="data-modal__close" type="button" (click)="closeAccountData()">&times;</button>
-            </div>
-            <div class="data-modal__body">
-                <div class="data-row">
-                    <span class="data-label">Cuenta</span>
-                    <span class="data-value">{{ account?.name }}</span>
-                </div>
-                <div class="data-row">
-                    <span class="data-label">IBAN</span>
-                    <span class="data-value">{{ accountDetails?.iban }}</span>
-                </div>
-                <div class="data-row">
-                    <span class="data-label">Saldo</span>
-                    <span class="data-value">{{ account?.amount }}</span>
+                    <div class="data-row">
+                        <span class="data-label">IBAN</span>
+                        <span class="data-value">{{ accountDetails?.iban }}</span>
+                    </div>
+                    <div class="data-row">
+                        <span class="data-label">Saldo</span>
+                        <span class="data-value">{{ account?.amount }}</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    }
     <app-footer></app-footer>
 </div>

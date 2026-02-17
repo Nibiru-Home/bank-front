@@ -46,13 +46,17 @@
                         <label for="account">Cuenta vinculada</label>
                         <select id="account" required [(ngModel)]="selectedAccountId" name="account" (ngModelChange)="clearCardError()">
                             <option value="" disabled>Selecciona una cuenta</option>
-                            <option *ngFor="let account of accountOptions" [value]="account.id">
-                                {{ account.label }}
-                            </option>
+                            @for (account of accountOptions; track account.id) {
+                                <option [value]="account.id">
+                                    {{ account.label }}
+                                </option>
+                            }
                         </select>
                     </div>
 
-                    <p class="form-error" *ngIf="cardError">{{ cardError }}</p>
+                    @if (cardError) {
+                        <p class="form-error">{{ cardError }}</p>
+                    }
                 </div>
 
                 <aside class="create-right">

@@ -31,17 +31,18 @@
             </div>
           </div>
 
-          <a class="account-card account-card--link" *ngFor="let account of accounts"
-            [routerLink]="['/accounts', account.id]">
-            <span class="account-card__icon">
-              <img src="images/iconos/cuentas-bancarias.png" alt="" aria-hidden="true">
-            </span>
-            <div class="account-card__info">
-              <span class="account-card__name">{{ account.name }}</span>
-              <span class="account-card__iban">{{ account.iban }}</span>
-            </div>
-            <span class="account-card__amount">{{ account.balance }}</span>
-          </a>
+          @for (account of accounts; track account.id) {
+            <a class="account-card account-card--link" [routerLink]="['/accounts', account.id]">
+              <span class="account-card__icon">
+                <img src="images/iconos/cuentas-bancarias.png" alt="" aria-hidden="true">
+              </span>
+              <div class="account-card__info">
+                <span class="account-card__name">{{ account.name }}</span>
+                <span class="account-card__iban">{{ account.iban }}</span>
+              </div>
+              <span class="account-card__amount">{{ account.balance }}</span>
+            </a>
+          }
         </section>
 
         <section class="cards-section" aria-label="Tarjetas">
@@ -54,15 +55,17 @@
             </div>
           </div>
 
-          <a class="card-item card-item--link" *ngFor="let card of cards" [routerLink]="['/cards', card.id]">
-            <span class="card-item__icon">
-              <img src="images/iconos/tarjeta-bancaria.png" alt="" aria-hidden="true">
-            </span>
-            <div class="card-item__info">
-              <span class="card-item__name">{{ card.name }}</span>
-              <span class="card-item__meta">{{ card.type }} • {{ card.pan.slice(-4) }}</span>
-            </div>
-          </a>
+          @for (card of cards; track card.id) {
+            <a class="card-item card-item--link" [routerLink]="['/cards', card.id]">
+              <span class="card-item__icon">
+                <img src="images/iconos/tarjeta-bancaria.png" alt="" aria-hidden="true">
+              </span>
+              <div class="card-item__info">
+                <span class="card-item__name">{{ card.name }}</span>
+                <span class="card-item__meta">{{ card.type }} • {{ card.pan.slice(-4) }}</span>
+              </div>
+            </a>
+          }
         </section>
       </div>
       <app-insights-card></app-insights-card>

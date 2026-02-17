@@ -1,82 +1,87 @@
 <div class="card-detail-page">
     <app-header></app-header>
-    <main class="card-detail-content" *ngIf="card">
-         
-        <section class="info-container">
-            <div class="card-visual">
-                <img src="/images/tarjeta-credito-sin-fondo.jpeg" alt="Card Design" class="card-visual-img">
-            </div>
+    @if (card) {
+        <main class="card-detail-content">
+            <section class="info-container">
+                <div class="card-visual">
+                    <img src="/images/tarjeta-credito-sin-fondo.jpeg" alt="Card Design" class="card-visual-img">
+                </div>
 
-            <div class="card-info">
-                <h2 class="card-title">{{ card.name }} {{ card.number.split(' ')[1] || '****' }}</h2>
-                 
-                 
-                <div class="card-holder" style="color: #666; margin-bottom: 1rem;">{{ card.name }}</div>
+                <div class="card-info">
+                    <h2 class="card-title">{{ card.name }} {{ card.number.split(' ')[1] || '****' }}</h2>
+                    <div class="card-holder" style="color: #666; margin-bottom: 1rem;">{{ card.name }}</div>
 
-                <div class="quick-actions">
-                    <div
-                        class="action-item"
-                        *ngFor="let action of actions"
-                        (click)="onActionClick(action.label)"
-                        (keydown.enter)="onActionClick(action.label)"
-                        (keydown.space)="onActionClick(action.label); $event.preventDefault()"
-                        role="button"
-                        tabindex="0"
-                    >
-                        <div class="action-btn">
-                            <img [src]="action.icon" [alt]="action.label">
+                    <div class="quick-actions">
+                        @for (action of actions; track action.label) {
+                            <div
+                                class="action-item"
+                                (click)="onActionClick(action.label)"
+                                (keydown.enter)="onActionClick(action.label)"
+                                (keydown.space)="onActionClick(action.label); $event.preventDefault()"
+                                role="button"
+                                tabindex="0"
+                            >
+                                <div class="action-btn">
+                                    <img [src]="action.icon" [alt]="action.label">
+                                </div>
+                                <span class="action-label">{{ action.label }}</span>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </section>
+
+            <section class="detail-container movements-container">
+                <h3 class="container-subtitle">Ultimos movimientos</h3>
+                <div class="movements-list">
+                    @for (movement of movements; track $index) {
+                        <div class="movement-row">
+                            <div class="movement-left">
+                                <span class="movement-concept">{{ movement.concept }}</span>
+                                <span class="movement-date">{{ movement.timestamp | date:'dd/MM/yyyy' }}</span>
+                            </div>
+                            <div class="movement-amount" [class.negative]="movement.movementType === 'Remove'">
+                                {{ movement.movementType === 'Remove' ? '-' : '+' }} {{ movement.amount |
+                                currency:'EUR':'symbol':'1.2-2' }}
+                            </div>
                         </div>
-                        <span class="action-label">{{ action.label }}</span>
+                    }
+                    @if (movements.length === 0) {
+                        <div class="no-movements">
+                            No hay movimientos recientes
+                        </div>
+                    }
+                </div>
+            </section>
+        </main>
+    }
+    @if (showCardData && card) {
+        <div class="data-overlay" (click)="closeCardData()">
+            <div class="data-modal" (click)="$event.stopPropagation()">
+                <div class="data-modal__header">
+                    <h3 class="data-modal__title">Datos de la tarjeta</h3>
+                    <button class="data-modal__close" type="button" (click)="closeCardData()">&times;</button>
+                </div>
+                <div class="data-modal__body">
+                    <div class="data-row">
+                        <span class="data-label">Titular</span>
+                        <span class="data-value">{{ card.name }}</span>
                     </div>
-                </div>
-            </div>
-        </section>
-
-         
-        <section class="detail-container movements-container">
-            <h3 class="container-subtitle">Ultimos movimientos</h3>
-            <div class="movements-list">
-                <div class="movement-row" *ngFor="let movement of movements">
-                    <div class="movement-left">
-                        <span class="movement-concept">{{ movement.concept }}</span>
-                        <span class="movement-date">{{ movement.timestamp | date:'dd/MM/yyyy' }}</span>
+                    <div class="data-row">
+                        <span class="data-label">Numero</span>
+                        <span class="data-value">{{ card.number }}</span>
                     </div>
-                    <div class="movement-amount" [class.negative]="movement.movementType === 'Remove'">
-                        {{ movement.movementType === 'Remove' ? '-' : '+' }} {{ movement.amount |
-                        currency:'EUR':'symbol':'1.2-2' }}
+                    <div class="data-row">
+                        <span class="data-label">Caducidad</span>
+                        <span class="data-value">{{ card.expirationDate }}</span>
                     </div>
-                </div>
-                <div *ngIf="movements.length === 0" class="no-movements">
-                    No hay movimientos recientes
-                </div>
-            </div>
-        </section>
-    </main>
-    <div class="data-overlay" *ngIf="showCardData && card" (click)="closeCardData()">
-        <div class="data-modal" (click)="$event.stopPropagation()">
-            <div class="data-modal__header">
-                <h3 class="data-modal__title">Datos de la tarjeta</h3>
-                <button class="data-modal__close" type="button" (click)="closeCardData()">&times;</button>
-            </div>
-            <div class="data-modal__body">
-                <div class="data-row">
-                    <span class="data-label">Titular</span>
-                    <span class="data-value">{{ card.name }}</span>
-                </div>
-                <div class="data-row">
-                    <span class="data-label">Numero</span>
-                    <span class="data-value">{{ card.number }}</span>
-                </div>
-                <div class="data-row">
-                    <span class="data-label">Caducidad</span>
-                    <span class="data-value">{{ card.expirationDate }}</span>
-                </div>
-                <div class="data-row">
-                    <span class="data-label">CVV</span>
-                    <span class="data-value">{{ card.cvv }}</span>
+                    <div class="data-row">
+                        <span class="data-label">CVV</span>
+                        <span class="data-value">{{ card.cvv }}</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    }
     <app-footer></app-footer>
 </div>
