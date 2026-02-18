@@ -1,9 +1,9 @@
 @if (notifications.errorMessage(); as errorMessage) {
-  <section class="error-banner" role="alert" aria-live="assertive">
-    <p class="error-banner__text">{{ errorMessage }}</p>
+  <section class="c-error-banner" role="alert" aria-live="assertive">
+    <p class="c-error-banner__text">{{ errorMessage }}</p>
     <button
       type="button"
-      class="error-banner__close"
+      class="c-error-banner__close"
       aria-label="Cerrar error"
       (click)="closeErrorBanner()">
       x

@@ -1,6 +1,6 @@
 @use "../../../scss/main.scss";
 
-.app-header {
+.c-app-header {
   width: var(--cyb-sys-width-14);
   display: flex;
   justify-content: center;
@@ -8,7 +8,7 @@
   background-color: transparent;
 }
 
-.app-header__inner {
+.c-app-header__inner {
   width: var(--cyb-sys-width-14);
   padding: var(--cyb-sys-padding-7) var(--cyb-sys-padding-10);
   display: grid;
@@ -21,13 +21,13 @@
   box-shadow: var(--cyb-sys-shadow-4);
 }
 
-.app-header__left {
+.c-app-header__left {
   display: flex;
   align-items: center;
   gap: var(--cyb-sys-padding-8);
 }
 
-.app-header__brand {
+.c-app-header__brand {
   font-family: var(--cyb-sys-font-family-display);
   font-size: var(--cyb-sys-font-size-8);
   font-weight: var(--cyb-sys-font-weight-8);
@@ -35,7 +35,7 @@
   white-space: nowrap;
 }
 
-.app-header__nav {
+.c-app-header__nav {
   display: flex;
   align-items: center;
   gap: var(--cyb-sys-padding-4);
@@ -46,7 +46,7 @@
   justify-self: center;
 }
 
-.app-header__link {
+.c-app-header__link {
   font-family: var(--cyb-sys-font-family-ui);
   font-size: var(--cyb-sys-font-size-4);
   font-weight: var(--cyb-sys-font-weight-7);
@@ -57,30 +57,30 @@
   transition: background-color 0.2s, color 0.2s;
 }
 
-.app-header__link:hover,
-.app-header__link:focus-visible {
+.c-app-header__link:hover,
+.c-app-header__link:focus-visible {
   background-color: var(--cyb-sys-color-white-9);
   color: var(--cyb-sys-color-blue-gray-1);
 }
 
-.app-header__link--active {
+.c-app-header__link--active {
   background-color: var(--cyb-sys-color-white-9);
   color: var(--cyb-sys-color-blue-gray-1);
   box-shadow: var(--cyb-sys-shadow-1);
 }
 
-.app-header__right {
+.c-app-header__right {
   display: flex;
   align-items: center;
   gap: var(--cyb-sys-padding-6);
   justify-content: flex-end;
 }
 
-.app-header__menu {
+.c-app-header__menu {
   position: relative;
 }
 
-.app-header__menu-trigger {
+.c-app-header__menu-trigger {
   display: flex;
   align-items: center;
   gap: var(--cyb-sys-padding-5);
@@ -91,25 +91,25 @@
   background-color: transparent;
 }
 
-.app-header__menu-trigger:hover,
-.app-header__menu[open] .app-header__menu-trigger {
+.c-app-header__menu-trigger:hover,
+.c-app-header__menu[open] .c-app-header__menu-trigger {
   background-color: var(--cyb-sys-color-white-8);
 }
 
-.app-header__menu-trigger:focus-visible {
+.c-app-header__menu-trigger:focus-visible {
   outline: 2px solid var(--cyb-sys-color-light-blue-5);
   outline-offset: 2px;
 }
 
-.app-header__menu-trigger::marker {
+.c-app-header__menu-trigger::marker {
   content: "";
 }
 
-.app-header__menu summary::-webkit-details-marker {
+.c-app-header__menu summary::-webkit-details-marker {
   display: none;
 }
 
-.app-header__avatar {
+.c-app-header__avatar {
   width: var(--cyb-sys-padding-11);
   height: var(--cyb-sys-padding-11);
   border-radius: 999px;
@@ -123,27 +123,27 @@
   font-weight: var(--cyb-sys-font-weight-7);
 }
 
-.app-header__user {
+.c-app-header__user {
   display: flex;
   flex-direction: column;
   gap: var(--cyb-sys-padding-2);
 }
 
-.app-header__name {
+.c-app-header__name {
   font-family: var(--cyb-sys-font-family-ui);
   font-size: var(--cyb-sys-font-size-4);
   font-weight: var(--cyb-sys-font-weight-7);
   color: var(--cyb-sys-color-black-2);
 }
 
-.app-header__account {
+.c-app-header__account {
   font-family: var(--cyb-sys-font-family-ui);
   font-size: var(--cyb-sys-font-size-2);
   font-weight: var(--cyb-sys-font-weight-6);
   color: var(--cyb-sys-color-blue-gray-3);
 }
 
-.app-header__chevron {
+.c-app-header__chevron {
   width: 8px;
   height: 8px;
   border-right: 2px solid var(--cyb-sys-color-blue-gray-3);
@@ -153,11 +153,11 @@
   margin-left: var(--cyb-sys-padding-3);
 }
 
-.app-header__menu[open] .app-header__chevron {
+.c-app-header__menu[open] .c-app-header__chevron {
   transform: rotate(-135deg);
 }
 
-.app-header__dropdown {
+.c-app-header__dropdown {
   position: absolute;
   right: 0;
   top: calc(100% + var(--cyb-sys-padding-4));
@@ -170,12 +170,12 @@
   z-index: 10;
 }
 
-.app-header__menu[open] .app-header__dropdown {
+.c-app-header__menu[open] .c-app-header__dropdown {
   display: flex;
   flex-direction: column;
 }
 
-.app-header__dropdown-action {
+.c-app-header__dropdown-action {
   border: none;
   background: transparent;
   text-align: left;
@@ -190,33 +190,33 @@
   transition: background-color 0.2s, color 0.2s;
 }
 
-.app-header__dropdown-action:hover,
-.app-header__dropdown-action:focus-visible {
+.c-app-header__dropdown-action:hover,
+.c-app-header__dropdown-action:focus-visible {
   background-color: var(--cyb-sys-color-red-9);
   color: var(--cyb-sys-color-red-3);
 }
 
 @media (max-width: 900px) {
-  .app-header {
+  .c-app-header {
     padding: var(--cyb-sys-padding-6);
   }
 
-  .app-header__inner {
+  .c-app-header__inner {
     grid-template-columns: 1fr;
     justify-items: stretch;
     gap: var(--cyb-sys-padding-6);
   }
 
-  .app-header__left {
+  .c-app-header__left {
     justify-content: center;
   }
 
-  .app-header__nav {
+  .c-app-header__nav {
     width: 100%;
     justify-content: space-between;
   }
 
-  .app-header__right {
+  .c-app-header__right {
     justify-content: flex-end;
   }
 }

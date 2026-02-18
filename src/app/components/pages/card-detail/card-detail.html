@@ -1,49 +1,49 @@
-<div class="card-detail-page">
+<div class="c-card-detail-page">
     <app-header></app-header>
     @if (card) {
-    <main class="card-detail-content">
-        <section class="info-container">
-            <div class="card-visual">
-                <img src="/images/tarjeta-credito-sin-fondo.jpeg" alt="Card Design" class="card-visual-img">
+    <main class="c-card-detail-content">
+        <section class="c-info-container">
+            <div class="c-card-visual">
+                <img src="/images/tarjeta-credito-sin-fondo.jpeg" alt="Card Design" class="c-card-visual-img">
             </div>
 
-            <div class="card-info">
-                <h2 class="card-title">{{ card.name }} {{ card.number.split(' ')[1] || '****' }}</h2>
-                <div class="card-holder">{{ card.name }}</div>
+            <div class="c-card-info">
+                <h2 class="c-card-title">{{ card.name }} {{ card.number.split(' ')[1] || '****' }}</h2>
+                <div class="c-card-holder">{{ card.name }}</div>
 
-                <div class="quick-actions">
+                <div class="c-quick-actions">
                     @for (action of actions; track action.label) {
-                    <div class="action-item" (click)="onActionClick(action.label)"
+                    <div class="c-action-item" (click)="onActionClick(action.label)"
                         (keydown.enter)="onActionClick(action.label)"
                         (keydown.space)="onActionClick(action.label); $event.preventDefault()" role="button"
                         tabindex="0">
-                        <div class="action-btn">
+                        <div class="c-action-btn">
                             <img [src]="action.icon" [alt]="action.label">
                         </div>
-                        <span class="action-label">{{ action.label }}</span>
+                        <span class="c-action-label">{{ action.label }}</span>
                     </div>
                     }
                 </div>
             </div>
         </section>
 
-        <section class="detail-container movements-container">
-            <h3 class="container-subtitle">Ultimos movimientos</h3>
-            <div class="movements-list">
+        <section class="c-detail-container c-detail-container--movements-container">
+            <h3 class="c-container-subtitle">Ultimos movimientos</h3>
+            <div class="c-movements-list">
                 @for (movement of movements; track $index) {
-                <div class="movement-row">
-                    <div class="movement-left">
-                        <span class="movement-concept">{{ movement.concept }}</span>
-                        <span class="movement-date">{{ movement.timestamp | date:'dd/MM/yyyy' }}</span>
+                <div class="c-movement-row">
+                    <div class="c-movement-left">
+                        <span class="c-movement-concept">{{ movement.concept }}</span>
+                        <span class="c-movement-date">{{ movement.timestamp | date:'dd/MM/yyyy' }}</span>
                     </div>
-                    <div class="movement-amount" [class.negative]="movement.movementType === 'Remove'">
+                    <div class="c-movement-amount" [class.g--negative]="movement.movementType === 'Remove'">
                         {{ movement.movementType === 'Remove' ? '-' : '+' }} {{ movement.amount |
                         currency:'EUR':'symbol':'1.2-2' }}
                     </div>
                 </div>
                 }
                 @if (movements.length === 0) {
-                <div class="no-movements">
+                <div class="c-no-movements">
                     No hay movimientos recientes
                 </div>
                 }
@@ -52,28 +52,28 @@
     </main>
     }
     @if (showCardData && card) {
-    <div class="data-overlay" (click)="closeCardData()">
-        <div class="data-modal" (click)="$event.stopPropagation()">
-            <div class="data-modal__header">
-                <h3 class="data-modal__title">Datos de la tarjeta</h3>
-                <button class="data-modal__close" type="button" (click)="closeCardData()">&times;</button>
+    <div class="c-data-overlay" (click)="closeCardData()">
+        <div class="c-data-modal" (click)="$event.stopPropagation()">
+            <div class="c-data-modal__header">
+                <h3 class="c-data-modal__title">Datos de la tarjeta</h3>
+                <button class="c-data-modal__close" type="button" (click)="closeCardData()">&times;</button>
             </div>
-            <div class="data-modal__body">
-                <div class="data-row">
-                    <span class="data-label">Titular</span>
-                    <span class="data-value">{{ card.name }}</span>
+            <div class="c-data-modal__body">
+                <div class="c-data-row">
+                    <span class="c-data-label">Titular</span>
+                    <span class="c-data-value">{{ card.name }}</span>
                 </div>
-                <div class="data-row">
-                    <span class="data-label">Numero</span>
-                    <span class="data-value">{{ card.number }}</span>
+                <div class="c-data-row">
+                    <span class="c-data-label">Numero</span>
+                    <span class="c-data-value">{{ card.number }}</span>
                 </div>
-                <div class="data-row">
-                    <span class="data-label">Caducidad</span>
-                    <span class="data-value">{{ card.expirationDate }}</span>
+                <div class="c-data-row">
+                    <span class="c-data-label">Caducidad</span>
+                    <span class="c-data-value">{{ card.expirationDate }}</span>
                 </div>
-                <div class="data-row">
-                    <span class="data-label">CVV</span>
-                    <span class="data-value">{{ card.cvv }}</span>
+                <div class="c-data-row">
+                    <span class="c-data-label">CVV</span>
+                    <span class="c-data-value">{{ card.cvv }}</span>
                 </div>
             </div>
         </div>

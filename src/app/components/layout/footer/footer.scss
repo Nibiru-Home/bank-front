@@ -1,12 +1,12 @@
 @use "../../../scss/main.scss";
 
-.app-footer {
+.c-app-footer {
   width: var(--cyb-sys-width-14);
   background-color: var(--cyb-sys-color-light-blue-4);
   color: var(--cyb-sys-color-white-9);
 }
 
-.app-footer__inner {
+.c-app-footer__inner {
   width: var(--cyb-sys-width-14);
   padding: var(--cyb-sys-padding-8) var(--cyb-sys-padding-9);
   display: flex;
@@ -15,14 +15,14 @@
   gap: var(--cyb-sys-padding-9);
 }
 
-.app-footer__brand {
+.c-app-footer__brand {
   font-family: var(--cyb-sys-font-family-ui);
   font-size: var(--cyb-sys-font-size-6);
   font-weight: var(--cyb-sys-font-weight-8);
   color: var(--cyb-sys-color-white-9);
 }
 
-.app-footer__legal {
+.c-app-footer__legal {
   font-family: var(--cyb-sys-font-family-ui);
   font-size: var(--cyb-sys-font-size-3);
   font-weight: var(--cyb-sys-font-weight-6);
@@ -31,12 +31,12 @@
 }
 
 @media (max-width: 900px) {
-  .app-footer__inner {
+  .c-app-footer__inner {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .app-footer__legal {
+  .c-app-footer__legal {
     text-align: left;
   }
 }

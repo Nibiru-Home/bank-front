@@ -1,16 +1,16 @@
-<div class="accounts-page">
+<div class="c-accounts-page">
     <app-header></app-header>
-    <main class="accounts-content">
-        <section class="accounts-section" aria-label="Cuentas">
-            <div class="accounts-container">
-                <div class="accounts-header">
-                    <div class="accounts-header__title">
+    <main class="c-accounts-content">
+        <section class="c-accounts-section" aria-label="Cuentas">
+            <div class="c-accounts-container">
+                <div class="c-accounts-header">
+                    <div class="c-accounts-header__title">
                         <h2>Cuentas</h2>
                     </div>
-                    <a routerLink="/accounts/new" class="btn-create">+ Nueva Cuenta</a>
+                    <a routerLink="/accounts/new" class="c-btn-create">+ Nueva Cuenta</a>
                 </div>
 
-                <div class="accounts-list">
+                <div class="c-accounts-list">
                     @for (account of accounts; track account.id) {
                         <app-account-row [id]="account.id" [name]="account.name" [iban]="account.iban"
                             [holder]="account.holder" [amount]="account.amount" [isTitular]="account.isTitular">

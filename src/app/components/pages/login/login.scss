@@ -1,6 +1,6 @@
 @use "../../../scss/main.scss";
 
-.login-container {
+.c-login-container {
   margin: var(--cyb-sys-margin-1);
   padding: var(--cyb-sys-padding-1);
   width: var(--cyb-sys-width-15);
@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.login-image {
+.c-login-image {
   margin: var(--cyb-sys-margin-1);
   padding: var(--cyb-sys-padding-1);
   width: var(--cyb-sys-width-13);
@@ -25,7 +25,7 @@
   }
 }
 
-.login-content {
+.c-login-content {
   width: var(--cyb-sys-width-13);
   height: var(--cyb-sys-height-14);
   display: flex;
@@ -36,7 +36,7 @@
   align-self: center;
 }
 
-.login-form-wrapper {
+.c-login-form-wrapper {
   width: 100%;
   max-width: 450px;
   display: flex;
@@ -46,17 +46,17 @@
   margin-top: calc(-1 * var(--cyb-sys-margin-5));
 }
 
-.login-logo-container {
+.c-login-logo-container {
   margin-bottom: var(--cyb-sys-margin-9);
   align-self: center;
-  .login-logo {
+  .c-login-logo {
     display: block;
     width: var(--cyb-sys-width-7);
     height: auto;
   }
 }
 
-.login-title {
+.c-login-title {
   font-family: var(--cyb-sys-font-family-display);
   font-size: var(--cyb-sys-font-size-8);
   font-weight: var(--cyb-sys-font-weight-8);
@@ -65,21 +65,21 @@
   text-align: center;
 }
 
-.login-form {
+.c-login-form {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: var(--cyb-sys-padding-10);
 }
 
-.login-button-container {
+.c-login-button-container {
   margin-top: var(--cyb-sys-margin-4);
   width: 100%;
   max-width: none;
   align-self: stretch;
 }
 
-.login-error {
+.c-login-error {
   font-family: var(--cyb-sys-font-family-ui);
   font-size: var(--cyb-sys-font-size-2);
   font-weight: var(--cyb-sys-font-weight-6);

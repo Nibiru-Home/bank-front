@@ -1,26 +1,26 @@
 @if (routerLink) {
-  <a class="ui-quick-action" [routerLink]="routerLink">
-    <span class="ui-quick-action__icon">
+  <a class="c-ui-quick-action" [routerLink]="routerLink">
+    <span class="c-ui-quick-action__icon">
       <img [src]="iconSrc" alt="" aria-hidden="true">
     </span>
-    <span class="ui-quick-action__label">{{ label }}</span>
+    <span class="c-ui-quick-action__label">{{ label }}</span>
   </a>
 } @else if (href) {
   <a
-    class="ui-quick-action"
+    class="c-ui-quick-action"
     [href]="href"
     target="_blank"
     rel="noopener noreferrer">
-    <span class="ui-quick-action__icon">
+    <span class="c-ui-quick-action__icon">
       <img [src]="iconSrc" alt="" aria-hidden="true">
     </span>
-    <span class="ui-quick-action__label">{{ label }}</span>
+    <span class="c-ui-quick-action__label">{{ label }}</span>
   </a>
 } @else {
-  <button class="ui-quick-action" type="button">
-    <span class="ui-quick-action__icon">
+  <button class="c-ui-quick-action" type="button">
+    <span class="c-ui-quick-action__icon">
       <img [src]="iconSrc" alt="" aria-hidden="true">
     </span>
-    <span class="ui-quick-action__label">{{ label }}</span>
+    <span class="c-ui-quick-action__label">{{ label }}</span>
   </button>
 }

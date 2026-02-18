@@ -1,6 +1,6 @@
 @use "../../../scss/main.scss";
 
-.create-page {
+.c-create-page {
     width: var(--cyb-sys-width-14);
     min-height: var(--cyb-sys-height-16);
     background-color: var(--cyb-sys-color-white-7);
@@ -12,7 +12,7 @@
     flex-direction: column;
 }
 
-.create-content {
+.c-create-content {
     width: var(--cyb-sys-width-14);
     padding: var(--cyb-sys-padding-10) var(--cyb-sys-padding-9);
     flex: 1;
@@ -21,7 +21,7 @@
     align-items: center;
 }
 
-.create-panel {
+.c-create-panel {
     background-color: var(--cyb-sys-color-white-9);
     border-radius: var(--cyb-sys-border-radius-9);
     padding: var(--cyb-sys-padding-10);
@@ -32,7 +32,7 @@
     gap: var(--cyb-sys-padding-6);
 }
 
-.create-title {
+.c-create-title {
     font-family: var(--cyb-sys-font-family-ui);
     font-size: var(--cyb-sys-font-size-6);
     font-weight: var(--cyb-sys-font-weight-8);
@@ -43,23 +43,23 @@
     margin: 0;
 }
 
-.create-form {
+.c-create-form {
     display: grid;
     gap: var(--cyb-sys-padding-8);
     width: 100%;
 }
 
-.create-form--single {
+.c-create-form--single {
     grid-template-columns: 1fr;
 }
 
-.create-fields {
+.c-create-fields {
     display: flex;
     flex-direction: column;
     gap: var(--cyb-sys-padding-6);
 }
 
-.form-group {
+.c-form-group {
     display: flex;
     flex-direction: column;
     gap: var(--cyb-sys-padding-3);
@@ -93,7 +93,7 @@
     }
 }
 
-.form-actions {
+.c-form-actions {
     display: flex;
     flex-wrap: wrap;
     gap: var(--cyb-sys-padding-4);
@@ -103,7 +103,7 @@
     align-self: stretch;
 }
 
-.btn-primary {
+.c-btn-primary {
     background-color: var(--cyb-sys-color-black-1);
     color: var(--cyb-sys-color-white-9);
     border: none;
@@ -122,7 +122,7 @@
     }
 }
 
-.btn-secondary {
+.c-btn-secondary {
     background-color: transparent;
     color: var(--cyb-sys-color-red-5);
     border: 1px solid var(--cyb-sys-color-red-5);
@@ -143,15 +143,15 @@
 }
 
 @media (max-width: 900px) {
-    .create-content {
+    .c-create-content {
         padding: var(--cyb-sys-padding-9) var(--cyb-sys-padding-7);
     }
 
-    .create-panel {
+    .c-create-panel {
         width: min(100%, 720px);
     }
 
-    .form-actions {
+    .c-form-actions {
         justify-content: center;
     }
 }

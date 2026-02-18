@@ -1,20 +1,20 @@
-<a class="card-row card-row--link" [routerLink]="['/cards', id]">
-    <div class="card-row__left">
-        <span class="card-row__media">
+<a class="c-card-row c-card-row--link" [routerLink]="['/cards', id]">
+    <div class="c-card-row__left">
+        <span class="c-card-row__media">
             <img
                 [src]="cardType === 'credit' ? '/images/tarjeta-credito.png' : '/images/tarjeta-debito.png'"
                 [alt]="cardType === 'credit' ? 'Tarjeta credito' : 'Tarjeta debito'">
         </span>
-        <div class="card-row__info">
-            <div class="card-name">{{ name }}</div>
-            <div class="card-pan">{{ pan }}</div>
-            <div class="card-holder">{{ holder }}</div>
+        <div class="c-card-row__info">
+            <div class="c-card-name">{{ name }}</div>
+            <div class="c-card-pan">{{ pan }}</div>
+            <div class="c-card-holder">{{ holder }}</div>
         </div>
     </div>
-    <div class="card-row__right" [class.card-row__right--error]="hasInsufficientFunds()">
-        <div class="card-amount" [class.card-amount--error]="hasInsufficientFunds()">{{ amount }}</div>
+    <div class="c-card-row__right" [class.c-card-row__right--error]="hasInsufficientFunds()">
+        <div class="c-card-amount" [class.c-card-amount--error]="hasInsufficientFunds()">{{ amount }}</div>
         @if (hasInsufficientFunds()) {
-            <div class="card-error">Error de tarjeta: saldo insuficiente</div>
+            <div class="c-card-error">Error de tarjeta: saldo insuficiente</div>
         }
     </div>
 </a>

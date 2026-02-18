@@ -1,6 +1,6 @@
 @use "../../../scss/main.scss";
 
-.accounts-page {
+.c-accounts-page {
     width: var(--cyb-sys-width-14);
     min-height: var(--cyb-sys-height-16);
     background-color: var(--cyb-sys-color-white-7);
@@ -12,13 +12,13 @@
     flex-direction: column;
 }
 
-.accounts-content {
+.c-accounts-content {
     width: var(--cyb-sys-width-14);
     padding: var(--cyb-sys-padding-10) var(--cyb-sys-padding-9);
     flex: 1;
 }
 
-.accounts-container {
+.c-accounts-container {
     background-color: var(--cyb-sys-color-white-9);
     border-radius: var(--cyb-sys-border-radius-8);
     padding: var(--cyb-sys-padding-8);
@@ -29,7 +29,7 @@
     max-width: 640px;
 }
 
-.accounts-header {
+.c-accounts-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,7 +38,7 @@
     margin-bottom: var(--cyb-sys-padding-8);
 }
 
-.accounts-header__title {
+.c-accounts-header__title {
     display: flex;
     align-items: center;
     gap: var(--cyb-sys-padding-8);
@@ -52,7 +52,7 @@
     }
 }
 
-.btn-create {
+.c-btn-create {
     background-color: var(--cyb-sys-color-black-1);
     color: var(--cyb-sys-color-white-9);
     padding: var(--cyb-sys-padding-4) var(--cyb-sys-padding-7);
@@ -68,7 +68,7 @@
     }
 }
 
-.accounts-list {
+.c-accounts-list {
     display: flex;
     flex-direction: column;
     gap: var(--cyb-sys-padding-6);

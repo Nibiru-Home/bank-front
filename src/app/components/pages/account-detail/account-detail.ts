@@ -67,7 +67,7 @@ export class AccountDetailComponent {
                 this.accountDetails = data;
                 this.account = {
                     name: `CUENTA *${data.iban.slice(-4)}`,
-                    amount: data.balance.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })
+                    amount: data.balance.toLocaleString('es-es', { style: 'currency', currency: 'EUR' })
                 };
                 this.associatedCards = this.mapAssociatedCards(data.creditCards ?? []);
 
@@ -104,7 +104,7 @@ export class AccountDetailComponent {
             return {
                 concept: movement.concept?.trim() || 'Movimiento',
                 date: this.formatMovementDate(movement.timestamp),
-                amount: `${sign} ${amount.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}`
+                amount: `${sign} ${amount.toLocaleString('es-es', { style: 'currency', currency: 'EUR' })}`
             };
         });
     }
@@ -114,7 +114,7 @@ export class AccountDetailComponent {
         if (Number.isNaN(parsed.getTime())) {
             return '';
         }
-        return parsed.toLocaleDateString('es-ES');
+        return parsed.toLocaleDateString('es-es');
     }
 
     private mapAssociatedCards(cards: CreditCard[]): AssociatedCardView[] {

@@ -154,6 +154,6 @@ export class IndexComponent implements OnInit {
   }
 
   private formatCurrency(amount: number): string {
-    return amount.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' });
+    return amount.toLocaleString('es-es', { style: 'currency', currency: 'EUR' });
   }
 }

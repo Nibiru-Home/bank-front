@@ -1,6 +1,6 @@
 @use "../../../scss/main.scss";
 
-.index-page {
+.c-index-page {
   width: var(--cyb-sys-width-14);
   min-height: var(--cyb-sys-height-16);
   background-color: var(--cyb-sys-color-white-7);
@@ -12,12 +12,12 @@
   );
 }
 
-.index-content {
+.c-index-content {
   width: var(--cyb-sys-width-14);
   padding: var(--cyb-sys-padding-9) var(--cyb-sys-padding-10);
 }
 
-.index-grid {
+.c-index-grid {
   width: var(--cyb-sys-width-14);
   max-width: none;
   margin: 0;
@@ -27,7 +27,7 @@
   align-items: start;
 }
 
-.index-right {
+.c-index-right {
   display: flex;
   flex-direction: column;
   gap: var(--cyb-sys-padding-7);
@@ -36,25 +36,25 @@
   justify-self: start;
 }
 
-.index-welcome {
+.c-index-welcome {
   display: flex;
   align-items: center;
   padding-left: var(--cyb-sys-padding-9);
 }
 
-.index-welcome__text {
+.c-index-welcome__text {
   font-family: var(--cyb-sys-font-family-display);
   font-size: var(--cyb-sys-font-size-7);
   font-weight: var(--cyb-sys-font-weight-8);
   color: var(--cyb-sys-color-black-1);
 }
 
-.insights-card {
+.c-insights-card {
   justify-self: end;
 }
 
 
-.quick-actions {
+.c-quick-actions {
   width: 100%;
   max-width: none;
   display: grid;
@@ -64,11 +64,11 @@
 
 
 @media (max-width: 900px) {
-  .index-grid {
+  .c-index-grid {
     grid-template-columns: 1fr;
   }
 
-  .quick-actions {
+  .c-quick-actions {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

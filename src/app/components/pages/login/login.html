@@ -1,13 +1,13 @@
-<div class="login-container">
-  <div class="login-image">
+<div class="c-login-container">
+  <div class="c-login-image">
     <img src="images/imagenLogin.jpg" alt="Login Image">
   </div>
-  <div class="login-content">
-    <div class="login-form-wrapper">
-      <div class="login-logo-container">
-        <img src="images/Logo.png" alt="Bank Logo" class="login-logo">
+  <div class="c-login-content">
+    <div class="c-login-form-wrapper">
+      <div class="c-login-logo-container">
+        <img src="images/Logo.png" alt="Bank Logo" class="c-login-logo">
       </div>
-      <form class="login-form" (ngSubmit)="onSubmit()">
+      <form class="c-login-form" (ngSubmit)="onSubmit()">
         <app-input placeholder="Numero de documento" id="doc-number" [(ngModel)]="dni" name="dni"
           (ngModelChange)="clearError()">
         </app-input>
@@ -16,11 +16,11 @@
           (ngModelChange)="clearError()">
         </app-input>
 
-        <div class="login-button-container">
+        <div class="c-login-button-container">
           <app-button text="Acceso" type="submit"></app-button>
         </div>
         @if (loginError) {
-          <p class="login-error">{{ loginError }}</p>
+          <p class="c-login-error">{{ loginError }}</p>
         }
       </form>
     </div>

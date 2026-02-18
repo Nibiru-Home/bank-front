@@ -20,7 +20,7 @@ export const routes: Routes = [
   { path: 'cards', component: CardsComponent, canActivate: [authGuard] },
   { path: 'cards/new', component: CardCreateComponent, canActivate: [authGuard] },
   { path: 'cards/:id', component: CardDetailComponent, canActivate: [authGuard] },
-  { path: 'contratar-productos', component: ContratarProductosComponent, canActivate: [authGuard] },
+  { path: 'c-contratar-productos', component: ContratarProductosComponent, canActivate: [authGuard] },
   { path: 'incidencias', component: IncidenciasComponent, canActivate: [authGuard] },
   { path: '**', redirectTo: '' }
 ];

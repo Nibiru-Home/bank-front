@@ -1,6 +1,6 @@
 @use "../../../scss/main.scss";
 
-.create-page {
+.c-create-page {
     width: var(--cyb-sys-width-14);
     min-height: var(--cyb-sys-height-16);
     background-color: var(--cyb-sys-color-white-7);
@@ -12,7 +12,7 @@
     flex-direction: column;
 }
 
-.create-content {
+.c-create-content {
     width: var(--cyb-sys-width-14);
     padding: var(--cyb-sys-padding-10) var(--cyb-sys-padding-9);
     flex: 1;
@@ -21,7 +21,7 @@
     align-items: center;
 }
 
-.create-panel {
+.c-create-panel {
     background-color: var(--cyb-sys-color-white-9);
     border-radius: var(--cyb-sys-border-radius-9);
     padding: var(--cyb-sys-padding-10);
@@ -32,13 +32,13 @@
     gap: var(--cyb-sys-padding-6);
 }
 
-.create-fields {
+.c-create-fields {
     display: flex;
     flex-direction: column;
     gap: var(--cyb-sys-padding-6);
 }
 
-.create-title {
+.c-create-title {
     font-family: var(--cyb-sys-font-family-ui);
     font-size: var(--cyb-sys-font-size-6);
     font-weight: var(--cyb-sys-font-weight-8);
@@ -49,7 +49,7 @@
     margin: 0;
 }
 
-.create-form {
+.c-create-form {
     display: grid;
     grid-template-columns: minmax(320px, 1fr) minmax(240px, 320px);
     gap: var(--cyb-sys-padding-8);
@@ -57,7 +57,7 @@
     width: 100%;
 }
 
-.form-group {
+.c-form-group {
     display: flex;
     flex-direction: column;
     gap: var(--cyb-sys-padding-3);
@@ -91,7 +91,7 @@
     }
 }
 
-.form-error {
+.c-form-error {
     margin: 0;
     color: var(--cyb-sys-color-red-5);
     font-family: var(--cyb-sys-font-family-ui);
@@ -99,7 +99,7 @@
     font-weight: var(--cyb-sys-font-weight-6);
 }
 
-.card-type-group {
+.c-card-type-group {
     border: none;
     padding: 0;
     margin: 0;
@@ -113,13 +113,13 @@
     }
 }
 
-.card-type-options {
+.c-card-type-options {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--cyb-sys-padding-4);
 }
 
-.card-type-option {
+.c-card-type-option {
     position: relative;
     border: 1px solid var(--cyb-sys-color-light-blue-8);
     border-radius: var(--cyb-sys-border-radius-6);
@@ -146,27 +146,27 @@
         box-shadow: var(--cyb-sys-shadow-1);
     }
 
-    &.is-selected {
+    &.g--is-selected {
         border-color: var(--cyb-sys-color-black-1);
         box-shadow: var(--cyb-sys-shadow-2);
         background-color: var(--cyb-sys-color-white-9);
     }
 }
 
-.card-type-title {
+.c-card-type-title {
     font-family: var(--cyb-sys-font-family-ui);
     font-size: var(--cyb-sys-font-size-3);
     font-weight: var(--cyb-sys-font-weight-7);
     color: var(--cyb-sys-color-black-1);
 }
 
-.card-type-text {
+.c-card-type-text {
     font-family: var(--cyb-sys-font-family-ui);
     font-size: var(--cyb-sys-font-size-2);
     color: var(--cyb-sys-color-blue-gray-4);
 }
 
-.form-actions {
+.c-form-actions {
     display: flex;
     flex-wrap: wrap;
     gap: var(--cyb-sys-padding-4);
@@ -177,7 +177,7 @@
     grid-column: 1 / -1;
 }
 
-.btn-primary {
+.c-btn-primary {
     background-color: var(--cyb-sys-color-black-1);
     color: var(--cyb-sys-color-white-9);
     border: none;
@@ -196,7 +196,7 @@
     }
 }
 
-.btn-secondary {
+.c-btn-secondary {
     background-color: transparent;
     color: var(--cyb-sys-color-red-5);
     border: 1px solid var(--cyb-sys-color-red-5);
@@ -216,13 +216,13 @@
     }
 }
 
-.create-right {
+.c-create-right {
     display: flex;
     align-items: flex-start;
     justify-content: center;
 }
 
-.card-preview {
+.c-card-preview {
     width: 100%;
     max-width: 320px;
     padding: var(--cyb-sys-padding-6);
@@ -237,13 +237,13 @@
     gap: var(--cyb-sys-padding-4);
 }
 
-.card-preview__image {
+.c-card-preview__image {
     width: 100%;
     height: auto;
     display: block;
 }
 
-.card-preview__caption {
+.c-card-preview__caption {
     font-family: var(--cyb-sys-font-family-ui);
     font-size: var(--cyb-sys-font-size-2);
     color: var(--cyb-sys-color-blue-gray-4);
@@ -253,27 +253,27 @@
 }
 
 @media (max-width: 900px) {
-    .create-content {
+    .c-create-content {
         padding: var(--cyb-sys-padding-9) var(--cyb-sys-padding-7);
     }
 
-    .create-panel {
+    .c-create-panel {
         width: min(100%, 720px);
     }
 
-    .card-type-options {
+    .c-card-type-options {
         grid-template-columns: 1fr;
     }
 
-    .create-form {
+    .c-create-form {
         grid-template-columns: 1fr;
     }
 
-    .create-right {
+    .c-create-right {
         justify-content: flex-start;
     }
 
-    .form-actions {
+    .c-form-actions {
         justify-content: center;
     }
 }

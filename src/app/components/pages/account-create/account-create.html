@@ -1,11 +1,11 @@
-<div class="create-page">
+<div class="c-create-page">
     <app-header></app-header>
-    <main class="create-content">
-        <section class="create-panel">
-            <h2 class="create-title">Nueva Cuenta</h2>
-            <form (submit)="createAccount($event)" class="create-form create-form--single">
-                <div class="create-fields">
-                    <div class="form-group">
+    <main class="c-create-content">
+        <section class="c-create-panel">
+            <h2 class="c-create-title">Nueva Cuenta</h2>
+            <form (submit)="createAccount($event)" class="c-create-form c-create-form--single">
+                <div class="c-create-fields">
+                    <div class="c-form-group">
                         <label for="holder">Nombre del titular</label>
                         <input
                             type="text"
@@ -16,7 +16,7 @@
                             required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="c-form-group">
                         <label for="type">Tipo de cuenta</label>
                         <select id="type" required>
                             <option value="standard">Cuenta Corriente</option>
@@ -26,9 +26,9 @@
                     </div>
                 </div>
 
-                <div class="form-actions">
-                    <button type="submit" class="btn-primary">Crear Cuenta</button>
-                    <a routerLink="/accounts" class="btn-secondary">Cancelar</a>
+                <div class="c-form-actions">
+                    <button type="submit" class="c-btn-primary">Crear Cuenta</button>
+                    <a routerLink="/accounts" class="c-btn-secondary">Cancelar</a>
                 </div>
             </form>
         </section>

@@ -4,7 +4,7 @@
   display: block;
 }
 
-.ui-quick-action {
+.c-ui-quick-action {
   display: grid;
   justify-items: center;
   gap: var(--cyb-sys-padding-5);
@@ -17,7 +17,7 @@
   width: 100%;
 }
 
-.ui-quick-action__icon {
+.c-ui-quick-action__icon {
   width: calc(var(--cyb-sys-padding-11) + var(--cyb-sys-padding-7));
   height: calc(var(--cyb-sys-padding-11) + var(--cyb-sys-padding-7));
   border-radius: 50%;
@@ -28,13 +28,13 @@
   place-items: center;
 }
 
-.ui-quick-action__icon img {
+.c-ui-quick-action__icon img {
   width: var(--cyb-sys-padding-10);
   height: var(--cyb-sys-padding-10);
   object-fit: contain;
 }
 
-.ui-quick-action__label {
+.c-ui-quick-action__label {
   font-family: var(--cyb-sys-font-family-ui);
   font-size: var(--cyb-sys-font-size-3);
   font-weight: var(--cyb-sys-font-weight-7);

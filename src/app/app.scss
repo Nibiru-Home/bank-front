@@ -1,4 +1,4 @@
-.error-banner {
+.c-error-banner {
     position: fixed;
     top: 12px;
     left: 50%;
@@ -16,7 +16,7 @@
     box-shadow: 0 8px 22px rgba(29, 33, 44, 0.14);
 }
 
-.error-banner__text {
+.c-error-banner__text {
     margin: 0;
     color: #7d1d24;
     font-family: var(--cyb-sys-font-family-ui);
@@ -24,7 +24,7 @@
     font-weight: var(--cyb-sys-font-weight-7);
 }
 
-.error-banner__close {
+.c-error-banner__close {
     border: 0;
     width: 28px;
     height: 28px;

@@ -1,34 +1,34 @@
-<aside class="insights-card" aria-label="Resumen mensual">
-  <div class="insights-tabs" role="tablist">
-    <button class="insights-tab is-active" type="button" role="tab">Gastos</button>
+<aside class="c-insights-card" aria-label="Resumen mensual">
+  <div class="c-insights-tabs" role="tablist">
+    <button class="c-insights-tab g--is-active" type="button" role="tab">Gastos</button>
   </div>
-  <span class="insights-date">Actualizado el {{ currentDate | date:'d MMM, y' }}</span>
-  <div class="insights-donut" aria-hidden="true">
-    <div class="insights-donut__center">
-      <span class="insights-donut__month">{{ currentDate | date:'MMMM' }}</span>
-      <span class="insights-donut__amount">{{ totalExpenses | currency:'EUR':'symbol':'1.2-2' }}</span>
+  <span class="c-insights-date">Actualizado el {{ currentDate | date:'d MMM, y' }}</span>
+  <div class="c-insights-donut" aria-hidden="true">
+    <div class="c-insights-donut__center">
+      <span class="c-insights-donut__month">{{ currentDate | date:'MMMM' }}</span>
+      <span class="c-insights-donut__amount">{{ totalExpenses | currency:'EUR':'symbol':'1.2-2' }}</span>
     </div>
   </div>
-  <div class="insights-list">
-    <div class="insights-item">
-      <span class="insights-item__icon">
+  <div class="c-insights-list">
+    <div class="c-insights-item">
+      <span class="c-insights-item__icon">
         <img src="images/iconos/cajero-automatico.png" alt="" aria-hidden="true">
       </span>
-      <div class="insights-item__text">
-        <span class="insights-item__title">Cajeros y transferencias</span>
-        <span class="insights-item__subtitle">57% de tus gastos</span>
+      <div class="c-insights-item__text">
+        <span class="c-insights-item__title">Cajeros y transferencias</span>
+        <span class="c-insights-item__subtitle">57% de tus gastos</span>
       </div>
-      <span class="insights-item__amount">{{ atmExpenses | currency:'EUR':'symbol':'1.2-2' }}</span>
+      <span class="c-insights-item__amount">{{ atmExpenses | currency:'EUR':'symbol':'1.2-2' }}</span>
     </div>
-    <div class="insights-item">
-      <span class="insights-item__icon">
+    <div class="c-insights-item">
+      <span class="c-insights-item__icon">
         <img src="images/iconos/recibo.png" alt="" aria-hidden="true">
       </span>
-      <div class="insights-item__text">
-        <span class="insights-item__title">Ocio</span>
-        <span class="insights-item__subtitle">25% de tus gastos</span>
+      <div class="c-insights-item__text">
+        <span class="c-insights-item__title">Ocio</span>
+        <span class="c-insights-item__subtitle">25% de tus gastos</span>
       </div>
-      <span class="insights-item__amount">{{ leisureExpenses | currency:'EUR':'symbol':'1.2-2' }}</span>
+      <span class="c-insights-item__amount">{{ leisureExpenses | currency:'EUR':'symbol':'1.2-2' }}</span>
     </div>
   </div>
 </aside>

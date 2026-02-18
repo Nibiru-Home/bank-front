@@ -1,26 +1,26 @@
-<header class="app-header">
-  <div class="app-header__inner">
-    <div class="app-header__left">
-      <span class="app-header__brand">Nibiru Pay</span>
+<header class="c-app-header">
+  <div class="c-app-header__inner">
+    <div class="c-app-header__left">
+      <span class="c-app-header__brand">Nibiru Pay</span>
     </div>
-    <nav class="app-header__nav" aria-label="Principal">
-      <a class="app-header__link" routerLink="/" routerLinkActive="app-header__link--active"
+    <nav class="c-app-header__nav" aria-label="Principal">
+      <a class="c-app-header__link" routerLink="/" routerLinkActive="c-app-header__link--active"
         [routerLinkActiveOptions]="{exact: true}">Inicio</a>
-      <a class="app-header__link" routerLink="/accounts" routerLinkActive="app-header__link--active">Cuentas</a>
-      <a class="app-header__link" routerLink="/cards" routerLinkActive="app-header__link--active">Tarjetas</a>
+      <a class="c-app-header__link" routerLink="/accounts" routerLinkActive="c-app-header__link--active">Cuentas</a>
+      <a class="c-app-header__link" routerLink="/cards" routerLinkActive="c-app-header__link--active">Tarjetas</a>
     </nav>
-    <div class="app-header__right">
-      <details class="app-header__menu">
-        <summary class="app-header__menu-trigger">
-          <span class="app-header__avatar" aria-hidden="true">{{ userInitials }}</span>
-          <span class="app-header__user">
-            <span class="app-header__name">{{ userFullName }}</span>
-            <span class="app-header__account">{{ userAccountType }}</span>
+    <div class="c-app-header__right">
+      <details class="c-app-header__menu">
+        <summary class="c-app-header__menu-trigger">
+          <span class="c-app-header__avatar" aria-hidden="true">{{ userInitials }}</span>
+          <span class="c-app-header__user">
+            <span class="c-app-header__name">{{ userFullName }}</span>
+            <span class="c-app-header__account">{{ userAccountType }}</span>
           </span>
-          <span class="app-header__chevron" aria-hidden="true"></span>
+          <span class="c-app-header__chevron" aria-hidden="true"></span>
         </summary>
-        <div class="app-header__dropdown">
-          <button class="app-header__dropdown-action" type="button" (click)="logout()">
+        <div class="c-app-header__dropdown">
+          <button class="c-app-header__dropdown-action" type="button" (click)="logout()">
             Cerrar sesion
           </button>
         </div>

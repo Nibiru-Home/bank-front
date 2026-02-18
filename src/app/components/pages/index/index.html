@@ -1,14 +1,14 @@
-<div class="index-page">
+<div class="c-index-page">
   <app-header></app-header>
-  <main class="index-content">
-    <div class="index-grid">
-      <div class="index-right">
-        <div class="index-welcome">
-          <span class="index-welcome__text">Bienvenid@ {{ currentUserName }}</span>
+  <main class="c-index-content">
+    <div class="c-index-grid">
+      <div class="c-index-right">
+        <div class="c-index-welcome">
+          <span class="c-index-welcome__text">Bienvenid@ {{ currentUserName }}</span>
         </div>
         <app-balance-card
           [amount]="totalBalance.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })"></app-balance-card>
-        <section class="quick-actions" aria-label="Acciones rapidas">
+        <section class="c-quick-actions" aria-label="Acciones rapidas">
           <app-quick-action label="Enviar dinero" iconSrc="images/iconos/transferir-dinero.png" routerLink="/incidencias">
           </app-quick-action>
           <app-quick-action label="Contratar" iconSrc="images/iconos/contratar.png" routerLink="/contratar-productos">
@@ -21,48 +21,48 @@
           <app-quick-action label="Incidencias" iconSrc="images/iconos/peligro.png" routerLink="/incidencias">
           </app-quick-action>
         </section>
-        <section class="accounts-section" aria-label="Cuentas">
-          <div class="section-header">
-            <div class="section-header__left">
-              <span class="section-marker"></span>
-              <span class="section-title">
+        <section class="c-accounts-section" aria-label="Cuentas">
+          <div class="c-section-header">
+            <div class="c-section-header__left">
+              <span class="c-section-marker"></span>
+              <span class="c-section-title">
                 {{ accounts.length }} {{ accounts.length === 1 ? 'Cuenta' : 'Cuentas' }}
               </span>
             </div>
           </div>
 
           @for (account of accounts; track account.id) {
-            <a class="account-card account-card--link" [routerLink]="['/accounts', account.id]">
-              <span class="account-card__icon">
+            <a class="c-account-card c-account-card--link" [routerLink]="['/accounts', account.id]">
+              <span class="c-account-card__icon">
                 <img src="images/iconos/cuentas-bancarias.png" alt="" aria-hidden="true">
               </span>
-              <div class="account-card__info">
-                <span class="account-card__name">{{ account.name }}</span>
-                <span class="account-card__iban">{{ account.iban }}</span>
+              <div class="c-account-card__info">
+                <span class="c-account-card__name">{{ account.name }}</span>
+                <span class="c-account-card__iban">{{ account.iban }}</span>
               </div>
-              <span class="account-card__amount">{{ account.balance }}</span>
+              <span class="c-account-card__amount">{{ account.balance }}</span>
             </a>
           }
         </section>
 
-        <section class="cards-section" aria-label="Tarjetas">
-          <div class="section-header">
-            <div class="section-header__left">
-              <span class="section-marker"></span>
-              <span class="section-title">
+        <section class="c-cards-section" aria-label="Tarjetas">
+          <div class="c-section-header">
+            <div class="c-section-header__left">
+              <span class="c-section-marker"></span>
+              <span class="c-section-title">
                 {{ cards.length }} {{ cards.length === 1 ? 'Tarjeta' : 'Tarjetas' }}
               </span>
             </div>
           </div>
 
           @for (card of cards; track card.id) {
-            <a class="card-item card-item--link" [routerLink]="['/cards', card.id]">
-              <span class="card-item__icon">
+            <a class="c-card-item c-card-item--link" [routerLink]="['/cards', card.id]">
+              <span class="c-card-item__icon">
                 <img src="images/iconos/tarjeta-bancaria.png" alt="" aria-hidden="true">
               </span>
-              <div class="card-item__info">
-                <span class="card-item__name">{{ card.name }}</span>
-                <span class="card-item__meta">{{ card.type }} • {{ card.pan.slice(-4) }}</span>
+              <div class="c-card-item__info">
+                <span class="c-card-item__name">{{ card.name }}</span>
+                <span class="c-card-item__meta">{{ card.type }} • {{ card.pan.slice(-4) }}</span>
               </div>
             </a>
           }
